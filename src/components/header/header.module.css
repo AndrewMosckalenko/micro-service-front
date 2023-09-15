@@ -1,0 +1,21 @@
+.header__user_info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    align-items: start;
+    justify-content: center;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+
+    background: #fff;
+    border-radius: 25px;
+    border: 1px solid #000;
+
+    box-shadow: 5px 5px 5px 0 #0000008f;
+    box-sizing: border-box;
+    min-height: 30px;
+}

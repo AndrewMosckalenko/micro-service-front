@@ -4,11 +4,19 @@ import { createBrowserRouter, Navigate, RouterProvider } from "react-router-dom"
 const AuthPage = lazy(() => import('../pages/auth-page'));
 const SignInPage = lazy(() => import('../pages/sign-in-page'));
 const SignUpPage = lazy(() => import('../pages/sign-up-page'));
+const DefaultAuthedPage = lazy(() => import('../pages/default-authed-page'));
+const DocumentListPage = lazy(() => import('../pages/document-list-page'))
 
 const authRouter = [
     {
         path: '/',
-        element: (<SignInPage />),
+        element: (<DefaultAuthedPage />),
+        children: [
+            {
+                path: '',
+                element: (<DocumentListPage />)
+            }
+        ],
     }
 ];
 

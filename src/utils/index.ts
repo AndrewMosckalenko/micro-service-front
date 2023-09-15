@@ -3,5 +3,9 @@ export function addTokenToLocalStorage(token: string) {
 }
 
 export function removeTokenFromLocalStorage() {
-    localStorage.removeItem('token')
+    localStorage.removeItem('token');
+}
+
+export function getTokenFromLocalStorage() {
+    return localStorage.getItem('token');
 }

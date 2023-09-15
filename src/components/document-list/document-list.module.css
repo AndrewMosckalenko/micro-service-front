@@ -1,0 +1,17 @@
+.document_list_item {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+}
+
+.document_list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.document_list_item__icon {
+    width: 30px;
+    height: 30px;
+}
