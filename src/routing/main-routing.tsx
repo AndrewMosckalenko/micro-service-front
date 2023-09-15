@@ -1,4 +1,4 @@
-import { lazy, StrictMode } from "react";
+import { lazy, StrictMode, Suspense } from "react";
 import { createBrowserRouter, Navigate, RouterProvider } from "react-router-dom"
 
 const AuthPage = lazy(() => import('../pages/auth-page'));
@@ -36,7 +36,9 @@ const unAuthRouter = [
 export function MainRouter({ token }: {token: string}) {
     return (
         <StrictMode>
-            <RouterProvider router={createBrowserRouter(token ? authRouter : unAuthRouter)}/> 
+            <Suspense fallback={"Load..."}>
+                <RouterProvider router={createBrowserRouter(token ? authRouter : unAuthRouter)}/> 
+            </Suspense>
         </StrictMode>
     )
 }
