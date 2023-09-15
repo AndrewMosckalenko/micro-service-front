@@ -1,8 +1,9 @@
 import { lazy, StrictMode } from "react";
-import { createBrowserRouter, RouterProvider } from "react-router-dom"
+import { createBrowserRouter, Navigate, RouterProvider } from "react-router-dom"
 
 const AuthPage = lazy(() => import('../pages/auth-page'));
 const SignInPage = lazy(() => import('../pages/sign-in-page'));
+const SignUpPage = lazy(() => import('../pages/sign-up-page'));
 
 const authRouter = [
     {
@@ -13,14 +14,22 @@ const authRouter = [
 
 const unAuthRouter = [
     {
-        path: '/auth',
+        path: '/',
         element: (<AuthPage />),
         children: [
             {
-            path: 'sign-in',
-            element: (<SignInPage />),
-        },
-    ],
+                path: 'sign-in',
+                element: (<SignInPage />),
+            },
+            {
+                path: 'sign-up',
+                element: (<SignUpPage />),
+            },
+            {
+                path: '*',
+                element: (<Navigate to="sign-in"/>),
+            },
+        ],
     }
 ]
 
