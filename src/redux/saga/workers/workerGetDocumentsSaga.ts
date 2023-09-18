@@ -1,13 +1,15 @@
-import { call } from "redux-saga/effects";
-import { getDocumentsRequest } from "../../../api/requests/get/get-documents";
-import { IDocument } from "../../../interfaces";
+import { call, put } from "redux-saga/effects";
+
+import { getDocumentsRequest } from "../../../api/requests";
+import { setDocumentsToDocumentsReducerAction } from "../../actions";
 
 
 export function* workerGetDocumentsSaga(): Generator {
     try {
-        const documents = (yield call(getDocumentsRequest)) as IDocument[];
+        const documents = (yield call(getDocumentsRequest)) as any;
+        yield put(setDocumentsToDocumentsReducerAction(documents.data));
     }
     catch(e) {
-
+        console.log(e)
     }
 }

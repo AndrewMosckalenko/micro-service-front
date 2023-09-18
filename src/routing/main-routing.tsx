@@ -15,7 +15,11 @@ const authRouter = [
             {
                 path: '',
                 element: (<DocumentListPage />)
-            }
+            },
+            {
+                path: '*',
+                element: (<Navigate to=""/>),
+            },
         ],
     }
 ];
@@ -32,6 +36,10 @@ const unAuthRouter = [
             {
                 path: 'sign-up',
                 element: (<SignUpPage />),
+            },
+            {
+                path: '',
+                element: (<Navigate to="sign-in"/>),
             },
             {
                 path: '*',
