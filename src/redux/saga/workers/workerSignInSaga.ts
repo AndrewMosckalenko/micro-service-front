@@ -1,6 +1,6 @@
 import { call } from "redux-saga/effects";
-import { getSignInRequest } from "../../../api";
-import { IGetSignInRequestAction } from "../../../api/requests/get/get-sign-up";
+
+import { getSignInRequest, IGetSignInRequestAction } from "../../../api";
 import { addTokenToLocalStorage } from "../../../utils";
 
 export function* workerSignInSaga(action: IGetSignInRequestAction): Generator {

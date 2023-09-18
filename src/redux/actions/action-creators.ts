@@ -3,6 +3,7 @@ import {
   REQUEST_GET_ALL_DOCUMENTS_ACTION,
   REQUEST_GET_SIGN_IN_ACTION,
   REQUEST_GET_WHO_AM_I_ACTION,
+  REQUEST_POST_SIGN_UP_ACTION,
   SET_DOCUMENTS_TO_DOCUMENTS_REDUCER_ACTION,
   SET_USER_TO_USER_REDUCER_ACTION,
 } from "./actions";
@@ -20,6 +21,13 @@ export const requestDocumentsAction = () => ({
 export const requestWhoAmIAction = () => ({
   type: REQUEST_GET_WHO_AM_I_ACTION,
 });
+
+export const requestSignUpAction = (email: string, name: string, password: string) => ({
+  type: REQUEST_POST_SIGN_UP_ACTION,
+  name,
+  password,
+  email,
+})
 
 export const setDocumentsToDocumentsReducerAction = (
   documents: IDocument[],

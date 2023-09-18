@@ -1,10 +1,13 @@
-import { useCallback, useState, memo } from "react";
-import { AuthButton, AuthInput } from "../..";
-
-import styles from "./sign-up-form.module.css";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { useCallback, useState, memo } from "react";
+
+import { AuthButton, AuthInput } from "../..";
+import styles from "./sign-up-form.module.css";
+import { requestSignUpAction } from "../../../redux/actions";
 
 export const SignUpForm = memo(() => {
+  const dispatch = useDispatch();
   const [user, setUser] = useState({
     name: "",
     email: "",
@@ -34,8 +37,8 @@ export const SignUpForm = memo(() => {
   );
 
   const onClickSignUpButton = useCallback(() => {
-    // @todo
-  }, []);
+    dispatch(requestSignUpAction(user.email, user.name, user.password));
+  }, [dispatch, user]);
 
   const onClickSignInButton = useCallback(() => {
     navigate("/sign-in");

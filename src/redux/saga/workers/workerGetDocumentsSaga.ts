@@ -1,6 +1,6 @@
 import { call, put } from "redux-saga/effects";
 
-import { getDocumentsRequest } from "../../../api/requests";
+import { getDocumentsRequest } from "../../../api";
 import { setDocumentsToDocumentsReducerAction } from "../../actions";
 
 export function* workerGetDocumentsSaga(): Generator {
