@@ -10,3 +10,9 @@
   margin: 10px;
   font-size: 30px;
 }
+
+.sign_up_form__btns {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}

@@ -8,7 +8,6 @@ export function* workerGetWhoAmISaga(): Generator {
     const user = yield call(getWhoAmIRequest);
     yield put(setUserToUserReducerAction((user as any).data));
   } catch (e: any) {
-    console.log(e);
     if (e.response.status === 401) {
       removeTokenFromLocalStorage();
     }

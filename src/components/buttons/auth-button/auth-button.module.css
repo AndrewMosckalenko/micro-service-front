@@ -3,6 +3,7 @@
   background: #830000;
   color: #fff;
   border-radius: 5px;
+  padding: 10px;
 }
 
 .auth_btn:hover {

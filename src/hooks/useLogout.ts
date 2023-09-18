@@ -1,16 +1,14 @@
+import { useDispatch } from "react-redux";
+import { useCallback } from "react";
 
-import { useDispatch } from "react-redux"
-import { useCallback } from "react"
-
-import { setUserToUserReducerAction } from "../redux/actions"
-import { removeTokenFromLocalStorage } from "../utils"
+import { setUserToUserReducerAction } from "../redux/actions";
+import { removeTokenFromLocalStorage } from "../utils";
 
 export function useLogout() {
+  const dispatch = useDispatch();
 
-    const dispatch = useDispatch()
-
-    return useCallback(() => {
-        dispatch(setUserToUserReducerAction(null))
-        removeTokenFromLocalStorage();
-    }, [dispatch])
+  return useCallback(() => {
+    dispatch(setUserToUserReducerAction(null));
+    removeTokenFromLocalStorage();
+  }, [dispatch]);
 }

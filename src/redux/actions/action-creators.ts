@@ -5,6 +5,7 @@ import {
   REQUEST_GET_WHO_AM_I_ACTION,
   REQUEST_POST_SIGN_UP_ACTION,
   SET_DOCUMENTS_TO_DOCUMENTS_REDUCER_ACTION,
+  SET_ERROR_MESSAGE_TO_ERROR_REDUCER_ACTION,
   SET_USER_TO_USER_REDUCER_ACTION,
 } from "./actions";
 
@@ -22,12 +23,16 @@ export const requestWhoAmIAction = () => ({
   type: REQUEST_GET_WHO_AM_I_ACTION,
 });
 
-export const requestSignUpAction = (email: string, name: string, password: string) => ({
+export const requestSignUpAction = (
+  email: string,
+  name: string,
+  password: string,
+) => ({
   type: REQUEST_POST_SIGN_UP_ACTION,
   name,
   password,
   email,
-})
+});
 
 export const setDocumentsToDocumentsReducerAction = (
   documents: IDocument[],
@@ -45,8 +50,21 @@ export const setUserToUserReducerAction = (user: IUser | null) => {
   };
 };
 
+export const setErrorMessageToErrorReducerAction = (
+  errorMessage: string | null,
+) => {
+  return <const>{
+    type: SET_ERROR_MESSAGE_TO_ERROR_REDUCER_ACTION,
+    payload: errorMessage,
+  };
+};
+
 export type DocumentsReducerPayload = ReturnType<
   typeof setDocumentsToDocumentsReducerAction
 >;
 
 export type UserReducerPayload = ReturnType<typeof setUserToUserReducerAction>;
+
+export type ErrorReducerPayload = ReturnType<
+  typeof setErrorMessageToErrorReducerAction
+>;

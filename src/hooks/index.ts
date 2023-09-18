@@ -1,3 +1,2 @@
 export { useComponentUpdate } from "./useComponentUpdate";
-export { useLogout } from './useLogout'
- 
+export { useLogout } from "./useLogout";

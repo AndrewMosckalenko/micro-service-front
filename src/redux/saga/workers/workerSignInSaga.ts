@@ -2,7 +2,11 @@ import { call, put } from "redux-saga/effects";
 
 import { getSignInRequest, IGetSignInRequestAction } from "../../../api";
 import { addTokenToLocalStorage } from "../../../utils";
-import { requestWhoAmIAction } from "../../actions";
+import {
+  requestWhoAmIAction,
+  setErrorMessageToErrorReducerAction,
+} from "../../actions";
+import { SIGN_IN_ERROR_MESSAGE } from "../../../constants";
 
 export function* workerSignInSaga(action: IGetSignInRequestAction): Generator {
   try {
@@ -10,6 +14,6 @@ export function* workerSignInSaga(action: IGetSignInRequestAction): Generator {
     addTokenToLocalStorage(response.data.access_token);
     yield put(requestWhoAmIAction());
   } catch (e) {
-    console.log(e);
+    yield put(setErrorMessageToErrorReducerAction(SIGN_IN_ERROR_MESSAGE));
   }
 }

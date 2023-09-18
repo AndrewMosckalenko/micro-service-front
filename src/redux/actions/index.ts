@@ -1,6 +1,7 @@
 export {
   setDocumentsToDocumentsReducerAction,
   setUserToUserReducerAction,
+  setErrorMessageToErrorReducerAction,
   requestSignInAction,
   requestDocumentsAction,
   requestWhoAmIAction,
@@ -10,6 +11,7 @@ export {
 export type {
   DocumentsReducerPayload,
   UserReducerPayload,
+  ErrorReducerPayload,
 } from "./action-creators";
 
 export {
@@ -19,4 +21,5 @@ export {
   REQUEST_POST_SIGN_UP_ACTION,
   SET_USER_TO_USER_REDUCER_ACTION,
   SET_DOCUMENTS_TO_DOCUMENTS_REDUCER_ACTION,
+  SET_ERROR_MESSAGE_TO_ERROR_REDUCER_ACTION,
 } from "./actions";
