@@ -9,8 +9,9 @@
 
 .header {
   display: flex;
-  flex-direction: column;
-  align-items: end;
+  flex-direction: row;
+  align-items: center;
+  justify-content: end;
 
   background: #fff;
   border-radius: 25px;
@@ -19,4 +20,11 @@
   box-shadow: 5px 5px 5px 0 #0000008f;
   box-sizing: border-box;
   min-height: 30px;
+  padding-right: 20px;
+}
+
+.header__logout {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
 }

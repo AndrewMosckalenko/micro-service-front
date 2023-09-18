@@ -38,7 +38,7 @@ export const setDocumentsToDocumentsReducerAction = (
   };
 };
 
-export const setUserToUserReducerAction = (user: IUser) => {
+export const setUserToUserReducerAction = (user: IUser | null) => {
   return <const>{
     type: SET_USER_TO_USER_REDUCER_ACTION,
     payload: user,

@@ -4,6 +4,7 @@ import {
   Navigate,
   RouterProvider,
 } from "react-router-dom";
+import { IUser } from "../interfaces";
 
 const AuthPage = lazy(() => import("../pages/auth-page"));
 const SignInPage = lazy(() => import("../pages/sign-in-page"));
@@ -53,12 +54,12 @@ const unAuthRouter = [
   },
 ];
 
-export function MainRouter({ token }: { token: string }) {
+export function MainRouter({ user }: { user?: IUser }) {
   return (
     <StrictMode>
       <Suspense fallback={"Load..."}>
         <RouterProvider
-          router={createBrowserRouter(token ? authRouter : unAuthRouter)}
+          router={createBrowserRouter(user ? authRouter : unAuthRouter)}
         />
       </Suspense>
     </StrictMode>
