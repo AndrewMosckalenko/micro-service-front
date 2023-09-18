@@ -1,25 +1,24 @@
-import { useDispatch } from 'react-redux'
-import { useEffect } from 'react'
+import { useDispatch } from "react-redux";
 
-import { MainRouter } from './routing'
-import { getTokenFromLocalStorage } from './utils'
-import { requestWhoAmIAction } from './redux/actions'
+import { MainRouter } from "./routing";
+import { getTokenFromLocalStorage } from "./utils";
+import { requestWhoAmIAction } from "./redux/actions";
+import { useComponentUpdate } from "./hooks";
 
-import './App.css'
+import "./App.css";
 
 function App() {
+  const dispatch = useDispatch();
 
-  const dispatch = useDispatch()
-
-  useEffect(() => {
-    dispatch(requestWhoAmIAction())
-  }, [dispatch])
+  useComponentUpdate(() => {
+    dispatch(requestWhoAmIAction());
+  }, [dispatch]);
 
   return (
     <>
-      <MainRouter token={getTokenFromLocalStorage() || ''}/>
+      <MainRouter token={getTokenFromLocalStorage() || ""} />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

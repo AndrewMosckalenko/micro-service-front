@@ -1,10 +1,10 @@
 .auth_btn {
-    font-size: 20px;
-    background: #830000;
-    color: #fff;
-    border-radius: 5px;
+  font-size: 20px;
+  background: #830000;
+  color: #fff;
+  border-radius: 5px;
 }
 
 .auth_btn:hover {
-    box-shadow: 5px 5px 5px 0 #0000008f;
+  box-shadow: 5px 5px 5px 0 #0000008f;
 }

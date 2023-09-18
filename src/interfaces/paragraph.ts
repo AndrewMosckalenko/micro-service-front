@@ -1,5 +1,5 @@
 export interface IParagraph {
-    name: string;
-    content: string;
-    type: number;
+  name: string;
+  content: string;
+  type: number;
 }

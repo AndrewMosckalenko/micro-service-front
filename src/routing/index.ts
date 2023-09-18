@@ -1,1 +1,1 @@
-export { MainRouter } from './main-routing'
+export { MainRouter } from "./main-routing";
