@@ -4,12 +4,14 @@ import {
   REQUEST_GET_SIGN_IN_ACTION,
   REQUEST_GET_WHO_AM_I_ACTION,
   REQUEST_POST_SIGN_UP_ACTION,
+  REQUEST_POST_DOCUMENT_ACTION,
 } from "../actions";
 import {
   workerSignInSaga,
   workerGetDocumentsSaga,
   workerGetWhoAmISaga,
   workerSignUpSaga,
+  workerPostDocumentSaga,
 } from "./workers";
 
 export function* saga() {
@@ -18,5 +20,6 @@ export function* saga() {
     takeEvery(REQUEST_GET_ALL_DOCUMENTS_ACTION, workerGetDocumentsSaga),
     takeEvery(REQUEST_GET_WHO_AM_I_ACTION, workerGetWhoAmISaga),
     takeEvery(REQUEST_POST_SIGN_UP_ACTION, workerSignUpSaga),
+    takeEvery(REQUEST_POST_DOCUMENT_ACTION, workerPostDocumentSaga),
   ]);
 }

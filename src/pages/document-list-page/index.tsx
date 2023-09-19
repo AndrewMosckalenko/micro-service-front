@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 
-import { DocumentList } from "../../components";
+import { CreateDocumentForm, DocumentList } from "../../components";
 import { documentsFromDocumentsReducerSelector } from "../../redux/reducers/selectors";
 import { requestDocumentsAction } from "../../redux/actions";
 import { useComponentUpdate } from "../../hooks";
@@ -18,6 +18,7 @@ export default function DocumentListPage() {
 
   return (
     <div className={styles.document_list_page}>
+      <CreateDocumentForm />
       {documents && <DocumentList documents={documents} />}
     </div>
   );

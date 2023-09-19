@@ -3,6 +3,7 @@ import {
   REQUEST_GET_ALL_DOCUMENTS_ACTION,
   REQUEST_GET_SIGN_IN_ACTION,
   REQUEST_GET_WHO_AM_I_ACTION,
+  REQUEST_POST_DOCUMENT_ACTION,
   REQUEST_POST_SIGN_UP_ACTION,
   SET_DOCUMENTS_TO_DOCUMENTS_REDUCER_ACTION,
   SET_ERROR_MESSAGE_TO_ERROR_REDUCER_ACTION,
@@ -33,6 +34,11 @@ export const requestSignUpAction = (
   password,
   email,
 });
+
+export const requestPostDocumentAction = (name: string) => ({
+  type: REQUEST_POST_DOCUMENT_ACTION,
+  name,
+})
 
 export const setDocumentsToDocumentsReducerAction = (
   documents: IDocument[],

@@ -4,9 +4,9 @@ import { MainRouter } from "./routing";
 import { requestWhoAmIAction } from "./redux/actions";
 import { useComponentUpdate } from "./hooks";
 import { userFromUserReducerSelector } from "./redux/reducers/selectors";
+import { ErrorForm } from "./components";
 
 import "./App.css";
-import { ErrorForm } from "./components/forms/error-form";
 
 function App() {
   const dispatch = useDispatch();
