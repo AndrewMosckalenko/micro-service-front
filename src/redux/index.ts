@@ -1,13 +1,16 @@
-import { createStore, applyMiddleware } from "redux";
-import createSagaMiddleware from "redux-saga";
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import { api } from "./api";
+import authSlice from "./auth-slice";
 
-import { reducer } from "./reducers";
-import { saga } from "./saga";
+const reducer = combineReducers({
+  [api.reducerPath]: api.reducer,
+  auth: authSlice,
+});
 
-const sagaMiddleware = createSagaMiddleware();
-
-const store = createStore(reducer, applyMiddleware(sagaMiddleware));
-
-sagaMiddleware.run(saga);
+const store = configureStore({
+  reducer,
+  middleware: (defaultMiddlewares) =>
+    defaultMiddlewares().concat([api.middleware]),
+});
 
 export default store;

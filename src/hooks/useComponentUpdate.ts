@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-export function useComponentUpdate(callback: () => void, deps: any[]) {
+export function useComponentUpdate(callback: () => void, deps: Array<any>) {
   const didMount = useRef(false);
 
   useEffect(() => {

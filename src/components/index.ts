@@ -4,5 +4,4 @@ export { SignInForm } from "./forms/sign-in-form";
 export { SignUpForm } from "./forms/sign-up-form";
 export { Header } from "./header";
 export { DocumentList } from "./document-list";
-export { CreateDocumentForm } from './forms/create-document-form';
-export { ErrorForm } from './forms/error-form';
+export { CreateDocumentForm } from "./forms/create-document-form";

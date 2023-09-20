@@ -1,19 +1,24 @@
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
 import { useCallback, useState, memo } from "react";
+import { useDispatch } from "react-redux";
 
+import { useSignUpMutation } from "../../../redux/api";
 import { AuthButton, AuthInput } from "../..";
+import { addTokenToLocalStorage } from "../../../utils";
+import { setToken } from "../../../redux/auth-slice";
+
 import styles from "./sign-up-form.module.css";
-import { requestSignUpAction } from "../../../redux/actions";
 
 export const SignUpForm = memo(() => {
-  const dispatch = useDispatch();
   const [user, setUser] = useState({
     name: "",
     email: "",
     password: "",
   });
+
+  const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [signUpRequest] = useSignUpMutation();
 
   const onChangeEmail = useCallback(
     (email: string) => {
@@ -37,8 +42,11 @@ export const SignUpForm = memo(() => {
   );
 
   const onClickSignUpButton = useCallback(() => {
-    dispatch(requestSignUpAction(user.email, user.name, user.password));
-  }, [dispatch, user]);
+    signUpRequest(user).then((res) => {
+      addTokenToLocalStorage(res.data?.access_token);
+      dispatch(setToken(res.data?.access_token));
+    });
+  }, [signUpRequest, user, dispatch]);
 
   const onClickSignInButton = useCallback(() => {
     navigate("/sign-in");

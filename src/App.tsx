@@ -1,28 +1,21 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 import { MainRouter } from "./routing";
-import { requestWhoAmIAction } from "./redux/actions";
+import { useGetUserQuery } from "./redux/api";
 import { useComponentUpdate } from "./hooks";
-import { userFromUserReducerSelector } from "./redux/reducers/selectors";
-import { ErrorForm } from "./components";
 
 import "./App.css";
 
 function App() {
-  const dispatch = useDispatch();
+  const token = useSelector((state) => state.auth?.token);
 
-  const user = useSelector(userFromUserReducerSelector);
+  const { data: user, refetch, error } = useGetUserQuery({});
 
   useComponentUpdate(() => {
-    dispatch(requestWhoAmIAction());
-  }, [dispatch]);
+    refetch();
+  }, [token, refetch]);
 
-  return (
-    <>
-      <MainRouter user={user} />
-      <ErrorForm />
-    </>
-  );
+  return <MainRouter user={error ? null : user} />;
 }
 
 export default App;

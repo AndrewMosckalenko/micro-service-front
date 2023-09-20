@@ -1,27 +1,38 @@
-import { useCallback, useState } from "react"
-import { AuthButton, AuthInput } from "../.."
+import { useCallback, useState } from "react";
 
-import styles from './create-document-form.module.css'
-import { useDispatch } from "react-redux"
-import { requestPostDocumentAction } from "../../../redux/actions"
+import { AuthButton, AuthInput } from "../..";
+import {
+  useGetDocumentsQuery,
+  usePostDocumentMutation,
+} from "../../../redux/api";
+
+import styles from "./create-document-form.module.css";
 
 export const CreateDocumentForm = () => {
-    
-    const [name, setName] = useState('')
-    const dispatch = useDispatch()
+  const [name, setName] = useState("");
 
-    const onChangeName = useCallback((val: string) => {
-        setName(val)
-    }, [setName])
+  const { refetch } = useGetDocumentsQuery({});
+  const [postDocument] = usePostDocumentMutation();
 
-    const onClickCreate = useCallback(() => {
-        dispatch(requestPostDocumentAction(name))
-    }, [dispatch, name]);
+  const onChangeName = useCallback(
+    (newName: string) => {
+      setName(newName);
+    },
+    [setName],
+  );
 
-    return (
-        <div className={styles.create_document_form}>
-            <AuthInput hint='name of new document' onChange={onChangeName} value={name}/>
-            <AuthButton onClick={onClickCreate} label="create document"/>
-        </div>
-    )
-}
+  const onClickCreate = useCallback(() => {
+    postDocument({ name }).then(() => refetch());
+  }, [name, postDocument, refetch]);
+
+  return (
+    <div className={styles.create_document_form}>
+      <AuthInput
+        hint="name of new document"
+        onChange={onChangeName}
+        value={name}
+      />
+      <AuthButton onClick={onClickCreate} label="create document" />
+    </div>
+  );
+};

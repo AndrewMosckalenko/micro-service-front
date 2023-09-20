@@ -1,7 +1,7 @@
 .create_document_form {
-    display: flex;
-    flex-direction: row;
-    padding: 20px;
-    justify-content: space-around;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
+  justify-content: space-around;
+  align-items: center;
 }

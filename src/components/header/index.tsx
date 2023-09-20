@@ -1,14 +1,13 @@
 import { memo } from "react";
-import { useSelector } from "react-redux";
 
-import { userFromUserReducerSelector } from "../../redux/reducers/selectors";
+import { useLogout } from "../../hooks";
+import { useGetUserQuery } from "../../redux/api";
 
 import logoutIcon from "../../assets/logout.png";
 import styles from "./header.module.css";
-import { useLogout } from "../../hooks";
 
 export const Header = memo(() => {
-  const user = useSelector(userFromUserReducerSelector);
+  const { data: user } = useGetUserQuery({});
   const onClickLogout = useLogout();
 
   return (
