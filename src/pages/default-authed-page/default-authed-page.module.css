@@ -11,11 +11,12 @@
 .default_authed_page__content {
   background: #fff;
   border-radius: 25px;
-
-  margin: 0 20%;
+  align-self: center;
 
   box-shadow: 5px 5px 5px 0 #0000008f;
   box-sizing: border-box;
   min-height: 30px;
   padding: 25px;
+  max-width: 1170px;
+  width: 100%;
 }

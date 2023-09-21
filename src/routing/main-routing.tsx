@@ -11,7 +11,7 @@ const SignInPage = lazy(() => import("../pages/sign-in-page"));
 const SignUpPage = lazy(() => import("../pages/sign-up-page"));
 const DefaultAuthedPage = lazy(() => import("../pages/default-authed-page"));
 const DocumentListPage = lazy(() => import("../pages/document-list-page"));
-const DocumentPage = lazy(() => import("../pages/document-page"))
+const DocumentPage = lazy(() => import("../pages/document-page"));
 
 const authRouter = [
   {

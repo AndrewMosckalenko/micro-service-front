@@ -46,15 +46,27 @@ export const api = createApi({
       query: (body) => ({
         url: `document/${body.id}/paragraphs`,
         method: "GET",
-      })
+      }),
     }),
     postParagraph: builder.mutation({
       query: (body) => ({
         url: `document/${body.id}`,
-        method: 'POST',
+        method: "POST",
         body,
-      })
-    })
+      }),
+    }),
+    deleteDocument: builder.mutation({
+      query: (body) => ({
+        url: `/document/${body.id}`,
+        method: "DELETE",
+      }),
+    }),
+    deleteParagraph: builder.mutation({
+      query: (body) => ({
+        url: `/document/paragraph/${body.id}`,
+        method: "DELETE",
+      }),
+    }),
   }),
 });
 
@@ -66,4 +78,6 @@ export const {
   useSignUpMutation,
   useGetDocumentWithParapgraphsMutation,
   usePostParagraphMutation,
+  useDeleteDocumentMutation,
+  useDeleteParagraphMutation,
 } = api;

@@ -1,11 +1,23 @@
 .paragraph_list {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .paragraph_item__content {
-    background: #e5e5e5;
-    padding: 20px;
-    border-radius: 15px;
+  background: #e5e5e5;
+  padding: 20px;
+  border-radius: 15px;
+}
+
+.paragraph_item__delete {
+  width: 15px;
+  height: 15px;
+}
+
+.paragraph_item__header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }

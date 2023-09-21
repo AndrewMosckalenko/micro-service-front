@@ -5,6 +5,14 @@
   align-items: center;
   border-bottom: 2px solid #0000008f;
   padding: 10px;
+  justify-content: space-between;
+}
+
+.document_list_item__file_info {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
 }
 
 .document_list_item:hover {
@@ -19,4 +27,10 @@
 .document_list_item__icon {
   width: 30px;
   height: 30px;
+}
+
+.document_list_item__delete_icon {
+  cursor: pointer;
+  width: 15px;
+  height: 15px;
 }

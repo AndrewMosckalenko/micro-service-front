@@ -4,7 +4,7 @@ import { useLogout } from "../../hooks";
 import { useGetUserQuery } from "../../redux/api";
 
 import logoutIcon from "../../assets/logout.png";
-import returnIcon from '../../assets/return.png';
+import returnIcon from "../../assets/return.png";
 
 import styles from "./header.module.css";
 import { useNavigate } from "react-router-dom";
@@ -13,11 +13,11 @@ export const Header = memo(() => {
   const { data: user } = useGetUserQuery({});
   const onClickLogout = useLogout();
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const onClickReturn = useCallback(() => {
     navigate(-1);
-  }, [navigate])
+  }, [navigate]);
 
   return (
     <div className={styles.header}>

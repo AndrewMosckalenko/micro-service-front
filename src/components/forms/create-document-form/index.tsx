@@ -11,7 +11,7 @@ import { useComponentUpdate } from "../../../hooks";
 
 export const CreateDocumentForm = () => {
   const [name, setName] = useState("");
-  const [ file, setFile ] = useState<File | null>(null)
+  const [file, setFile] = useState<File | null>(null);
 
   const { refetch } = useGetDocumentsQuery({});
   const [postDocument] = usePostDocumentMutation();
@@ -24,16 +24,19 @@ export const CreateDocumentForm = () => {
   );
 
   useComponentUpdate(() => {
-    if(file) {
+    if (file) {
       setName(file.name);
     } else {
-      setName('')
+      setName("");
     }
-  }, [setName, file])
+  }, [setName, file]);
 
-  const onChangeFile = useCallback((newFile: File) => {
-    setFile(newFile)
-  }, [setFile]);
+  const onChangeFile = useCallback(
+    (newFile: File) => {
+      setFile(newFile);
+    },
+    [setFile],
+  );
 
   const onClickCreate = useCallback(() => {
     postDocument({ name }).then(() => refetch());
