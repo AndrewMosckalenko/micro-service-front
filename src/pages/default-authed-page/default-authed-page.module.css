@@ -4,15 +4,15 @@
   gap: 10px;
   width: 100vw;
   height: 100vh;
-  padding: 10px;
-  background: #a1a1a1;
+  background: #e7e7e7;
   box-sizing: border-box;
 }
 
 .default_authed_page__content {
   background: #fff;
   border-radius: 25px;
-  border: 1px solid #000;
+
+  margin: 0 20%;
 
   box-shadow: 5px 5px 5px 0 #0000008f;
   box-sizing: border-box;
