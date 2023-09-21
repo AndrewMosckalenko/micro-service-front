@@ -1,0 +1,11 @@
+.paragraph_list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.paragraph_item__content {
+    background: #e5e5e5;
+    padding: 20px;
+    border-radius: 15px;
+}

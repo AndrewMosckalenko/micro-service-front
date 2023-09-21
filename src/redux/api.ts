@@ -47,6 +47,13 @@ export const api = createApi({
         url: `document/${body.id}/paragraphs`,
         method: "GET",
       })
+    }),
+    postParagraph: builder.mutation({
+      query: (body) => ({
+        url: `document/${body.id}`,
+        method: 'POST',
+        body,
+      })
     })
   }),
 });
@@ -58,4 +65,5 @@ export const {
   useSignInMutation,
   useSignUpMutation,
   useGetDocumentWithParapgraphsMutation,
+  usePostParagraphMutation,
 } = api;
