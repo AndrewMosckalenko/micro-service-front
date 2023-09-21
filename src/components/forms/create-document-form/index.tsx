@@ -1,15 +1,17 @@
 import { useCallback, useState } from "react";
 
-import { AuthButton, AuthInput } from "../..";
+import { AuthButton, AuthInput, FileInput } from "../..";
 import {
   useGetDocumentsQuery,
   usePostDocumentMutation,
 } from "../../../redux/api";
 
 import styles from "./create-document-form.module.css";
+import { useComponentUpdate } from "../../../hooks";
 
 export const CreateDocumentForm = () => {
   const [name, setName] = useState("");
+  const [ file, setFile ] = useState<File | null>(null)
 
   const { refetch } = useGetDocumentsQuery({});
   const [postDocument] = usePostDocumentMutation();
@@ -20,6 +22,18 @@ export const CreateDocumentForm = () => {
     },
     [setName],
   );
+
+  useComponentUpdate(() => {
+    if(file) {
+      setName(file.name);
+    } else {
+      setName('')
+    }
+  }, [setName, file])
+
+  const onChangeFile = useCallback((newFile: File) => {
+    setFile(newFile)
+  }, [setFile]);
 
   const onClickCreate = useCallback(() => {
     postDocument({ name }).then(() => refetch());
@@ -32,6 +46,7 @@ export const CreateDocumentForm = () => {
         onChange={onChangeName}
         value={name}
       />
+      <FileInput onChangeFile={onChangeFile} />
       <AuthButton onClick={onClickCreate} label="create document" />
     </div>
   );

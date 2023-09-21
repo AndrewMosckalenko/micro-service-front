@@ -11,10 +11,11 @@ const SignInPage = lazy(() => import("../pages/sign-in-page"));
 const SignUpPage = lazy(() => import("../pages/sign-up-page"));
 const DefaultAuthedPage = lazy(() => import("../pages/default-authed-page"));
 const DocumentListPage = lazy(() => import("../pages/document-list-page"));
+const DocumentPage = lazy(() => import("../pages/document-page"))
 
 const authRouter = [
   {
-    path: "/",
+    path: "*",
     element: <DefaultAuthedPage />,
     children: [
       {
@@ -22,8 +23,12 @@ const authRouter = [
         element: <DocumentListPage />,
       },
       {
+        path: ":id",
+        element: <DocumentPage />,
+      },
+      {
         path: "*",
-        element: <Navigate to="" />,
+        element: <DocumentListPage />,
       },
     ],
   },
@@ -31,7 +36,7 @@ const authRouter = [
 
 const unAuthRouter = [
   {
-    path: "/",
+    path: "*",
     element: <AuthPage />,
     children: [
       {
@@ -43,12 +48,8 @@ const unAuthRouter = [
         element: <SignUpPage />,
       },
       {
-        path: "",
-        element: <Navigate to="sign-in" />,
-      },
-      {
         path: "*",
-        element: <Navigate to="sign-in" />,
+        element: <SignInPage />,
       },
     ],
   },

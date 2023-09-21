@@ -1,7 +1,8 @@
-export { AuthInput } from "./inputs/auth-input";
-export { AuthButton } from "./buttons/auth-button";
-export { SignInForm } from "./forms/sign-in-form";
-export { SignUpForm } from "./forms/sign-up-form";
-export { Header } from "./header";
-export { DocumentList } from "./document-list";
-export { CreateDocumentForm } from "./forms/create-document-form";
+export * from "./inputs/auth-input";
+export * from "./buttons/auth-button";
+export * from "./forms/sign-in-form";
+export * from "./forms/sign-up-form";
+export * from "./header";
+export * from "./document-list";
+export * from "./forms/create-document-form";
+export * from './inputs/file-input';
