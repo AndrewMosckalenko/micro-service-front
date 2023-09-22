@@ -1,8 +1,8 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-import { BACKEND_URL } from "../config";
+import { BACKEND_URL } from "../../config";
 
-export const api = createApi({
+export const apiDocument = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({
     baseUrl: BACKEND_URL,
@@ -15,25 +15,8 @@ export const api = createApi({
     },
   }),
   endpoints: (builder) => ({
-    getUser: builder.query({
-      query: () => "user/whoami",
-    }),
     getDocuments: builder.query({
       query: () => "document",
-    }),
-    signIn: builder.mutation({
-      query: (body) => ({
-        url: "user/sign-in",
-        method: "POST",
-        body,
-      }),
-    }),
-    signUp: builder.mutation({
-      query: (body) => ({
-        url: "user/sign-up",
-        method: "POST",
-        body,
-      }),
     }),
     postDocument: builder.mutation({
       query: (body) => ({
@@ -67,17 +50,45 @@ export const api = createApi({
         method: "DELETE",
       }),
     }),
+    createTag: builder.mutation({
+        query: (body) => ({
+            url:`/document/${body.id}/tag`,
+            method: 'POST',
+            body,
+        }),
+    }),
+    deleteTag: builder.mutation({
+        query: (body) => ({
+            url: `/document/${body.id}/tag`,
+            method: 'DELETE',
+        }),
+    }),
+    patchDocument: builder.mutation({
+      query: (body) => ({
+        url: `/document/${body.id}`,
+        method: 'PATCH',
+        body,
+      })
+    }),
+    patchParagraph: builder.mutation({
+      query: (body) => ({
+        url: `/document/paragraph/${body.id}`,
+        method: 'PATCH',
+        body,
+      })
+    }),
   }),
 });
 
 export const {
   useGetDocumentsQuery,
-  useGetUserQuery,
   usePostDocumentMutation,
-  useSignInMutation,
-  useSignUpMutation,
   useGetDocumentWithParapgraphsMutation,
   usePostParagraphMutation,
   useDeleteDocumentMutation,
   useDeleteParagraphMutation,
-} = api;
+  useCreateTagMutation,
+  useDeleteTagMutation,
+  usePatchDocumentMutation,
+  usePatchParagraphMutation,
+} = apiDocument;

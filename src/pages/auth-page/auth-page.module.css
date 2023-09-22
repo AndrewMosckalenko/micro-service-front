@@ -1,5 +1,5 @@
 .page_wrapper {
-  background: #a1a1a1;
+  background: #e7e7e7;
   position: fixed;
   top: 0;
   left: 0;
@@ -16,7 +16,6 @@
 .page {
   border-radius: 15px;
   box-shadow: 5px 5px 5px 0 #0000008f;
-  border: 1px solid #000000;
   overflow: hidden;
   box-sizing: border-box;
   padding: 15px;

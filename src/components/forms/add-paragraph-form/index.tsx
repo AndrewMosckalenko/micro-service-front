@@ -6,7 +6,7 @@ import {
   usePostParagraphMutation,
 } from "../../../redux/api";
 
-export const AddParagraphForm = ({ documentId }: IAddParagraphFormProps) => {
+export const AddParagraphForm = ({ documentId, updateCallback }: IAddParagraphFormProps) => {
   const [postParagraph] = usePostParagraphMutation();
   const [getDocument] = useGetDocumentWithParapgraphsMutation();
   const [{ name, content }, setNewParagraph] = useState({
@@ -29,9 +29,7 @@ export const AddParagraphForm = ({ documentId }: IAddParagraphFormProps) => {
   );
 
   const onClickAddBtn = useCallback(() => {
-    postParagraph({ id: documentId, name, content }).then(() => {
-      getDocument({ id: documentId });
-    });
+    postParagraph({ id: documentId, name, content }).then(updateCallback);
   }, [postParagraph, name, content]);
 
   return (
@@ -45,4 +43,5 @@ export const AddParagraphForm = ({ documentId }: IAddParagraphFormProps) => {
 
 export interface IAddParagraphFormProps {
   documentId: number;
+  updateCallback: () => void;
 }

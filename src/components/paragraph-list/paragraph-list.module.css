@@ -21,3 +21,55 @@
   justify-content: space-between;
   align-items: center;
 }
+
+.paragraph_item__title_tags {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.tag_ticket {
+  background: #ffec97;
+  border-radius: 15px;
+  padding: 5px 10px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+}
+
+.tag_ticket__delete {
+  height: 10px;
+  width: 10px;
+  cursor: pointer;
+}
+
+.add_tag_ticket {
+  background: #ff9797;
+  border-radius: 15px;
+  padding: 5px 10px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+}
+
+.add_tag_ticket__inp {
+  background: #ff7c7c;
+  border: none;
+}
+
+.add_tag_ticket__btn {
+  background: none;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.paragraph_item__options {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}

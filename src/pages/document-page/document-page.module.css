@@ -3,3 +3,9 @@
   flex-direction: column;
   gap: 50px;
 }
+
+.document_page__edit_icon {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
