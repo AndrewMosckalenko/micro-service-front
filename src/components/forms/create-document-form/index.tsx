@@ -39,7 +39,7 @@ export const CreateDocumentForm = () => {
   );
 
   const onClickCreate = useCallback(() => {
-    postDocument({ name }).then(() => refetch());
+    postDocument({ name, file }).then(() => refetch());
   }, [name, postDocument, refetch]);
 
   return (

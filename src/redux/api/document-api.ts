@@ -23,6 +23,7 @@ export const apiDocument = createApi({
         url: "document",
         method: "POST",
         body,
+        formData: true,
       }),
     }),
     getDocumentWithParapgraphs: builder.mutation({

@@ -1,7 +1,7 @@
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { useDeleteDocumentMutation } from "../../redux/api";
+import { useDeleteDocumentMutation, useGetDocumentsQuery } from "../../redux/api";
 import { IDocument } from "../../interfaces";
 import fileIcon from "../../assets/files.png";
 import deleteIcon from "../../assets/delete.png";
@@ -15,6 +15,7 @@ export interface IDocumentListItem {
 export const DocumentListItem = ({ document }: IDocumentListItem) => {
   const navigate = useNavigate();
   const [deleteDocument] = useDeleteDocumentMutation();
+  const { refetch } = useGetDocumentsQuery({})
 
   const onClickItem = useCallback(() => {
     navigate(`/${document.id}`);
@@ -22,7 +23,9 @@ export const DocumentListItem = ({ document }: IDocumentListItem) => {
 
   const onCLickDeleteItem = useCallback(
     (e: React.MouseEvent) => {
-      deleteDocument({ id: document.id });
+      deleteDocument({ id: document.id }).then(() => {
+        refetch()
+      });
       e.stopPropagation();
     },
     [deleteDocument, document],
