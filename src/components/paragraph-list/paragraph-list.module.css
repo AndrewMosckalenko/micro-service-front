@@ -8,6 +8,7 @@
   background: #e5e5e5;
   padding: 20px;
   border-radius: 15px;
+  font-size: 14px;
 }
 
 .paragraph_item__delete {
@@ -72,4 +73,8 @@
   display: flex;
   flex-direction: row;
   gap: 10px;
+}
+
+.paragraph_item__title {
+  font-size: 14px;
 }

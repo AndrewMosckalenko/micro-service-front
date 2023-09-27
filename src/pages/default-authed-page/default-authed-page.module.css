@@ -13,10 +13,13 @@
   border-radius: 25px;
   align-self: center;
 
-  box-shadow: 5px 5px 5px 0 #0000008f;
+  box-shadow: 2px 2px 2px 0 #0000008f;
   box-sizing: border-box;
   min-height: 30px;
   padding: 25px;
   max-width: 1170px;
   width: 100%;
+
+  overflow: scroll;
+  overflow-x: hidden;
 }

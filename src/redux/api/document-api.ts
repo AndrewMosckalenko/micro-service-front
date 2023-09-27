@@ -78,6 +78,12 @@ export const apiDocument = createApi({
         body,
       })
     }),
+    copyDocument: builder.mutation({
+      query: (body) => ({
+        url: `/document/${body.id}/copy`,
+        method: 'POST',
+      })
+    })
   }),
 });
 
@@ -92,4 +98,5 @@ export const {
   useDeleteTagMutation,
   usePatchDocumentMutation,
   usePatchParagraphMutation,
+  useCopyDocumentMutation,
 } = apiDocument;

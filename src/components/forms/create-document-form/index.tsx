@@ -39,8 +39,11 @@ export const CreateDocumentForm = () => {
   );
 
   const onClickCreate = useCallback(() => {
-    postDocument({ name, file }).then(() => refetch());
-  }, [name, postDocument, refetch]);
+    const formData = new FormData();
+    formData.append('file', file);
+    formData.append('name', name);
+    postDocument(formData).then(() => refetch());
+  }, [name, postDocument, refetch, file]);
 
   return (
     <div className={styles.create_document_form}>

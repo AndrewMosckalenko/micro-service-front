@@ -3,7 +3,7 @@ import { useCallback, useState } from "react";
 
 import { useComponentUpdate } from "../../hooks";
 import { AddParagraphForm, AuthInput, ParagraphList } from "../../components";
-import { useGetDocumentWithParapgraphsMutation, usePatchDocumentMutation } from "../../redux/api";
+import { useCopyDocumentMutation, useGetDocumentWithParapgraphsMutation, usePatchDocumentMutation } from "../../redux/api";
 
 import editIcon from '../../assets/draw.png';
 import styles from "./document-page.module.css";
@@ -18,6 +18,7 @@ export default function DocumentPage() {
   const [getDocument, { data: document, isLoading }] =
     useGetDocumentWithParapgraphsMutation();
   const [patchDocument] = usePatchDocumentMutation();
+  const [copyDocument] = useCopyDocumentMutation();
 
   useComponentUpdate(() => {
     if (isNaN(Number(id))) {
@@ -44,13 +45,20 @@ export default function DocumentPage() {
     getDocument({ id })
   }, [id, getDocument])
 
+  const copyDocumentClick = useCallback(() => {
+    copyDocument({ id })
+  }, [id, copyDocument])
+
   if (isLoading) {
     return <h1>Loading...</h1>;
   }
 
   return (
     <div className={styles.document_page}>
-      <h1>Document: {editDocument ? <AuthInput hint="new name" onChange={onChangeNewName} value={newDocumentName}/> : document?.name} <img className={styles.document_page__edit_icon} src={editIcon} onClick={onCLickEditDocument}/></h1>
+      <h1 className={styles.document_page__title}>Document: {editDocument ? <AuthInput hint="new name" onChange={onChangeNewName} value={newDocumentName}/> : document?.name} 
+          <img className={styles.document_page__edit_icon} src={editIcon} onClick={onCLickEditDocument}/>    
+          <img className={styles.document_page__edit_icon} src={editIcon} onClick={copyDocumentClick}/>    
+      </h1>
       {document && <ParagraphList paragraphs={document.paragraphs} updateCallback={updateCallback}/>}
       {id && <AddParagraphForm documentId={Number(id)} updateCallback={updateCallback}/>}
     </div>
