@@ -85,16 +85,8 @@ export default function DocumentPage() {
         ) : (
           currentDocument?.name
         )}
-        <EditIcon
-          className={styles.document_page__edit_icon}
-          onClick={onCLickEditDocument}
-        />
-        <CopyIcon
-          width={24}
-          height={24}
-          className={styles.icon}
-          onClick={copyDocumentClick}
-        />
+        <EditIcon className={styles.icon} onClick={onCLickEditDocument} />
+        <CopyIcon className={styles.icon} onClick={copyDocumentClick} />
       </h1>
       {currentDocument?.paragraphs && (
         <ParagraphList

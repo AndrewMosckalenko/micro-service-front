@@ -78,3 +78,17 @@
 .paragraph_item__title {
   font-size: 14px;
 }
+
+.icon {
+  box-sizing: border-box;
+  padding: 4px;
+  transition: opacity ease-in-out 0.3s;
+  opacity: 1;
+  cursor: pointer;
+  height: 24px;
+  width: 24px;
+}
+
+.icon:active {
+  opacity: 0.4;
+}

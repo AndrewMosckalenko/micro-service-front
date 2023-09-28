@@ -21,6 +21,8 @@
   transition: opacity ease-in-out 0.3s;
   opacity: 1;
   cursor: pointer;
+  height: 24px;
+  width: 24px;
 }
 
 .icon:active {

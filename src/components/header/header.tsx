@@ -8,6 +8,7 @@ import returnIcon from "../../assets/return.png";
 
 import styles from "./header.module.css";
 import { useNavigate } from "react-router-dom";
+import { LogoutIcon, ReturnIcon } from "..";
 
 export const Header = memo(() => {
   const { data: user } = useGetUserQuery({});
@@ -21,23 +22,13 @@ export const Header = memo(() => {
 
   return (
     <div className={styles.header}>
-      <img
-        src={returnIcon}
-        alt="return"
-        className={styles.header__logout}
-        onClick={onClickReturn}
-      />
+      <ReturnIcon className={styles.header__logout} onClick={onClickReturn} />
       <div className={styles.header__right_side}>
         <div className={styles.header__user_info}>
           <p>{user?.name}</p>
           <p>{user?.email}</p>
         </div>
-        <img
-          src={logoutIcon}
-          alt="logout"
-          className={styles.header__logout}
-          onClick={onClickLogout}
-        />
+        <LogoutIcon className={styles.header__logout} onClick={onClickLogout} />
       </div>
     </div>
   );

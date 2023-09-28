@@ -72,14 +72,8 @@ export const ParagraphItem = ({
           <AddTagTicket paragraph={paragraph} updateCallback={updateCallback} />
         </div>
         <div className={styles.paragraph_item__options}>
-          <EditIcon
-            className={styles.paragraph_item__delete}
-            onClick={onClickEditBtn}
-          />
-          <CloseIcon
-            className={styles.paragraph_item__delete}
-            onClick={onClickDeleteItem}
-          />
+          <EditIcon className={styles.icon} onClick={onClickEditBtn} />
+          <CloseIcon className={styles.icon} onClick={onClickDeleteItem} />
         </div>
       </div>
       {editParagraph ? (
