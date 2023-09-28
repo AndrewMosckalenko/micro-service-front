@@ -1,5 +1,9 @@
 import { lazy, StrictMode, Suspense } from "react";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  Navigate,
+  RouterProvider,
+} from "react-router-dom";
 import { IUser } from "../interfaces";
 import { LoadPage } from "../pages/load-page";
 
@@ -9,10 +13,11 @@ const SignUpPage = lazy(() => import("../pages/sign-up-page"));
 const DefaultAuthedPage = lazy(() => import("../pages/default-authed-page"));
 const DocumentListPage = lazy(() => import("../pages/document-list-page"));
 const DocumentPage = lazy(() => import("../pages/document-page"));
+const NotFoundPage = lazy(() => import("../pages/not-found-page"));
 
 const authRouter = [
   {
-    path: "*",
+    path: "/document",
     element: <DefaultAuthedPage />,
     children: [
       {
@@ -25,9 +30,13 @@ const authRouter = [
       },
       {
         path: "*",
-        element: <DocumentListPage />,
+        element: <NotFoundPage />,
       },
     ],
+  },
+  {
+    path: "*",
+    element: <Navigate to="/document" />,
   },
 ];
 

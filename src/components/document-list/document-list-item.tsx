@@ -21,7 +21,7 @@ export const DocumentListItem = ({ document }: IDocumentListItem) => {
   const { refetch } = useGetDocumentsQuery({});
 
   const onClickItem = useCallback(() => {
-    navigate(`/${document.id}`);
+    navigate(`/document/${document.id}`);
   }, [navigate, document]);
 
   const onCLickDeleteItem = useCallback(

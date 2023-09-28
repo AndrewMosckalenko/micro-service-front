@@ -3,7 +3,7 @@ import { SVGProps } from "react";
 export function CloseIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
-    {...props}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       height="24"
