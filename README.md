@@ -1,4 +1,17 @@
-start: npm run dev
+# About app
+
+Client app for work with documents
+
+# Tech-stack
+
+- TypeScript
+- Redux Toolkit
+- React.js
+
+## start
+
+ - npm i
+ - npm run dev
 
 # React + TypeScript + Vite
 
