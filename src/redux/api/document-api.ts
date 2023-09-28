@@ -52,38 +52,38 @@ export const apiDocument = createApi({
       }),
     }),
     createTag: builder.mutation({
-        query: (body) => ({
-            url:`/document/${body.id}/tag`,
-            method: 'POST',
-            body,
-        }),
+      query: (body) => ({
+        url: `/document/${body.id}/tag`,
+        method: "POST",
+        body,
+      }),
     }),
     deleteTag: builder.mutation({
-        query: (body) => ({
-            url: `/document/${body.id}/tag`,
-            method: 'DELETE',
-        }),
+      query: (body) => ({
+        url: `/document/${body.id}/tag`,
+        method: "DELETE",
+      }),
     }),
     patchDocument: builder.mutation({
       query: (body) => ({
         url: `/document/${body.id}`,
-        method: 'PATCH',
+        method: "PATCH",
         body,
-      })
+      }),
     }),
     patchParagraph: builder.mutation({
       query: (body) => ({
         url: `/document/paragraph/${body.id}`,
-        method: 'PATCH',
+        method: "PATCH",
         body,
-      })
+      }),
     }),
     copyDocument: builder.mutation({
       query: (body) => ({
         url: `/document/${body.id}/copy`,
-        method: 'POST',
-      })
-    })
+        method: "POST",
+      }),
+    }),
   }),
 });
 

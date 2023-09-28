@@ -14,3 +14,15 @@
 .document_page__title {
   font-size: 16px;
 }
+
+.icon {
+  box-sizing: border-box;
+  padding: 4px;
+  transition: opacity ease-in-out 0.3s;
+  opacity: 1;
+  cursor: pointer;
+}
+
+.icon:active {
+  opacity: 0.4;
+}

@@ -40,8 +40,8 @@ export const CreateDocumentForm = () => {
 
   const onClickCreate = useCallback(() => {
     const formData = new FormData();
-    formData.append('file', file);
-    formData.append('name', name);
+    formData.append("file", file);
+    formData.append("name", name);
     postDocument(formData).then(() => refetch());
   }, [name, postDocument, refetch, file]);
 

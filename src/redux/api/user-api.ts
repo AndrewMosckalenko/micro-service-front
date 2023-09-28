@@ -35,8 +35,5 @@ export const apiUser = createApi({
   }),
 });
 
-export const {
-  useGetUserQuery,
-  useSignInMutation,
-  useSignUpMutation,
-} = apiUser;
+export const { useGetUserQuery, useSignInMutation, useSignUpMutation } =
+  apiUser;

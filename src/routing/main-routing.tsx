@@ -1,10 +1,7 @@
 import { lazy, StrictMode, Suspense } from "react";
-import {
-  createBrowserRouter,
-  Navigate,
-  RouterProvider,
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { IUser } from "../interfaces";
+import { LoadPage } from "../pages/load-page";
 
 const AuthPage = lazy(() => import("../pages/auth-page"));
 const SignInPage = lazy(() => import("../pages/sign-in-page"));
@@ -58,7 +55,7 @@ const unAuthRouter = [
 export function MainRouter({ user }: { user?: IUser }) {
   return (
     <StrictMode>
-      <Suspense fallback={"Load..."}>
+      <Suspense fallback={<LoadPage />}>
         <RouterProvider
           router={createBrowserRouter(user ? authRouter : unAuthRouter)}
         />

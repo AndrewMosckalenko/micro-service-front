@@ -8,7 +8,10 @@ import { AuthButton, AuthInput, MultipleInput } from "../..";
 
 import styles from "./add-paragraph-form.module.css";
 
-export const AddParagraphForm = ({ documentId, updateCallback }: IAddParagraphFormProps) => {
+export const AddParagraphForm = ({
+  documentId,
+  updateCallback,
+}: IAddParagraphFormProps) => {
   const [postParagraph] = usePostParagraphMutation();
 
   const [{ name, content }, setNewParagraph] = useState({

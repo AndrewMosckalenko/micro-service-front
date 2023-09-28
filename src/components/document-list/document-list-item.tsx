@@ -1,10 +1,13 @@
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { useDeleteDocumentMutation, useGetDocumentsQuery } from "../../redux/api";
+import {
+  useDeleteDocumentMutation,
+  useGetDocumentsQuery,
+} from "../../redux/api";
 import { IDocument } from "../../interfaces";
 import fileIcon from "../../assets/files.png";
-import deleteIcon from "../../assets/delete.png";
+import { CloseIcon } from "../svg-icons/close-icon";
 
 import styles from "./document-list.module.css";
 
@@ -15,7 +18,7 @@ export interface IDocumentListItem {
 export const DocumentListItem = ({ document }: IDocumentListItem) => {
   const navigate = useNavigate();
   const [deleteDocument] = useDeleteDocumentMutation();
-  const { refetch } = useGetDocumentsQuery({})
+  const { refetch } = useGetDocumentsQuery({});
 
   const onClickItem = useCallback(() => {
     navigate(`/${document.id}`);
@@ -24,7 +27,7 @@ export const DocumentListItem = ({ document }: IDocumentListItem) => {
   const onCLickDeleteItem = useCallback(
     (e: React.MouseEvent) => {
       deleteDocument({ id: document.id }).then(() => {
-        refetch()
+        refetch();
       });
       e.stopPropagation();
     },
@@ -41,9 +44,7 @@ export const DocumentListItem = ({ document }: IDocumentListItem) => {
         />
         <p>{document.name}</p>
       </div>
-      <img
-        alt="delete"
-        src={deleteIcon}
+      <CloseIcon
         className={styles.document_list_item__delete_icon}
         onClick={onCLickDeleteItem}
       />
