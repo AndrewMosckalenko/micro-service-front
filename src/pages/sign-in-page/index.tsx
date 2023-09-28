@@ -1,11 +1,3 @@
-import { SignInForm } from "../../components";
+import SignInPage from "./sign-in-page";
 
-import styles from "./sign-in-page.module.css";
-
-export default function SignInPage() {
-  return (
-    <div className={styles.page}>
-      <SignInForm />
-    </div>
-  );
-}
+export default SignInPage;

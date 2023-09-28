@@ -8,8 +8,7 @@ import {
 import { TagTicket } from "./tag-ticket";
 import { AddTagTicket } from "./add-tag-ticket";
 import { AuthInput, MultipleInput } from "..";
-import { EditIcon } from "../svg-icons/edit-icon";
-import { CloseIcon } from "../svg-icons/close-icon";
+import { CloseIcon, EditIcon } from "../svg-icons";
 
 import styles from "./paragraph-list.module.css";
 

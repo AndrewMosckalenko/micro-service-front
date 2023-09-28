@@ -7,7 +7,7 @@ import {
 } from "../../redux/api";
 import { IDocument } from "../../interfaces";
 import fileIcon from "../../assets/files.png";
-import { CloseIcon } from "../svg-icons/close-icon";
+import { CloseIcon } from "../svg-icons";
 
 import styles from "./document-list.module.css";
 

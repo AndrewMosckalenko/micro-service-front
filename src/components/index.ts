@@ -9,3 +9,4 @@ export * from "./inputs/file-input";
 export * from "./forms/add-paragraph-form";
 export * from "./inputs/multiple-input";
 export * from "./paragraph-list";
+export * from "./svg-icons";
