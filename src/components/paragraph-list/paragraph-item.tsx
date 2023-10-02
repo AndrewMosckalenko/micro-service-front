@@ -11,16 +11,17 @@ import { setFocusParagraph } from "../../redux/document-slice";
 import { CloseIcon, EditIcon, MultipleInput } from "..";
 
 import styles from "./paragraph-list.module.css";
+import { useComponentUpdate } from "../../hooks";
 
 export const ParagraphItem = ({
   paragraph,
   updateCallback,
 }: IParagraphItemProps) => {
+  const dispatch = useDispatch();
   const focusParagraph = useSelector((state) => state.document?.focusParagraph);
 
   const [deleteParagraph] = useDeleteParagraphMutation();
   const [patchParagraph] = usePatchParagraphMutation();
-  const dispatch = useDispatch();
 
   const [editParagraph, setEditParagraph] = useState<boolean>(false);
 
@@ -29,16 +30,15 @@ export const ParagraphItem = ({
     content: paragraph.content,
   });
 
+  useComponentUpdate(() => {
+    if (paragraph.id === focusParagraph?.paragraph.id) {
+      dispatch(setFocusParagraph({ ...focusParagraph, paragraph }));
+    }
+  }, [dispatch, paragraph]);
+
   const onClickDeleteItem = useCallback(() => {
     deleteParagraph({ id: paragraph.id }).then(updateCallback);
   }, [deleteParagraph, paragraph]);
-
-  const onChangeParagraphName = useCallback(
-    (value: string) => {
-      setNewParagraphData((prev) => ({ ...prev, name: value }));
-    },
-    [setNewParagraphData],
-  );
 
   const onChangeParagraphContent = useCallback(
     (value: string) => {
@@ -60,6 +60,7 @@ export const ParagraphItem = ({
       dispatch(
         setFocusParagraph({ paragraph, position: { x: e.pageX, y: e.pageY } }),
       );
+      e.stopPropagation();
     },
     [dispatch, paragraph],
   );
@@ -81,7 +82,7 @@ export const ParagraphItem = ({
             onClick={onClickParagraph}
             className={classNames(styles.paragraph_item__content, {
               [styles.paragraph_item__content_focus]:
-                focusParagraph.paragraph.id === paragraph.id,
+                focusParagraph?.paragraph.id === paragraph.id,
             })}
           >
             {paragraph.content}
