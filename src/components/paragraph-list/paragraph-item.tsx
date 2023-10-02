@@ -1,3 +1,5 @@
+import classNames from "classnames";
+import { useDispatch, useSelector } from "react-redux";
 import { useCallback, useState } from "react";
 
 import { IParagraph } from "../../interfaces";
@@ -5,10 +7,8 @@ import {
   useDeleteParagraphMutation,
   usePatchParagraphMutation,
 } from "../../redux/api";
-import { TagTicket } from "./tag-ticket";
-import { AddTagTicket } from "./add-tag-ticket";
-import { AuthInput, MultipleInput } from "..";
-import { CloseIcon, EditIcon } from "../svg-icons";
+import { setFocusParagraph } from "../../redux/document-slice";
+import { CloseIcon, EditIcon, MultipleInput } from "..";
 
 import styles from "./paragraph-list.module.css";
 
@@ -16,8 +16,11 @@ export const ParagraphItem = ({
   paragraph,
   updateCallback,
 }: IParagraphItemProps) => {
+  const focusParagraph = useSelector((state) => state.document?.focusParagraph);
+
   const [deleteParagraph] = useDeleteParagraphMutation();
   const [patchParagraph] = usePatchParagraphMutation();
+  const dispatch = useDispatch();
 
   const [editParagraph, setEditParagraph] = useState<boolean>(false);
 
@@ -52,37 +55,48 @@ export const ParagraphItem = ({
     setEditParagraph((prev) => !prev);
   }, [setEditParagraph, editParagraph, newParagraphData]);
 
+  const onClickParagraph = useCallback(
+    (e: React.MouseEvent<HTMLElement>) => {
+      dispatch(
+        setFocusParagraph({ paragraph, position: { x: e.pageX, y: e.pageY } }),
+      );
+    },
+    [dispatch, paragraph],
+  );
+
   return (
     <div className={styles.paragraph_item}>
-      <div className={styles.paragraph_item__header}>
-        <div className={styles.paragraph_item__title_tags}>
-          <h3 className={styles.paragraph_item__title}>
-            {editParagraph ? (
-              <AuthInput
-                value={newParagraphData.name}
-                onChange={onChangeParagraphName}
-              />
-            ) : (
-              paragraph.name
-            )}
-          </h3>
-          {paragraph.tags.map((tag) => (
-            <TagTicket tag={tag} updateCallback={updateCallback} />
-          ))}
-          <AddTagTicket paragraph={paragraph} updateCallback={updateCallback} />
-        </div>
-        <div className={styles.paragraph_item__options}>
-          <EditIcon className={styles.icon} onClick={onClickEditBtn} />
-          <CloseIcon className={styles.icon} onClick={onClickDeleteItem} />
-        </div>
-      </div>
       {editParagraph ? (
-        <MultipleInput
-          value={newParagraphData.content}
-          onChange={onChangeParagraphContent}
-        />
+        <div className={styles.content_wrapper}>
+          <MultipleInput
+            value={newParagraphData.content}
+            onChange={onChangeParagraphContent}
+          />
+          <EditIcon onClick={onClickEditBtn} className={styles.icon} />
+          <CloseIcon onClick={onClickDeleteItem} className={styles.icon} />
+        </div>
       ) : (
-        <p className={styles.paragraph_item__content}>{paragraph.content}</p>
+        <div className={styles.content_wrapper}>
+          <p
+            onClick={onClickParagraph}
+            className={classNames(styles.paragraph_item__content, {
+              [styles.paragraph_item__content_focus]:
+                focusParagraph.paragraph.id === paragraph.id,
+            })}
+          >
+            {paragraph.content}
+          </p>
+          <div className={styles.icons}>
+            <EditIcon
+              onClick={onClickEditBtn}
+              className={classNames(styles.icon, styles.icon__paragraph)}
+            />
+            <CloseIcon
+              onClick={onClickDeleteItem}
+              className={classNames(styles.icon, styles.icon__paragraph)}
+            />
+          </div>
+        </div>
       )}
     </div>
   );

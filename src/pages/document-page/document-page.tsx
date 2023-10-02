@@ -1,5 +1,6 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { useCallback, useState } from "react";
+import { useSelector } from "react-redux";
 
 import { useComponentUpdate } from "../../hooks";
 import { AddParagraphForm, AuthInput, ParagraphList } from "../../components";
@@ -11,12 +12,15 @@ import {
 } from "../../redux/api";
 import { IDocument } from "../../interfaces";
 import { EditIcon, CopyIcon } from "../../components";
+import { TagList } from "../../components/paragraph-list/tag-list";
 
 import styles from "./document-page.module.css";
 
 export default function DocumentPage() {
   const { id } = useParams();
   const navigate = useNavigate();
+
+  const focusParagraph = useSelector((state) => state.document?.focusParagraph);
 
   const [editDocument, setEditDocument] = useState<boolean>(false);
   const [newDocumentName, setNewDocumentName] = useState<string>("");
@@ -42,6 +46,10 @@ export default function DocumentPage() {
     if (document) setNewDocumentName(document.name);
     if (document && !isLoading) setCurrentDocument(document);
   }, [document]);
+
+  useComponentUpdate(() => {
+    console.log(focusParagraph);
+  }, [focusParagraph]);
 
   const onCLickEditDocument = useCallback(() => {
     if (editDocument && document)
@@ -98,6 +106,12 @@ export default function DocumentPage() {
         <AddParagraphForm
           documentId={Number(id)}
           updateCallback={updateCallback}
+        />
+      )}
+      {focusParagraph && (
+        <TagList
+          paragraph={focusParagraph.paragraph}
+          position={focusParagraph.position}
         />
       )}
     </div>

@@ -10,8 +10,8 @@ Client app for work with documents
 
 ## start
 
- - npm i
- - npm run dev
+- npm i
+- npm run dev
 
 # React + TypeScript + Vite
 

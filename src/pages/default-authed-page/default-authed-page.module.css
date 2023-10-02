@@ -6,6 +6,11 @@
   height: 100vh;
   background: #e7e7e7;
   box-sizing: border-box;
+  overflow: scroll;
+  overflow-x: hidden;
+  padding-top: 80px;
+  padding-bottom: 20px;
+  box-sizing: border-box;
 }
 
 .default_authed_page__content {
@@ -15,11 +20,8 @@
 
   box-shadow: 2px 2px 2px 0 #0000008f;
   box-sizing: border-box;
-  min-height: 30px;
   padding: 25px;
   max-width: 1170px;
   width: 100%;
-
-  overflow: scroll;
-  overflow-x: hidden;
+  margin-bottom: 20px;
 }

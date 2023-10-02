@@ -12,7 +12,7 @@ export const TagTicket = ({ tag, updateCallback }: ITagTicketProps) => {
   }, [deleteTag, tag]);
 
   return (
-    <div className={styles.tag_ticket}>
+    <div className={styles.tag_ticket} style={{ background: tag.style?.color }}>
       <p>#{tag.title}</p>
       <img
         src={deleteIcon}
