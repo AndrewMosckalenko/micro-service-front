@@ -1,0 +1,23 @@
+.project_list_item {
+  border-radius: 4px;
+  box-shadow: 0 0 2px 1px #0000008f;
+  background: #ffffff;
+  cursor: pointer;
+
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  text-align: center;
+}
+
+.project_list_item:hover {
+  box-shadow: 0 0 4px 1px #0000008f;
+}
+
+.project_list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 10px;
+}

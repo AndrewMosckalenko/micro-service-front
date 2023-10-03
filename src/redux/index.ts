@@ -17,7 +17,13 @@ const reducer = combineReducers({
 const store = configureStore({
   reducer,
   middleware: (defaultMiddlewares) =>
-    defaultMiddlewares().concat([apiUser.middleware, apiDocument.middleware]),
+    defaultMiddlewares().concat([
+      apiUser.middleware,
+      apiDocument.middleware,
+      apiParagraph.middleware,
+      apiProject.middleware,
+      apiTag.middleware,
+    ]),
 });
 
 export default store;

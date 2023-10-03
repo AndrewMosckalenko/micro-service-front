@@ -16,7 +16,7 @@ export const apiProject = createApi({
   endpoints: (builder) => ({
     postProject: builder.mutation({
       query: (body) => ({
-        url: `project/${body.projectId}`,
+        url: `project`,
         method: "POST",
         body,
       }),

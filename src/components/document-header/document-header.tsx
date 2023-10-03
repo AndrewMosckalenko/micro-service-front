@@ -58,6 +58,10 @@ export function DocumentHeader() {
     getDocument({ id });
   }, [id, getDocument]);
 
+  if(!document?.name) {
+    return <></>
+  }
+
   return (
     <div className={styles.document_page__title}>
       Document:{" "}

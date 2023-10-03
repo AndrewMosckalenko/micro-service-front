@@ -14,18 +14,23 @@ const DefaultAuthedPage = lazy(() => import("../pages/default-authed-page"));
 const DocumentListPage = lazy(() => import("../pages/document-list-page"));
 const DocumentPage = lazy(() => import("../pages/document-page"));
 const NotFoundPage = lazy(() => import("../pages/not-found-page"));
+const ProjectListPage = lazy(() => import("../pages/projects-list-page"));
 
 const authRouter = [
   {
-    path: "/document",
+    path: "/",
     element: <DefaultAuthedPage />,
     children: [
       {
-        path: "",
+        path: "/",
+        element: <ProjectListPage />,
+      },
+      {
+        path: ":projectId/document",
         element: <DocumentListPage />,
       },
       {
-        path: ":id",
+        path: ":projectId/document/:id",
         element: <DocumentPage />,
       },
       {

@@ -13,6 +13,7 @@ export * from "./forms/action-form";
 export * from "./paragraph-list";
 export * from "./document-list";
 export * from "./tag-list";
+export * from "./project-list";
 
 export * from "./header";
 
