@@ -1,9 +1,6 @@
 import { useCallback, useState } from "react";
 
-import {
-  useGetDocumentWithParapgraphsMutation,
-  usePostParagraphMutation,
-} from "../../../redux/api";
+import { usePostParagraphMutation } from "../../../redux/api";
 import { AuthButton, AuthInput, MultipleInput } from "../..";
 
 import styles from "./add-paragraph-form.module.css";
@@ -35,7 +32,7 @@ export const AddParagraphForm = ({
 
   const onClickAddBtn = useCallback(() => {
     postParagraph({ id: documentId, name, content }).then(updateCallback);
-  }, [postParagraph, name, content]);
+  }, [postParagraph, name, content, documentId, updateCallback]);
 
   return (
     <div className={styles.add_paragraph_form}>

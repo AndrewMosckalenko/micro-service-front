@@ -1,3 +1,5 @@
+import { useCallback } from "react";
+
 import { ITag } from "../../interfaces/tag";
 import { IParagraph } from "../../interfaces";
 
@@ -5,7 +7,6 @@ import { TagTicket } from "./tag-ticket";
 import { AddTagTicket } from "./add-tag-ticket";
 
 import styles from "./paragraph-list.module.css";
-import { useCallback } from "react";
 
 export function TagList({
   position,

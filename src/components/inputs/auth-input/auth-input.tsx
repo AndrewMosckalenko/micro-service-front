@@ -1,4 +1,4 @@
-import { useCallback, memo } from "react";
+import { memo, useCallback } from "react";
 import styles from "./auth-input.module.css";
 
 export interface IAuthInputProps {

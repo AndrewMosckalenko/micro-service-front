@@ -31,7 +31,7 @@ export const DocumentListItem = ({ document }: IDocumentListItem) => {
       });
       e.stopPropagation();
     },
-    [deleteDocument, document],
+    [deleteDocument, document, refetch],
   );
 
   return (

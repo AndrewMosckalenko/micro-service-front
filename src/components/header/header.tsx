@@ -1,14 +1,11 @@
 import { memo, useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { useLogout } from "../../hooks";
 import { useGetUserQuery } from "../../redux/api";
-
-import logoutIcon from "../../assets/logout.png";
-import returnIcon from "../../assets/return.png";
+import { LogoutIcon, ReturnIcon } from "..";
 
 import styles from "./header.module.css";
-import { useNavigate } from "react-router-dom";
-import { LogoutIcon, ReturnIcon } from "..";
 
 export const Header = memo(() => {
   const { data: user } = useGetUserQuery({});

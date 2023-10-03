@@ -1,8 +1,8 @@
-import { lazy, StrictMode, Suspense } from "react";
+import { StrictMode, Suspense, lazy } from "react";
 import {
   createBrowserRouter,
-  Navigate,
   RouterProvider,
+  Navigate,
 } from "react-router-dom";
 import { IUser } from "../interfaces";
 import { LoadPage } from "../pages/load-page";

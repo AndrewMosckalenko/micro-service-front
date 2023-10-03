@@ -38,7 +38,7 @@ export const ParagraphItem = ({
 
   const onClickDeleteItem = useCallback(() => {
     deleteParagraph({ id: paragraph.id }).then(updateCallback);
-  }, [deleteParagraph, paragraph]);
+  }, [deleteParagraph, paragraph, updateCallback]);
 
   const onChangeParagraphContent = useCallback(
     (value: string) => {
@@ -53,7 +53,7 @@ export const ParagraphItem = ({
         updateCallback,
       );
     setEditParagraph((prev) => !prev);
-  }, [setEditParagraph, editParagraph, newParagraphData]);
+  }, [setEditParagraph, editParagraph, newParagraphData, paragraph, patchParagraph, updateCallback]);
 
   const onClickParagraph = useCallback(
     (e: React.MouseEvent<HTMLElement>) => {

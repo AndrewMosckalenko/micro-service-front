@@ -1,8 +1,8 @@
 import { useSelector } from "react-redux";
 
 import { MainRouter } from "./routing";
-import { useGetUserQuery } from "./redux/api";
 import { useComponentUpdate } from "./hooks";
+import { useGetUserQuery } from "./redux/api";
 
 import "./App.css";
 

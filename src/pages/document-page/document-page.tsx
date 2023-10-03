@@ -7,11 +7,11 @@ import { AddParagraphForm, AuthInput, ParagraphList } from "../../components";
 import {
   useCopyDocumentMutation,
   useGetDocumentWithParapgraphsMutation,
-  usePatchDocumentMutation,
   useGetDocumentsQuery,
+  usePatchDocumentMutation,
 } from "../../redux/api";
 import { IDocument } from "../../interfaces";
-import { EditIcon, CopyIcon } from "../../components";
+import { CopyIcon, EditIcon } from "../../components";
 import { TagList } from "../../components/paragraph-list/tag-list";
 
 import styles from "./document-page.module.css";
@@ -57,7 +57,7 @@ export default function DocumentPage() {
         getDocument({ id });
       });
     setEditDocument((prev) => !prev);
-  }, [setEditDocument, editDocument, document, newDocumentName]);
+  }, [setEditDocument, editDocument, document, newDocumentName, getDocument, id, patchDocument]);
 
   const onChangeNewName = useCallback(
     (value: string) => {
@@ -74,7 +74,7 @@ export default function DocumentPage() {
     copyDocument({ id }).then(() => {
       refetch();
     });
-  }, [id, copyDocument]);
+  }, [id, copyDocument, refetch]);
 
   if (isLoading && !currentDocument) {
     return <h1>Loading...</h1>;

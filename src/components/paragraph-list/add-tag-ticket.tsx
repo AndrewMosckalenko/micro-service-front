@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useCallback, useState } from "react";
 
 import { useCreateTagMutation } from "../../redux/api";
 import { IParagraph } from "../../interfaces";
@@ -21,7 +21,7 @@ export const AddTagTicket = ({
 
   const onClickAddTagBtn = useCallback(() => {
     postTag({ id: paragraph.id, title: newTag }).then(updateCallback);
-  }, [paragraph, postTag, newTag]);
+  }, [paragraph, postTag, newTag, updateCallback]);
 
   return (
     <div className={styles.add_tag_ticket}>

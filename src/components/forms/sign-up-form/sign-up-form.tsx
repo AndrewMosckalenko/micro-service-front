@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { useCallback, useState, memo } from "react";
+import { memo, useCallback, useState } from "react";
 import { useDispatch } from "react-redux";
 
 import { useSignUpMutation } from "../../../redux/api";

@@ -1,4 +1,4 @@
-import { memo, useCallback } from "react";
+import { useCallback } from "react";
 
 import styles from "./auth-button.module.css";
 
@@ -7,7 +7,7 @@ export interface IAuthButtonProps {
   onClick: () => void;
 }
 
-export const AuthButton = memo(({ label, onClick }: IAuthButtonProps) => {
+export function AuthButton({ label, onClick }: IAuthButtonProps) {
   const onCLickButton = useCallback(onClick, [onClick]);
 
   return (
@@ -15,4 +15,4 @@ export const AuthButton = memo(({ label, onClick }: IAuthButtonProps) => {
       {label}
     </button>
   );
-});
+}

@@ -9,7 +9,7 @@ export const TagTicket = ({ tag, updateCallback }: ITagTicketProps) => {
 
   const onClickDeleteTagBtn = useCallback(() => {
     deleteTag({ id: tag.id }).then(updateCallback);
-  }, [deleteTag, tag]);
+  }, [deleteTag, tag, updateCallback]);
 
   return (
     <div className={styles.tag_ticket} style={{ background: tag.style?.color }}>
