@@ -8,7 +8,7 @@ import {
   usePatchParagraphMutation,
 } from "../../redux/api";
 import { setFocusParagraph } from "../../redux/document-slice";
-import { CloseIcon, EditIcon, MultipleInput } from "..";
+import { AddIcon, CloseIcon, EditIcon, MultipleInput, SaveIcon } from "..";
 
 import styles from "./paragraph-list.module.css";
 import { useComponentUpdate } from "../../hooks";
@@ -80,7 +80,7 @@ export const ParagraphItem = ({
             value={newParagraphData.content}
             onChange={onChangeParagraphContent}
           />
-          <EditIcon onClick={onClickEditBtn} className={styles.icon} />
+          <SaveIcon onClick={onClickEditBtn} className={styles.icon} />
           <CloseIcon onClick={onClickDeleteItem} className={styles.icon} />
         </div>
       ) : (
@@ -99,8 +99,10 @@ export const ParagraphItem = ({
               onClick={onClickEditBtn}
               className={classNames(styles.icon, styles.icon__paragraph)}
             />
-            <CloseIcon
-              onClick={onClickDeleteItem}
+          </div>
+          <div className={classNames(styles.icons, styles.icons_add)}>
+            <AddIcon
+              onClick={onClickEditBtn}
               className={classNames(styles.icon, styles.icon__paragraph)}
             />
           </div>

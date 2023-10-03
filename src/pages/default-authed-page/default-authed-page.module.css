@@ -15,10 +15,10 @@
 
 .default_authed_page__content {
   background: #fff;
-  border-radius: 25px;
+  border-radius: 4px;
   align-self: center;
 
-  box-shadow: 2px 2px 2px 0 #0000008f;
+  box-shadow: 0 0 3px 1px #0000008f;
   box-sizing: border-box;
   padding: 25px;
   max-width: 1170px;

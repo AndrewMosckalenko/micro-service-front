@@ -32,22 +32,9 @@ export const apiDocument = createApi({
         method: "GET",
       }),
     }),
-    postParagraph: builder.mutation({
-      query: (body) => ({
-        url: `document/${body.id}`,
-        method: "POST",
-        body,
-      }),
-    }),
     deleteDocument: builder.mutation({
       query: (body) => ({
         url: `/document/${body.id}`,
-        method: "DELETE",
-      }),
-    }),
-    deleteParagraph: builder.mutation({
-      query: (body) => ({
-        url: `/document/paragraph/${body.id}`,
         method: "DELETE",
       }),
     }),
@@ -71,13 +58,6 @@ export const apiDocument = createApi({
         body,
       }),
     }),
-    patchParagraph: builder.mutation({
-      query: (body) => ({
-        url: `/document/paragraph/${body.id}`,
-        method: "PATCH",
-        body,
-      }),
-    }),
     copyDocument: builder.mutation({
       query: (body) => ({
         url: `/document/${body.id}/copy`,
@@ -91,12 +71,9 @@ export const {
   useGetDocumentsQuery,
   usePostDocumentMutation,
   useGetDocumentWithParapgraphsMutation,
-  usePostParagraphMutation,
   useDeleteDocumentMutation,
-  useDeleteParagraphMutation,
   useCreateTagMutation,
   useDeleteTagMutation,
   usePatchDocumentMutation,
-  usePatchParagraphMutation,
   useCopyDocumentMutation,
 } = apiDocument;

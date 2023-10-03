@@ -1,11 +1,15 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import { apiDocument, apiUser } from "./api";
+import { apiDocument, apiParagraph, apiProject, apiUser } from "./api";
 import authSlice from "./auth-slice";
 import documentSlice from "./document-slice";
+import { apiTag } from "./api/tag-api";
 
 const reducer = combineReducers({
   [apiUser.reducerPath]: apiUser.reducer,
   [apiDocument.reducerPath]: apiDocument.reducer,
+  [apiProject.reducerPath]: apiProject.reducer,
+  [apiParagraph.reducerPath]: apiParagraph.reducer,
+  [apiTag.reducerPath]: apiTag.reducer,
   auth: authSlice,
   document: documentSlice,
 });

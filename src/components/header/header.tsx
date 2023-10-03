@@ -6,6 +6,7 @@ import { useGetUserQuery } from "../../redux/api";
 import { LogoutIcon, ReturnIcon } from "..";
 
 import styles from "./header.module.css";
+import { DocumentHeader } from "../document-header";
 
 export const Header = memo(() => {
   const { data: user } = useGetUserQuery({});
@@ -20,6 +21,7 @@ export const Header = memo(() => {
   return (
     <div className={styles.header}>
       <ReturnIcon className={styles.header__logout} onClick={onClickReturn} />
+      <DocumentHeader />
       <div className={styles.header__right_side}>
         <div className={styles.header__user_info}>
           <p>{user?.name}</p>
