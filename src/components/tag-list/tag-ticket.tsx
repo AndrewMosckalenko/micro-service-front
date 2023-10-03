@@ -1,8 +1,10 @@
-import { ITag } from "../../interfaces/tag";
-import deleteIcon from "../../assets/delete.png";
-import styles from "./paragraph-list.module.css";
-import { useDeleteTagMutation } from "../../redux/api";
 import { useCallback } from "react";
+
+import { useDeleteTagMutation } from "../../redux/api";
+import { ITag } from "../../interfaces";
+import deleteIcon from "../../assets/delete.png";
+
+import styles from "./tag-list.module.css";
 
 export const TagTicket = ({ tag, updateCallback }: ITagTicketProps) => {
   const [deleteTag] = useDeleteTagMutation();

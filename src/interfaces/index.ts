@@ -1,3 +1,4 @@
-export type { IDocument } from "./documet";
-export type { IParagraph } from "./paragraph";
-export type { IUser } from "./user";
+export * from "./documet";
+export * from "./paragraph";
+export * from "./user";
+export * from "./tag";

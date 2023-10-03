@@ -1,26 +1,36 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { useCallback, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { useComponentUpdate } from "../../hooks";
-import { AddParagraphForm, AuthInput, ParagraphList } from "../../components";
+import {
+  AddParagraphForm,
+  AuthInput,
+  ParagraphList,
+  CopyIcon,
+  EditIcon,
+  ActionForm,
+  TagList,
+} from "../../components";
 import {
   useCopyDocumentMutation,
   useGetDocumentWithParapgraphsMutation,
   useGetDocumentsQuery,
   usePatchDocumentMutation,
 } from "../../redux/api";
+import { setDocumentCopiedStatus } from "../../redux/document-slice";
 import { IDocument } from "../../interfaces";
-import { CopyIcon, EditIcon } from "../../components";
-import { TagList } from "../../components/paragraph-list/tag-list";
 
 import styles from "./document-page.module.css";
 
 export default function DocumentPage() {
   const { id } = useParams();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-  const focusParagraph = useSelector((state) => state.document?.focusParagraph);
+  const { focusParagraph, documentCopied } = useSelector(
+    (state) => state.document,
+  );
 
   const [editDocument, setEditDocument] = useState<boolean>(false);
   const [newDocumentName, setNewDocumentName] = useState<string>("");
@@ -57,7 +67,15 @@ export default function DocumentPage() {
         getDocument({ id });
       });
     setEditDocument((prev) => !prev);
-  }, [setEditDocument, editDocument, document, newDocumentName, getDocument, id, patchDocument]);
+  }, [
+    setEditDocument,
+    editDocument,
+    document,
+    newDocumentName,
+    getDocument,
+    id,
+    patchDocument,
+  ]);
 
   const onChangeNewName = useCallback(
     (value: string) => {
@@ -73,8 +91,13 @@ export default function DocumentPage() {
   const copyDocumentClick = useCallback(() => {
     copyDocument({ id }).then(() => {
       refetch();
+      dispatch(setDocumentCopiedStatus(true));
     });
   }, [id, copyDocument, refetch]);
+
+  const onCLickActionForm = useCallback(() => {
+    dispatch(setDocumentCopiedStatus(false));
+  }, [dispatch]);
 
   if (isLoading && !currentDocument) {
     return <h1>Loading...</h1>;
@@ -114,6 +137,9 @@ export default function DocumentPage() {
           position={focusParagraph.position}
           updateCallback={updateCallback}
         />
+      )}
+      {documentCopied && (
+        <ActionForm label="Document copied" onClick={onCLickActionForm} />
       )}
     </div>
   );

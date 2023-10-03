@@ -53,7 +53,14 @@ export const ParagraphItem = ({
         updateCallback,
       );
     setEditParagraph((prev) => !prev);
-  }, [setEditParagraph, editParagraph, newParagraphData, paragraph, patchParagraph, updateCallback]);
+  }, [
+    setEditParagraph,
+    editParagraph,
+    newParagraphData,
+    paragraph,
+    patchParagraph,
+    updateCallback,
+  ]);
 
   const onClickParagraph = useCallback(
     (e: React.MouseEvent<HTMLElement>) => {

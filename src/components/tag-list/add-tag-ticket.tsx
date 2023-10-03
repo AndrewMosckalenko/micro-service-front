@@ -3,7 +3,7 @@ import { useCallback, useState } from "react";
 import { useCreateTagMutation } from "../../redux/api";
 import { IParagraph } from "../../interfaces";
 
-import styles from "./paragraph-list.module.css";
+import styles from "./tag-list.module.css";
 
 export const AddTagTicket = ({
   paragraph,
