@@ -65,8 +65,8 @@
   position: relative;
 }
 
-.content_wrapper:hover .icons,
-.icons:hover {
+.icons:hover,
+.content_wrapper:hover .icons {
   display: flex;
 }
 
@@ -83,6 +83,8 @@
   background: #ffffffc2;
   box-shadow: 0 0 1px 1px #0000008f;
   border-radius: 4px;
+  box-sizing: border-box;
+  margin-bottom: 50px;
 }
 
 .icons_add {

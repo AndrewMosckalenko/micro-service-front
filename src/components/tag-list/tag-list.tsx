@@ -37,7 +37,7 @@ export function TagList({
   return (
     <div
       className={styles.tag_list}
-      style={{ top: position.y + 20, left: position.x }}
+      style={{ top: position.y + 20, left: position?.x }}
       onClick={onClickTagList}
     >
       <AddTagTicket paragraph={paragraph} updateCallback={updateCallback} />

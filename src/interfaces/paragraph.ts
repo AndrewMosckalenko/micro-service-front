@@ -5,5 +5,6 @@ export interface IParagraph {
   name: string;
   content: string;
   type: number;
+  serial: number;
   paragraphTags: IParagraphTag[];
 }

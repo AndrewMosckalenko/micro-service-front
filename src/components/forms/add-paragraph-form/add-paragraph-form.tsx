@@ -1,27 +1,22 @@
 import { useCallback, useState } from "react";
 
 import { usePostParagraphMutation } from "../../../redux/api";
-import { AuthButton, AuthInput, MultipleInput } from "../..";
+import { AuthButton, MultipleInput } from "../..";
 
 import styles from "./add-paragraph-form.module.css";
 
 export const AddParagraphForm = ({
   documentId,
   updateCallback,
+  nextParagraphId,
+  onClickCancel,
 }: IAddParagraphFormProps) => {
   const [postParagraph] = usePostParagraphMutation();
 
   const [{ name, content }, setNewParagraph] = useState({
-    name: "",
+    name: "paragraph",
     content: "",
   });
-
-  const onChangeName = useCallback(
-    (name: string) => {
-      setNewParagraph((prev) => ({ ...prev, name }));
-    },
-    [setNewParagraph],
-  );
 
   const onChangeContent = useCallback(
     (content: string) => {
@@ -31,19 +26,25 @@ export const AddParagraphForm = ({
   );
 
   const onClickAddBtn = useCallback(() => {
-    postParagraph({ id: documentId, name, content }).then(updateCallback);
+    postParagraph({ id: documentId, name, content, nextParagraphId }).then(
+      updateCallback,
+    );
   }, [postParagraph, name, content, documentId, updateCallback]);
 
   return (
     <div className={styles.add_paragraph_form}>
-      <AuthInput hint="name" value={name} onChange={onChangeName} />
       <MultipleInput value={content} onChange={onChangeContent} />
-      <AuthButton onClick={onClickAddBtn} label="create paragraph" />
+      <div className={styles.add_paragraph_form__btns}>
+        <AuthButton onClick={onClickAddBtn} label="create paragraph" />
+        <AuthButton onClick={onClickCancel} label="cancel" />
+      </div>
     </div>
   );
 };
 
 export interface IAddParagraphFormProps {
   documentId: number;
+  nextParagraphId: number;
   updateCallback: () => void;
+  onClickCancel: () => void;
 }

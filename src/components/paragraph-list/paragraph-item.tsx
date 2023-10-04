@@ -16,6 +16,7 @@ import { useComponentUpdate } from "../../hooks";
 export const ParagraphItem = ({
   paragraph,
   updateCallback,
+  onClickAddParagraph,
 }: IParagraphItemProps) => {
   const dispatch = useDispatch();
   const focusParagraph = useSelector((state) => state.document?.focusParagraph);
@@ -39,6 +40,10 @@ export const ParagraphItem = ({
   const onClickDeleteItem = useCallback(() => {
     deleteParagraph({ id: paragraph.id }).then(updateCallback);
   }, [deleteParagraph, paragraph, updateCallback]);
+
+  const onCLickAddParagraphBtn = useCallback(() => {
+    onClickAddParagraph(paragraph.id);
+  }, [onClickAddParagraph, paragraph]);
 
   const onChangeParagraphContent = useCallback(
     (value: string) => {
@@ -99,10 +104,8 @@ export const ParagraphItem = ({
               onClick={onClickEditBtn}
               className={classNames(styles.icon, styles.icon__paragraph)}
             />
-          </div>
-          <div className={classNames(styles.icons, styles.icons_add)}>
             <AddIcon
-              onClick={onClickEditBtn}
+              onClick={onCLickAddParagraphBtn}
               className={classNames(styles.icon, styles.icon__paragraph)}
             />
           </div>
@@ -114,5 +117,6 @@ export const ParagraphItem = ({
 
 export interface IParagraphItemProps {
   paragraph: IParagraph;
+  onClickAddParagraph: (value: number) => void;
   updateCallback: () => void;
 }
