@@ -29,7 +29,7 @@ export const AddTagTicket = ({
     postTag({ projectId: project.id, title: newTag }).then(() => {
       getProject({ id: projectId });
     });
-  }, [paragraph, postTag, newTag, updateCallback, project]);
+  }, [postTag, newTag, project, getProject, projectId]);
 
   return (
     <div className={styles.add_tag_ticket}>

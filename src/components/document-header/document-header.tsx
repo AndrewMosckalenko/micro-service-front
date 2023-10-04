@@ -1,4 +1,9 @@
 import { useCallback, useState } from "react";
+import { useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
+
+import { setDocumentCopiedStatus } from "../../redux/document-slice";
+import { AuthInput, CopyIcon, EditIcon } from "..";
 import {
   useCopyDocumentMutation,
   useGetDocumentWithParapgraphsMutation,
@@ -6,12 +11,9 @@ import {
   useGetProjectMutation,
   usePatchDocumentMutation,
 } from "../../redux/api";
-import styles from "./document-header.module.css";
-import { useDispatch } from "react-redux";
-import { AuthInput, CopyIcon, EditIcon } from "..";
-import { setDocumentCopiedStatus } from "../../redux/document-slice";
-import { useParams } from "react-router-dom";
 import { useComponentUpdate } from "../../hooks";
+
+import styles from "./document-header.module.css";
 
 export function DocumentHeader() {
   const dispatch = useDispatch();
@@ -57,7 +59,7 @@ export function DocumentHeader() {
       refetch();
       dispatch(setDocumentCopiedStatus(true));
     });
-  }, [id, copyDocument, refetch]);
+  }, [id, copyDocument, refetch, dispatch]);
 
   useComponentUpdate(() => {
     if (id) getDocument({ id });

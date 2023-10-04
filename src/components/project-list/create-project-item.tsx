@@ -22,7 +22,7 @@ export function CreateProjectItem() {
     postProject({ name: newProjectName }).then(() => {
       refetch();
     });
-  }, [postProject, newProjectName]);
+  }, [postProject, newProjectName, refetch]);
 
   return (
     <div className={styles.project_list_item}>

@@ -1,7 +1,8 @@
 import { useParams } from "react-router-dom";
+
 import { CreateDocumentForm, DocumentList } from "../../components";
 import { useComponentUpdate } from "../../hooks";
-import { useGetDocumentsQuery, useGetProjectMutation } from "../../redux/api";
+import { useGetProjectMutation } from "../../redux/api";
 
 import styles from "./document-list-page.module.css";
 
