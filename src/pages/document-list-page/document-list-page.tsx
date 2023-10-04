@@ -1,18 +1,12 @@
-import { useParams } from "react-router-dom";
-
 import { CreateDocumentForm, DocumentList } from "../../components";
-import { useComponentUpdate } from "../../hooks";
 import { useGetProjectMutation } from "../../redux/api";
 
 import styles from "./document-list-page.module.css";
 
 export default function DocumentListPage() {
-  const { projectId } = useParams();
-  const [getProject, { data: project, error }] = useGetProjectMutation();
-
-  useComponentUpdate(() => {
-    getProject({ id: projectId });
-  }, [projectId, getProject]);
+  const [, { data: project, error }] = useGetProjectMutation({
+    fixedCacheKey: "get-project",
+  });
 
   return (
     <div className={styles.document_list_page}>

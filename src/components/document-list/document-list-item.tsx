@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 
 import {
   useDeleteDocumentMutation,
-  useGetDocumentsQuery,
+  useGetProjectMutation,
 } from "../../redux/api";
 import { IDocument } from "../../interfaces";
 import fileIcon from "../../assets/files.png";
@@ -19,7 +19,7 @@ export const DocumentListItem = ({ document }: IDocumentListItem) => {
   const navigate = useNavigate();
   const { projectId } = useParams();
   const [deleteDocument] = useDeleteDocumentMutation();
-  const { refetch } = useGetDocumentsQuery({});
+  const [getProject] = useGetProjectMutation({ fixedCacheKey: "get-project" });
 
   const onClickItem = useCallback(() => {
     navigate(`/${projectId}/document/${document.id}`);
@@ -28,11 +28,11 @@ export const DocumentListItem = ({ document }: IDocumentListItem) => {
   const onCLickDeleteItem = useCallback(
     (e: React.MouseEvent) => {
       deleteDocument({ id: document.id }).then(() => {
-        refetch();
+        getProject({ id: projectId });
       });
       e.stopPropagation();
     },
-    [deleteDocument, document, refetch],
+    [deleteDocument, document, getProject, projectId],
   );
 
   return (
