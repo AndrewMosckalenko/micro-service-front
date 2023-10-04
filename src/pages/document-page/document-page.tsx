@@ -3,12 +3,7 @@ import { useCallback, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { useComponentUpdate } from "../../hooks";
-import {
-  AddParagraphForm,
-  ParagraphList,
-  ActionForm,
-  TagList,
-} from "../../components";
+import { ParagraphList, ActionForm, TagList } from "../../components";
 import { useGetDocumentWithParapgraphsMutation } from "../../redux/api";
 import { setDocumentCopiedStatus } from "../../redux/document-slice";
 import { IDocument } from "../../interfaces";
@@ -29,23 +24,19 @@ export default function DocumentPage() {
   );
 
   const [getDocument, { data: document, isLoading }] =
-    useGetDocumentWithParapgraphsMutation();
+    useGetDocumentWithParapgraphsMutation({ fixedCacheKey: "get-document" });
 
   useComponentUpdate(() => {
     if (isNaN(Number(id))) {
       navigate("/");
     } else {
-      getDocument({ id });
+      // getDocument({ id });
     }
   }, [id, navigate, getDocument]);
 
   useComponentUpdate(() => {
     if (document && !isLoading) setCurrentDocument(document);
   }, [document]);
-
-  useComponentUpdate(() => {
-    console.log(focusParagraph);
-  }, [focusParagraph]);
 
   const updateCallback = useCallback(() => {
     getDocument({ id });

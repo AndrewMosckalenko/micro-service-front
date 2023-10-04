@@ -6,12 +6,17 @@ import { TagTicket } from "./tag-ticket";
 import { AddTagTicket } from "./add-tag-ticket";
 
 import styles from "./tag-list.module.css";
+import { useGetProjectMutation } from "../../redux/api";
 
 export function TagList({
   position,
   paragraph,
   updateCallback,
 }: ITagListProps) {
+  const [getProject, { data: project }] = useGetProjectMutation({
+    fixedCacheKey: "get-project",
+  });
+
   const onClickTagList = useCallback((e: React.MouseEvent<HTMLElement>) => {
     e.stopPropagation();
   }, []);
@@ -22,7 +27,11 @@ export function TagList({
       onClick={onClickTagList}
     >
       <AddTagTicket paragraph={paragraph} updateCallback={updateCallback} />
-      {paragraph.tags.map((tag: ITag) => (
+      {paragraph?.paragraphTags?.map((tag: ITag) => (
+        <TagTicket tag={tag} updateCallback={updateCallback} />
+      ))}
+      <hr />
+      {project?.tags?.map((tag: ITag) => (
         <TagTicket tag={tag} updateCallback={updateCallback} />
       ))}
     </div>

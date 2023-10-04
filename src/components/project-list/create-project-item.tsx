@@ -7,7 +7,7 @@ import styles from "./project-list.module.css";
 
 export function CreateProjectItem() {
   const [postProject] = usePostProjectMutation({});
-  const {refetch} = useGetProjectsQuery({});
+  const { refetch } = useGetProjectsQuery({});
 
   const [newProjectName, setNewProjectName] = useState<string>("");
 
@@ -19,7 +19,9 @@ export function CreateProjectItem() {
   );
 
   const onClickCreateProjectBtn = useCallback(() => {
-    postProject({ name: newProjectName }).then(() => {refetch()});
+    postProject({ name: newProjectName }).then(() => {
+      refetch();
+    });
   }, [postProject, newProjectName]);
 
   return (

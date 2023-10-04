@@ -20,9 +20,9 @@ export const apiDocument = createApi({
     }),
     postDocument: builder.mutation({
       query: (body) => ({
-        url: "document",
+        url: `document/${body.id}`,
         method: "POST",
-        body,
+        body: body.data,
         formData: true,
       }),
     }),

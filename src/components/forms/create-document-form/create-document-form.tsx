@@ -8,10 +8,12 @@ import {
 
 import styles from "./create-document-form.module.css";
 import { useComponentUpdate } from "../../../hooks";
+import { useParams } from "react-router-dom";
 
 export const CreateDocumentForm = () => {
   const [name, setName] = useState("");
   const [file, setFile] = useState<File | null>(null);
+  const { projectId } = useParams();
 
   const { refetch } = useGetDocumentsQuery({});
   const [postDocument] = usePostDocumentMutation();
@@ -42,17 +44,19 @@ export const CreateDocumentForm = () => {
     const formData = new FormData();
     formData.append("file", file);
     formData.append("name", name);
-    postDocument(formData).then(() => refetch());
-  }, [name, postDocument, refetch, file]);
+    postDocument({ data: formData, id: projectId }).then(() => refetch());
+  }, [name, postDocument, refetch, file, projectId]);
 
   return (
     <div className={styles.create_document_form}>
-      <AuthInput
-        hint="name of new document"
-        onChange={onChangeName}
-        value={name}
-      />
-      <FileInput onChangeFile={onChangeFile} />
+      <div className={styles.create_document__file_loader}>
+        <AuthInput
+          hint="name of new document"
+          onChange={onChangeName}
+          value={name}
+        />
+        <FileInput onChangeFile={onChangeFile} />
+      </div>
       <AuthButton onClick={onClickCreate} label="create document" />
     </div>
   );

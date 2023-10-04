@@ -1,8 +1,14 @@
-.create_document_form {
+.create_document__file_loader {
   display: flex;
   flex-direction: column;
   padding: 20px;
   gap: 20px;
   width: 100%;
   box-sizing: border-box;
+}
+
+.create_document_form {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
 }

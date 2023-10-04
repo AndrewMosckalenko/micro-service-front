@@ -3,6 +3,7 @@ import {
   useCopyDocumentMutation,
   useGetDocumentWithParapgraphsMutation,
   useGetDocumentsQuery,
+  useGetProjectMutation,
   usePatchDocumentMutation,
 } from "../../redux/api";
 import styles from "./document-header.module.css";
@@ -14,7 +15,7 @@ import { useComponentUpdate } from "../../hooks";
 
 export function DocumentHeader() {
   const dispatch = useDispatch();
-  const { id } = useParams();
+  const { id, projectId } = useParams();
   const [copyDocument] = useCopyDocumentMutation();
   const { refetch } = useGetDocumentsQuery({});
   const [patchDocument] = usePatchDocumentMutation();
@@ -22,8 +23,12 @@ export function DocumentHeader() {
   const [editDocument, setEditDocument] = useState<boolean>(false);
   const [newDocumentName, setNewDocumentName] = useState<string>("");
   const [getDocument, { data: document }] =
-    useGetDocumentWithParapgraphsMutation({});
-
+    useGetDocumentWithParapgraphsMutation({
+      fixedCacheKey: "get-document",
+    });
+  const [getProject, { data: project }] = useGetProjectMutation({
+    fixedCacheKey: "get-project",
+  });
   const onChangeNewName = useCallback(
     (value: string) => {
       setNewDocumentName(value);
@@ -32,7 +37,7 @@ export function DocumentHeader() {
   );
 
   const onCLickEditDocument = useCallback(() => {
-    if (editDocument && document)
+    if (editDocument && document && newDocumentName)
       patchDocument({ id: document.id, name: newDocumentName }).then(() => {
         getDocument({ id });
       });
@@ -56,15 +61,17 @@ export function DocumentHeader() {
 
   useComponentUpdate(() => {
     getDocument({ id });
-  }, [id, getDocument]);
+    getProject({ id: projectId });
+  }, [id, getDocument, getProject, projectId]);
 
-  if(!document?.name) {
-    return <></>
+  if (!document?.name) {
+    return <></>;
   }
 
   return (
     <div className={styles.document_page__title}>
-      Document:{" "}
+      {project?.name}
+      {" > "}
       {editDocument ? (
         <AuthInput
           hint="new name"

@@ -1,5 +1,5 @@
 import { useCallback } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 import {
   useDeleteDocumentMutation,
@@ -17,12 +17,13 @@ export interface IDocumentListItem {
 
 export const DocumentListItem = ({ document }: IDocumentListItem) => {
   const navigate = useNavigate();
+  const { projectId } = useParams();
   const [deleteDocument] = useDeleteDocumentMutation();
   const { refetch } = useGetDocumentsQuery({});
 
   const onClickItem = useCallback(() => {
-    navigate(`/document/${document.id}`);
-  }, [navigate, document]);
+    navigate(`/${projectId}/document/${document.id}`);
+  }, [navigate, document, projectId]);
 
   const onCLickDeleteItem = useCallback(
     (e: React.MouseEvent) => {
