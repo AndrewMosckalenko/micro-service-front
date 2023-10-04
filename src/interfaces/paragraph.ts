@@ -1,9 +1,9 @@
-import { ITag } from "./tag";
+import { IParagraphTag } from ".";
 
 export interface IParagraph {
   id: number;
   name: string;
   content: string;
   type: number;
-  tags: ITag[];
+  paragraphTags: IParagraphTag[];
 }

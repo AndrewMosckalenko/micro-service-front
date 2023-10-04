@@ -60,8 +60,8 @@ export function DocumentHeader() {
   }, [id, copyDocument, refetch]);
 
   useComponentUpdate(() => {
-    getDocument({ id });
-    getProject({ id: projectId });
+    if (id) getDocument({ id });
+    if (projectId) getProject({ id: projectId });
   }, [id, getDocument, getProject, projectId]);
 
   if (!document?.name) {
@@ -70,19 +70,23 @@ export function DocumentHeader() {
 
   return (
     <div className={styles.document_page__title}>
-      {project?.name}
-      {" > "}
-      {editDocument ? (
-        <AuthInput
-          hint="new name"
-          onChange={onChangeNewName}
-          value={newDocumentName}
-        />
-      ) : (
-        document?.name
+      {projectId && project?.name}
+      {id && (
+        <>
+          {" > "}
+          {editDocument ? (
+            <AuthInput
+              hint="new name"
+              onChange={onChangeNewName}
+              value={newDocumentName}
+            />
+          ) : (
+            document?.name
+          )}
+          <EditIcon className={styles.icon} onClick={onCLickEditDocument} />
+          <CopyIcon className={styles.icon} onClick={copyDocumentClick} />
+        </>
       )}
-      <EditIcon className={styles.icon} onClick={onCLickEditDocument} />
-      <CopyIcon className={styles.icon} onClick={copyDocumentClick} />
     </div>
   );
 }

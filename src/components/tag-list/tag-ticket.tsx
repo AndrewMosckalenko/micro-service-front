@@ -1,28 +1,66 @@
 import { useCallback } from "react";
 
-import { ITag } from "../../interfaces";
-import { CloseIcon } from "..";
+import { IParagraph, ITag } from "../../interfaces";
+import { AddIcon, CloseIcon } from "..";
 
 import styles from "./tag-list.module.css";
 import { useDeleteTagMutation } from "../../redux/api/tag-api";
-import { useGetProjectMutation } from "../../redux/api";
+import {
+  useDeleteTagFromParagraphMutation,
+  useGetDocumentWithParapgraphsMutation,
+  useGetProjectMutation,
+  usePostTagToParagraphMutation,
+} from "../../redux/api";
 import { useParams } from "react-router-dom";
+import classNames from "classnames";
 
-export const TagTicket = ({ tag, updateCallback }: ITagTicketProps) => {
-  const {projectId} = useParams();
+export const TagTicket = ({
+  tag,
+  updateCallback,
+  paragraph,
+  isGlobal,
+}: ITagTicketProps) => {
+  const { projectId, id } = useParams();
   const [deleteTag] = useDeleteTagMutation();
-  const [getProject] = useGetProjectMutation({fixedCacheKey: "get-project"})
+  const [getProject] = useGetProjectMutation({ fixedCacheKey: "get-project" });
+  const [getDocument] = useGetDocumentWithParapgraphsMutation({
+    fixedCacheKey: "get-document",
+  });
+  const [postTagToParagraph] = usePostTagToParagraphMutation();
+  const [deleteTagFromParagraph] = useDeleteTagFromParagraphMutation();
 
   const onClickDeleteTagBtn = useCallback(() => {
-    deleteTag({ id: tag.id }).then(() => {
-      getProject({id: projectId})
+    if (isGlobal) {
+      deleteTag({ id: tag.id }).then(() => {
+        getProject({ id: projectId });
+      });
+      return;
+    }
+    deleteTagFromParagraph({ id: tag.id }).then(() => {
+      getDocument({ id: projectId });
     });
   }, [deleteTag, tag, updateCallback]);
 
+  const onClickAddTagToParagraph = useCallback(() => {
+    postTagToParagraph({ id: paragraph.id, tagId: tag.id }).then(() => {
+      getDocument({ id });
+    });
+  }, [postTagToParagraph, paragraph, tag]);
+
   return (
-    <div className={styles.tag_ticket} style={{ background: tag.style?.color }}>
+    <div
+      className={classNames(styles.tag_ticket, {
+        [styles.tag_ticket_global]: isGlobal,
+      })}
+    >
       <p>#{tag.title}</p>
-      <CloseIcon         
+      {isGlobal && (
+        <AddIcon
+          className={styles.tag_ticket__delete}
+          onClick={onClickAddTagToParagraph}
+        />
+      )}
+      <CloseIcon
         className={styles.tag_ticket__delete}
         onClick={onClickDeleteTagBtn}
       />
@@ -32,5 +70,7 @@ export const TagTicket = ({ tag, updateCallback }: ITagTicketProps) => {
 
 export interface ITagTicketProps {
   tag: ITag;
+  paragraph: IParagraph;
+  isGlobal?: boolean;
   updateCallback: () => void;
 }

@@ -20,6 +20,10 @@
   align-items: center;
 }
 
+.tag_ticket_global {
+  background: #ffdb3b;
+}
+
 .tag_ticket__delete {
   height: 10px;
   width: 10px;

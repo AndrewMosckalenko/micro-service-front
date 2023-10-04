@@ -1,21 +1,35 @@
-import { useCallback } from "react";
+import { useCallback, useMemo } from "react";
+import _ from "lodash";
 
-import { IParagraph, ITag } from "../../interfaces";
+import { IParagraph, IParagraphTag, ITag } from "../../interfaces";
+import { useGetProjectMutation } from "../../redux/api";
 
 import { TagTicket } from "./tag-ticket";
 import { AddTagTicket } from "./add-tag-ticket";
 
 import styles from "./tag-list.module.css";
-import { useGetProjectMutation } from "../../redux/api";
 
 export function TagList({
   position,
   paragraph,
   updateCallback,
 }: ITagListProps) {
-  const [getProject, { data: project }] = useGetProjectMutation({
+  const [, { data: project }] = useGetProjectMutation({
     fixedCacheKey: "get-project",
   });
+
+  const globalTags = useMemo(
+    () =>
+      project?.tags && paragraph?.paragraphTags
+        ? _.differenceWith(
+            project?.tags,
+            paragraph?.paragraphTags,
+            (globalTag: ITag, localTag: IParagraphTag) =>
+              globalTag.id === localTag.tag.id,
+          )
+        : [],
+    [project, paragraph],
+  );
 
   const onClickTagList = useCallback((e: React.MouseEvent<HTMLElement>) => {
     e.stopPropagation();
@@ -27,12 +41,23 @@ export function TagList({
       onClick={onClickTagList}
     >
       <AddTagTicket paragraph={paragraph} updateCallback={updateCallback} />
-      {paragraph?.paragraphTags?.map((tag: ITag) => (
-        <TagTicket tag={tag} updateCallback={updateCallback} />
+      {paragraph?.paragraphTags?.map((paragraphTag: IParagraphTag) => (
+        <TagTicket
+          key={paragraphTag.tag.id}
+          paragraph={paragraph}
+          tag={{ ...paragraphTag.tag, id: paragraphTag.id }}
+          updateCallback={updateCallback}
+        />
       ))}
       <hr />
-      {project?.tags?.map((tag: ITag) => (
-        <TagTicket tag={tag} updateCallback={updateCallback} />
+      {globalTags?.map((tag: ITag) => (
+        <TagTicket
+          key={tag.id}
+          paragraph={paragraph}
+          tag={tag}
+          updateCallback={updateCallback}
+          isGlobal
+        />
       ))}
     </div>
   );

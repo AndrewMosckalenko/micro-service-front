@@ -27,7 +27,7 @@ export const AddTagTicket = ({
 
   const onClickAddTagBtn = useCallback(() => {
     postTag({ projectId: project.id, title: newTag }).then(() => {
-      getProject({id: projectId })
+      getProject({ id: projectId });
     });
   }, [paragraph, postTag, newTag, updateCallback, project]);
 
