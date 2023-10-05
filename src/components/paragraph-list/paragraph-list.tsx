@@ -1,11 +1,12 @@
+import { useParams } from "react-router-dom";
 import { useCallback, useState } from "react";
 
 import { IParagraph } from "../../interfaces";
+import { AddParagraphForm } from "../forms/add-paragraph-form";
+
 import { ParagraphItem } from "./paragraph-item";
-import { AddParagraphForm } from "..";
 
 import styles from "./paragraph-list.module.css";
-import { useParams } from "react-router-dom";
 
 export const ParagraphList = ({
   paragraphs,

@@ -1,5 +1,7 @@
+@import url("../../palette.css");
+
 .page_wrapper {
-  background: #e7e7e7;
+  background: var(--main-bg-second-color);
   position: fixed;
   top: 0;
   left: 0;
@@ -15,10 +17,10 @@
 
 .page {
   border-radius: 15px;
-  box-shadow: 2px 2px 2px 0 #0000008f;
+  box-shadow: 2px 2px 2px 0 var(--main-wrapper-bg-color);
   overflow: hidden;
   box-sizing: border-box;
   padding: 15px;
-  background: #fff;
+  background: var(--main-bg-color);
   margin: auto;
 }

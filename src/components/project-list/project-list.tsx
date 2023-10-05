@@ -1,7 +1,9 @@
 import { IProject } from "../../interfaces";
 import { useGetProjectsQuery } from "../../redux/api";
+
 import { CreateProjectItem } from "./create-project-item";
 import { ProjectListItem } from "./project-list-item";
+
 import styles from "./project-list.module.css";
 
 export function ProjectList() {

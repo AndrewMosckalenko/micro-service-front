@@ -2,7 +2,7 @@ import { memo, useCallback, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
-import { CustomButton, CustomInput } from "../..";
+import { Button, Input } from "../../ui-components";
 import { useSignInMutation } from "../../../redux/api";
 import { addTokenToLocalStorage } from "../../../utils";
 import { setToken } from "../../../redux/auth-slice";
@@ -32,11 +32,11 @@ export const SignInForm = memo(() => {
   return (
     <div className={styles.sign_in_form}>
       <h1 className={styles.sign_in_form__title}>Sign in</h1>
-      <CustomInput value={email} hint="email" onChange={setEmail} />
-      <CustomInput value={password} hint="password" onChange={setPassword} />
+      <Input value={email} hint="email" onChange={setEmail} />
+      <Input value={password} hint="password" onChange={setPassword} />
       <div className={styles.sign_up_form__btns}>
-        <CustomButton label="sign in" onClick={onClickSignInBtn} />
-        <CustomButton label="sign up" onClick={onClickSignUpBtn} />
+        <Button label="sign in" onClick={onClickSignInBtn} />
+        <Button label="sign up" onClick={onClickSignUpBtn} />
       </div>
     </div>
   );

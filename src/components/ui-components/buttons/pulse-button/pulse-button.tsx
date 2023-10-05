@@ -1,9 +1,8 @@
 import { useCallback, useRef } from "react";
-import { IButtonProps } from "..";
 
 import styles from "./pulse-button.module.css";
 
-export function PulseButton({ label, onClick }: IButtonProps) {
+export function PulseButton({ label, onClick }: IPulseButtonProps) {
   const buttonRef = useRef<HTMLButtonElement | null>(null);
 
   const mousePositionToCustomProp = (
@@ -20,7 +19,7 @@ export function PulseButton({ label, onClick }: IButtonProps) {
   const onCLickButton = useCallback(
     (e: React.MouseEvent<HTMLButtonElement>) => {
       if (buttonRef.current) {
-        console.log(buttonRef.current);
+        buttonRef.current.classList.remove(styles.pulse);
         mousePositionToCustomProp(e, buttonRef.current);
         buttonRef.current.classList.add(styles.pulse);
         buttonRef.current.addEventListener(
@@ -45,4 +44,9 @@ export function PulseButton({ label, onClick }: IButtonProps) {
       {label}
     </button>
   );
+}
+
+export interface IPulseButtonProps {
+  label: string;
+  onClick: () => void;
 }

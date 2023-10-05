@@ -1,7 +1,7 @@
 import { useCallback, useState } from "react";
 
 import { usePostParagraphMutation } from "../../../redux/api";
-import { CustomButton, CustomInput } from "../..";
+import { Button, Input } from "../../ui-components";
 
 import styles from "./add-paragraph-form.module.css";
 
@@ -33,14 +33,10 @@ export const AddParagraphForm = ({
 
   return (
     <div className={styles.add_paragraph_form}>
-      <CustomInput value={content} onChange={onChangeContent} type="multiple" />
+      <Input value={content} onChange={onChangeContent} type="multiple" />
       <div className={styles.add_paragraph_form__btns}>
-        <CustomButton
-          onClick={onClickAddBtn}
-          label="create paragraph"
-          type="pulse"
-        />
-        <CustomButton onClick={onClickCancel} label="cancel" type="pulse" />
+        <Button onClick={onClickAddBtn} label="create paragraph" type="pulse" />
+        <Button onClick={onClickCancel} label="cancel" type="pulse" />
       </div>
     </div>
   );

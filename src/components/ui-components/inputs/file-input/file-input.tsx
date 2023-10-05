@@ -1,9 +1,8 @@
 import { useCallback, useState } from "react";
-import { IInputProps } from "..";
 
 import styles from "./file-input.module.css";
 
-export const FileInput = ({ onChangeFile }: IInputProps) => {
+export const FileInput = ({ onChangeFile }: IFileInputProps) => {
   const [file, setFile] = useState<File | null>(null);
 
   const onChange = useCallback(
@@ -29,3 +28,7 @@ export const FileInput = ({ onChangeFile }: IInputProps) => {
     </label>
   );
 };
+
+export interface IFileInputProps {
+  onChangeFile?: (file: File) => void;
+}

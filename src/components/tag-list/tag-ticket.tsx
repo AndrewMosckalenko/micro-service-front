@@ -1,9 +1,10 @@
 import { useCallback } from "react";
+import { useParams } from "react-router-dom";
+import classNames from "classnames";
 
 import { IParagraph, ITag } from "../../interfaces";
-import { AddIcon, CloseIcon } from "..";
+import { AddIcon, CloseIcon } from "../svg-icons";
 
-import styles from "./tag-list.module.css";
 import { useDeleteTagMutation } from "../../redux/api/tag-api";
 import {
   useDeleteTagFromParagraphMutation,
@@ -11,8 +12,8 @@ import {
   useGetProjectMutation,
   usePostTagToParagraphMutation,
 } from "../../redux/api";
-import { useParams } from "react-router-dom";
-import classNames from "classnames";
+
+import styles from "./tag-list.module.css";
 
 export const TagTicket = ({
   tag,

@@ -1,7 +1,9 @@
-import { useNavigate } from "react-router-dom";
-import { IProject } from "../../interfaces";
-import styles from "./project-list.module.css";
 import { useCallback } from "react";
+import { useNavigate } from "react-router-dom";
+
+import { IProject } from "../../interfaces";
+
+import styles from "./project-list.module.css";
 
 export function ProjectListItem({ project }: IProjectListItemProps) {
   const navigate = useNavigate();

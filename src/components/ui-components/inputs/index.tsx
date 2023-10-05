@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { AuthInput } from "./auth-input";
+import { DefaultInput } from "./default-input";
 import { FileInput } from "./file-input";
 import { MultipleInput } from "./multiple-input";
 
@@ -11,17 +11,17 @@ export interface IInputProps {
   onChangeFile?: (file: File) => void;
 }
 
-export function CustomInput({ type, ...props }: IInputProps) {
+export function Input({ type, ...props }: IInputProps) {
   const currentInput = useMemo(() => {
     switch (type) {
       case "auth":
-        return <AuthInput {...props} />;
+        return <DefaultInput {...props} />;
       case "file":
         return <FileInput {...props} />;
       case "multiple":
         return <MultipleInput {...props} />;
       default:
-        return <AuthInput {...props} />;
+        return <DefaultInput {...props} />;
     }
   }, [type]);
 

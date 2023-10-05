@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { AuthButton } from "./auth-button";
+import { DefaultButton } from "./default-button";
 import { PulseButton } from "./pulse-button";
 
 export interface IButtonProps {
@@ -8,15 +8,15 @@ export interface IButtonProps {
   onClick: () => void;
 }
 
-export function CustomButton({ type, ...props }: IButtonProps) {
+export function Button({ type, ...props }: IButtonProps) {
   const currentButton = useMemo(() => {
     switch (type) {
       case "auth":
-        return <AuthButton {...props} />;
+        return <DefaultButton {...props} />;
       case "pulse":
         return <PulseButton {...props} />;
       default:
-        return <PulseButton {...props} />;
+        return <DefaultButton {...props} />;
     }
   }, [type]);
 

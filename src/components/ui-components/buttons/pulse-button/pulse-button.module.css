@@ -1,3 +1,5 @@
+@import url("../../../../palette.css");
+
 .pulse_btn {
   display: inline-grid;
   place-items: center;
@@ -8,8 +10,8 @@
   font-size: 14px;
   padding: 4px;
   background-color: transparent;
-  color: #ffffff;
-  background: #620000;
+  color: var(--btn-font-color);
+  background: var(--btn-bg-color);
   border-radius: 0.125em;
   border: none;
   border-radius: 4px;
@@ -27,7 +29,7 @@
   width: 150%;
   aspect-ratio: 1 / 1;
   border-radius: 50%;
-  background: #fff;
+  background: var(--btn-pulse-color);
   opacity: 0.5;
 }
 

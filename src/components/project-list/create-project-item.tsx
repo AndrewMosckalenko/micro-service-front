@@ -1,6 +1,6 @@
 import { useCallback, useState } from "react";
 
-import { CustomButton, CustomInput } from "..";
+import { Button, Input } from "../ui-components";
 import { useGetProjectsQuery, usePostProjectMutation } from "../../redux/api";
 
 import styles from "./project-list.module.css";
@@ -27,12 +27,12 @@ export function CreateProjectItem() {
   return (
     <div className={styles.project_list_item}>
       <h3>Create new project</h3>
-      <CustomInput
+      <Input
         onChange={onChangeProjectName}
         hint="project name"
         value={newProjectName}
       />
-      <CustomButton label="create" onClick={onClickCreateProjectBtn} />
+      <Button label="create" onClick={onClickCreateProjectBtn} />
     </div>
   );
 }

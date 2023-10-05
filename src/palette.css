@@ -1,0 +1,16 @@
+:root {
+  --main-wrapper-bg-color: #0000008f;
+  --main-bg-color: #ffffff;
+  --main-bg-second-color: #e7e7e7;
+  --icon-bg-color: #ffffffc2;
+  --btn-bg-color: #620000;
+  --btn-font-color: #ffffff;
+  --btn-pulse-color: #ffffff;
+  --inp-font-color: #000000;
+  --inp-bg-color: #f4f4f4;
+  --par-bg-hover-color: #00aeff65;
+  --par-bg-focus-color: #00eeff65;
+  --tag-bg-local-color: #ffec97;
+  --tag-bg-global-color: #ffdb3b;
+  --tag-bg-create-color: #ff9797;
+}

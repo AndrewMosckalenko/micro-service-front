@@ -3,12 +3,14 @@ import { useCallback, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { useComponentUpdate } from "../../hooks";
-import { ParagraphList, ActionForm, TagList } from "../../components";
 import { useGetDocumentWithParapgraphsMutation } from "../../redux/api";
 import { setDocumentCopiedStatus } from "../../redux/document-slice";
 import { IDocument } from "../../interfaces";
 
 import styles from "./document-page.module.css";
+import { ParagraphList } from "../../components/paragraph-list";
+import { TagList } from "../../components/tag-list";
+import { ActionForm } from "../../components/forms/action-form";
 
 export default function DocumentPage() {
   const { id } = useParams();
