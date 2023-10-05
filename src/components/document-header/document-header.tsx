@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
 import { setDocumentCopiedStatus } from "../../redux/document-slice";
-import { AuthInput, CopyIcon, EditIcon } from "..";
+import { CopyIcon, CustomInput, EditIcon } from "..";
 import {
   useCopyDocumentMutation,
   useGetDocumentWithParapgraphsMutation,
@@ -62,7 +62,10 @@ export function DocumentHeader() {
   }, [id, copyDocument, refetch, dispatch]);
 
   useComponentUpdate(() => {
-    if (id) getDocument({ id });
+    if (id)
+      getDocument({ id }).then(() => {
+        setNewDocumentName(document?.name);
+      });
     if (projectId) getProject({ id: projectId });
   }, [id, getDocument, getProject, projectId]);
 
@@ -77,7 +80,7 @@ export function DocumentHeader() {
         <>
           {" > "}
           {editDocument ? (
-            <AuthInput
+            <CustomInput
               hint="new name"
               onChange={onChangeNewName}
               value={newDocumentName}

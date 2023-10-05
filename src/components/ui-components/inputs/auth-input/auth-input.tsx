@@ -1,16 +1,12 @@
 import { memo, useCallback } from "react";
+import { IInputProps } from "..";
+
 import styles from "./auth-input.module.css";
 
-export interface IAuthInputProps {
-  value: string;
-  hint?: string;
-  onChange: (value: string) => void;
-}
-
-export const AuthInput = memo(({ value, hint, onChange }: IAuthInputProps) => {
+export const AuthInput = memo(({ value, hint, onChange }: IInputProps) => {
   const onChangeValue = useCallback(
     ({ target }) => {
-      onChange(target.value);
+      if (onChange) onChange(target.value);
     },
     [onChange],
   );

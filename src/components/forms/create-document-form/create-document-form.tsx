@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useCallback, useState } from "react";
 
-import { AuthButton, AuthInput, FileInput } from "../..";
+import { CustomButton, CustomInput } from "../..";
 import {
   useGetProjectMutation,
   usePostDocumentMutation,
@@ -63,14 +63,18 @@ export const CreateDocumentForm = () => {
   return (
     <div className={styles.create_document_form} onKeyDown={onClickEnter}>
       <div className={styles.create_document__file_loader}>
-        <AuthInput
+        <CustomInput
           hint="name of new document"
           onChange={onChangeName}
           value={name}
         />
-        <FileInput onChangeFile={onChangeFile} />
+        <CustomInput onChangeFile={onChangeFile} type="file" />
       </div>
-      <AuthButton onClick={onClickCreate} label="create document" />
+      <CustomButton
+        onClick={onClickCreate}
+        label="create document"
+        type="pulse"
+      />
     </div>
   );
 };

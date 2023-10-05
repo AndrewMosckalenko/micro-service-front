@@ -37,7 +37,7 @@ export const TagTicket = ({
       return;
     }
     deleteTagFromParagraph({ id: tag.id }).then(() => {
-      getDocument({ id: projectId });
+      getDocument({ id });
     });
   }, [
     deleteTag,
@@ -48,6 +48,7 @@ export const TagTicket = ({
     projectId,
     getProject,
     isGlobal,
+    id,
   ]);
 
   const onClickAddTagToParagraph = useCallback(() => {

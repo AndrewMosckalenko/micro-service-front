@@ -3,7 +3,7 @@ import { memo, useCallback, useState } from "react";
 import { useDispatch } from "react-redux";
 
 import { useSignUpMutation } from "../../../redux/api";
-import { AuthButton, AuthInput } from "../..";
+import { CustomButton, CustomInput } from "../..";
 import { addTokenToLocalStorage } from "../../../utils";
 import { setToken } from "../../../redux/auth-slice";
 
@@ -55,16 +55,16 @@ export const SignUpForm = memo(() => {
   return (
     <div className={styles.sign_up_form}>
       <h1 className={styles.sign_up_form__title}>Sign up</h1>
-      <AuthInput value={user.email} onChange={onChangeEmail} hint="email" />
-      <AuthInput value={user.name} onChange={onChangeName} hint="name" />
-      <AuthInput
+      <CustomInput value={user.email} onChange={onChangeEmail} hint="email" />
+      <CustomInput value={user.name} onChange={onChangeName} hint="name" />
+      <CustomInput
         value={user.password}
         onChange={onChangePassword}
         hint="password"
       />
       <div className={styles.sign_up_form__btns}>
-        <AuthButton label="sign up" onClick={onClickSignUpButton} />
-        <AuthButton label="sign in" onClick={onClickSignInButton} />
+        <CustomButton label="sign up" onClick={onClickSignUpButton} />
+        <CustomButton label="sign in" onClick={onClickSignInButton} />
       </div>
     </div>
   );

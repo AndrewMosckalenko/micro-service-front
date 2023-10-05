@@ -1,12 +1,14 @@
 import { useCallback, useState } from "react";
+import { IInputProps } from "..";
+
 import styles from "./file-input.module.css";
 
-export const FileInput = ({ onChangeFile }: IFileInputProps) => {
+export const FileInput = ({ onChangeFile }: IInputProps) => {
   const [file, setFile] = useState<File | null>(null);
 
   const onChange = useCallback(
     ({ target }) => {
-      if (target.files?.[0]) {
+      if (target.files?.[0] && onChangeFile) {
         onChangeFile(target.files[0]);
         setFile(target.files[0]);
       }
@@ -27,7 +29,3 @@ export const FileInput = ({ onChangeFile }: IFileInputProps) => {
     </label>
   );
 };
-
-export interface IFileInputProps {
-  onChangeFile: (file: File) => void;
-}

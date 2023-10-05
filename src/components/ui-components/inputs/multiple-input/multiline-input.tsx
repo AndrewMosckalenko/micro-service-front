@@ -1,10 +1,12 @@
 import { useCallback } from "react";
+import { IInputProps } from "..";
+
 import styles from "./multiple-input.module.css";
 
-export const MultipleInput = ({ value, onChange }: IMultipleInputProps) => {
+export const MultipleInput = ({ value, onChange }: IInputProps) => {
   const onChangeValue = useCallback(
     ({ target }) => {
-      onChange(target.value);
+      if (onChange) onChange(target.value);
     },
     [onChange],
   );
@@ -17,8 +19,3 @@ export const MultipleInput = ({ value, onChange }: IMultipleInputProps) => {
     />
   );
 };
-
-export interface IMultipleInputProps {
-  value: string;
-  onChange: (value: string) => void;
-}

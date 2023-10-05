@@ -1,8 +1,4 @@
-export * from "./inputs/auth-input";
-export * from "./inputs/multiple-input";
-export * from "./inputs/file-input";
-
-export * from "./buttons/auth-button";
+export * from "./ui-components";
 
 export * from "./forms/sign-in-form";
 export * from "./forms/create-document-form";
