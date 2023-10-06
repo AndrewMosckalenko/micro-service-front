@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useCallback, useState } from "react";
 
-import { AuthButton, AuthInput, FileInput } from "../..";
+import { Button, Input } from "../../ui-components";
 import {
   useGetProjectMutation,
   usePostDocumentMutation,
@@ -19,8 +19,8 @@ export const CreateDocumentForm = () => {
   const [postDocument] = usePostDocumentMutation();
 
   const onChangeName = useCallback(
-    (newName: string) => {
-      setName(newName);
+    ({ target }: React.ChangeEvent<HTMLInputElement>) => {
+      setName(target.value);
     },
     [setName],
   );
@@ -34,8 +34,10 @@ export const CreateDocumentForm = () => {
   }, [setName, file]);
 
   const onChangeFile = useCallback(
-    (newFile: File) => {
-      setFile(newFile);
+    ({ target }: React.ChangeEvent<HTMLInputElement>) => {
+      if (target.files?.[0]) {
+        setFile(target.files[0]);
+      }
     },
     [setFile],
   );
@@ -52,8 +54,8 @@ export const CreateDocumentForm = () => {
   }, [name, postDocument, file, projectId, getProject]);
 
   const onClickEnter = useCallback(
-    (e) => {
-      if (e.code === "Enter") {
+    ({ code }: React.KeyboardEvent<HTMLElement>) => {
+      if (code === "Enter") {
         onClickCreate();
       }
     },
@@ -63,14 +65,16 @@ export const CreateDocumentForm = () => {
   return (
     <div className={styles.create_document_form} onKeyDown={onClickEnter}>
       <div className={styles.create_document__file_loader}>
-        <AuthInput
-          hint="name of new document"
+        <Input
+          placeholder="name of new document"
           onChange={onChangeName}
           value={name}
         />
-        <FileInput onChangeFile={onChangeFile} />
+        <Input onChange={onChangeFile} type="file" />
       </div>
-      <AuthButton onClick={onClickCreate} label="create document" />
+      <Button onClick={onClickCreate} typeButton="pulse">
+        create document
+      </Button>
     </div>
   );
 };

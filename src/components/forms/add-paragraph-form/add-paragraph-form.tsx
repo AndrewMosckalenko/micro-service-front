@@ -1,7 +1,7 @@
 import { useCallback, useState } from "react";
 
 import { usePostParagraphMutation } from "../../../redux/api";
-import { AuthButton, MultipleInput } from "../..";
+import { Button, Input } from "../../ui-components";
 
 import styles from "./add-paragraph-form.module.css";
 
@@ -19,8 +19,8 @@ export const AddParagraphForm = ({
   });
 
   const onChangeContent = useCallback(
-    (content: string) => {
-      setNewParagraph((prev) => ({ ...prev, content }));
+    ({ target }: React.ChangeEvent<HTMLInputElement>) => {
+      setNewParagraph((prev) => ({ ...prev, content: target.value }));
     },
     [setNewParagraph],
   );
@@ -33,10 +33,14 @@ export const AddParagraphForm = ({
 
   return (
     <div className={styles.add_paragraph_form}>
-      <MultipleInput value={content} onChange={onChangeContent} />
+      <Input value={content} onChange={onChangeContent} type="multiple" />
       <div className={styles.add_paragraph_form__btns}>
-        <AuthButton onClick={onClickAddBtn} label="create paragraph" />
-        <AuthButton onClick={onClickCancel} label="cancel" />
+        <Button onClick={onClickAddBtn} typeButton="pulse">
+          create paragraph
+        </Button>
+        <Button onClick={onClickCancel} typeButton="pulse">
+          cancel
+        </Button>
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 import { useCallback, useState } from "react";
 
-import { AuthButton, AuthInput } from "..";
+import { Button, Input } from "../ui-components";
 import { useGetProjectsQuery, usePostProjectMutation } from "../../redux/api";
 
 import styles from "./project-list.module.css";
@@ -12,8 +12,8 @@ export function CreateProjectItem() {
   const [newProjectName, setNewProjectName] = useState<string>("");
 
   const onChangeProjectName = useCallback(
-    (value: string) => {
-      setNewProjectName(value);
+    ({ target }: React.ChangeEvent<HTMLInputElement>) => {
+      setNewProjectName(target.value);
     },
     [setNewProjectName],
   );
@@ -27,12 +27,12 @@ export function CreateProjectItem() {
   return (
     <div className={styles.project_list_item}>
       <h3>Create new project</h3>
-      <AuthInput
+      <Input
         onChange={onChangeProjectName}
-        hint="project name"
+        placeholder="project name"
         value={newProjectName}
       />
-      <AuthButton label="create" onClick={onClickCreateProjectBtn} />
+      <Button onClick={onClickCreateProjectBtn}>create</Button>
     </div>
   );
 }

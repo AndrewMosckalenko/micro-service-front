@@ -1,3 +1,5 @@
+@import url("../../palette.css");
+
 .tag_list {
   display: flex;
   flex-direction: column;
@@ -6,12 +8,12 @@
   z-index: 1;
   padding: 15px;
   border-radius: 15px;
-  background: #ffffff;
-  box-shadow: 2px 2px 2px 0 #0000008f;
+  background: var(--main-bg-color);
+  box-shadow: 2px 2px 2px 0 var(--main-wrapper-bg-color);
 }
 
 .tag_ticket {
-  background: #ffec97;
+  background: var(--tag-bg-local-color);
   border-radius: 15px;
   padding: 5px 10px;
   display: flex;
@@ -21,7 +23,7 @@
 }
 
 .tag_ticket_global {
-  background: #ffdb3b;
+  background: var(--tag-bg-global-color);
 }
 
 .tag_ticket__delete {
@@ -31,7 +33,7 @@
 }
 
 .add_tag_ticket {
-  background: #ff9797;
+  background: var(--tag-bg-create-color);
   border-radius: 15px;
   padding: 5px 10px;
   display: flex;
@@ -41,7 +43,7 @@
 }
 
 .add_tag_ticket__inp {
-  background: #ff7c7c;
+  background: var(--tag-bg-create-color);
   border: none;
 }
 

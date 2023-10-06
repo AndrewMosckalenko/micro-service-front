@@ -1,7 +1,9 @@
+@import url("../../palette.css");
+
 .project_list_item {
   border-radius: 4px;
-  box-shadow: 0 0 2px 1px #0000008f;
-  background: #ffffff;
+  box-shadow: 0 0 2px 1px var(--main-wrapper-bg-color);
+  background: var(--main-bg-color);
   cursor: pointer;
 
   padding: 10px;
@@ -13,7 +15,7 @@
 }
 
 .project_list_item:hover {
-  box-shadow: 0 0 4px 1px #0000008f;
+  box-shadow: 0 0 4px 1px var(--main-wrapper-bg-color);
 }
 
 .project_list {

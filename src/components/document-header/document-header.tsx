@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
 import { setDocumentCopiedStatus } from "../../redux/document-slice";
-import { AuthInput, CopyIcon, EditIcon } from "..";
+import { CopyIcon, EditIcon } from "../svg-icons";
 import {
   useCopyDocumentMutation,
   useGetDocumentWithParapgraphsMutation,
@@ -12,6 +12,7 @@ import {
   usePatchDocumentMutation,
 } from "../../redux/api";
 import { useComponentUpdate } from "../../hooks";
+import { Input } from "../ui-components";
 
 import styles from "./document-header.module.css";
 
@@ -32,8 +33,8 @@ export function DocumentHeader() {
     fixedCacheKey: "get-project",
   });
   const onChangeNewName = useCallback(
-    (value: string) => {
-      setNewDocumentName(value);
+    ({ target }: React.ChangeEvent<HTMLInputElement>) => {
+      setNewDocumentName(target.value);
     },
     [setNewDocumentName],
   );
@@ -62,9 +63,15 @@ export function DocumentHeader() {
   }, [id, copyDocument, refetch, dispatch]);
 
   useComponentUpdate(() => {
-    if (id) getDocument({ id });
     if (projectId) getProject({ id: projectId });
-  }, [id, getDocument, getProject, projectId]);
+  }, [getProject, projectId]);
+
+  useComponentUpdate(() => {
+    if (id)
+      getDocument({ id }).then(() => {
+        setNewDocumentName(document?.name);
+      });
+  }, [id, getDocument]);
 
   if (!document?.name) {
     return <></>;
@@ -77,8 +84,8 @@ export function DocumentHeader() {
         <>
           {" > "}
           {editDocument ? (
-            <AuthInput
-              hint="new name"
+            <Input
+              placeholder="new name"
               onChange={onChangeNewName}
               value={newDocumentName}
             />

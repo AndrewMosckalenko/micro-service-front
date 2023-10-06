@@ -1,5 +1,5 @@
 import { useCallback } from "react";
-import { AuthButton } from "../..";
+import { Button } from "../../ui-components";
 import styles from "./action-form.module.css";
 
 export function ActionForm({ label, onClick }: IActionFormProps) {
@@ -11,7 +11,9 @@ export function ActionForm({ label, onClick }: IActionFormProps) {
     <div className={styles.action_form__wrapper} onClick={onClick}>
       <div className={styles.action_form} onClick={onCLickForm}>
         <p className={styles.action_form__title}>{label}</p>
-        <AuthButton label="Ok" onClick={onClick} />
+        <Button onClick={onClick} typeButton="pulse">
+          Ok
+        </Button>
       </div>
     </div>
   );

@@ -1,10 +1,12 @@
+@import url("../../palette.css");
+
 .default_authed_page {
   display: flex;
   flex-direction: column;
   gap: 10px;
   width: 100vw;
   height: 100vh;
-  background: #e7e7e7;
+  background: var(--main-bg-second-color);
   box-sizing: border-box;
   overflow: scroll;
   overflow-x: hidden;
@@ -14,11 +16,11 @@
 }
 
 .default_authed_page__content {
-  background: #fff;
+  background: var(--main-bg-color);
   border-radius: 4px;
   align-self: center;
 
-  box-shadow: 0 0 3px 1px #0000008f;
+  box-shadow: 0 0 3px 1px var(--main-wrapper-bg-color);
   box-sizing: border-box;
   padding: 25px;
   max-width: 1170px;

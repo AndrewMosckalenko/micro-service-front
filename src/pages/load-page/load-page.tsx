@@ -1,4 +1,4 @@
-import { LoadIcon } from "../../components";
+import { LoadIcon } from "../../components/svg-icons";
 import styles from "./load-page.module.css";
 
 export function LoadPage() {

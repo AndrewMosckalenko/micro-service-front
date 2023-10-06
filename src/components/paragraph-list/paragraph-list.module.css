@@ -1,3 +1,5 @@
+@import url("../../palette.css");
+
 .paragraph_list {
   display: flex;
   flex-direction: column;
@@ -10,7 +12,7 @@
 }
 
 .paragraph_item__content:hover {
-  background: #00aeff65;
+  background: var(--par-bg-hover-color);
 }
 
 .paragraph_item__delete {
@@ -80,8 +82,8 @@
   position: absolute;
   right: 0;
   border-radius: 4;
-  background: #ffffffc2;
-  box-shadow: 0 0 1px 1px #0000008f;
+  background: var(--icon-bg-color);
+  box-shadow: 0 0 1px 1px var(main-wrapper-bg-color);
   border-radius: 4px;
   box-sizing: border-box;
   margin-bottom: 50px;
@@ -92,5 +94,5 @@
 }
 
 .paragraph_item__content_focus {
-  background: #00eeff65;
+  background: var(--par-bg-focus-color);
 }

@@ -8,10 +8,11 @@ import {
   usePatchParagraphMutation,
 } from "../../redux/api";
 import { setFocusParagraph } from "../../redux/document-slice";
-import { AddIcon, CloseIcon, EditIcon, MultipleInput, SaveIcon } from "..";
+import { useComponentUpdate } from "../../hooks";
+import { AddIcon, CloseIcon, EditIcon, SaveIcon } from "../svg-icons";
+import { Input } from "../ui-components";
 
 import styles from "./paragraph-list.module.css";
-import { useComponentUpdate } from "../../hooks";
 
 export const ParagraphItem = ({
   paragraph,
@@ -46,8 +47,8 @@ export const ParagraphItem = ({
   }, [onClickAddParagraph, paragraph]);
 
   const onChangeParagraphContent = useCallback(
-    (value: string) => {
-      setNewParagraphData((prev) => ({ ...prev, content: value }));
+    ({ target }: React.ChangeEvent<HTMLInputElement>) => {
+      setNewParagraphData((prev) => ({ ...prev, content: target.value }));
     },
     [setNewParagraphData],
   );
@@ -81,9 +82,10 @@ export const ParagraphItem = ({
     <div className={styles.paragraph_item}>
       {editParagraph ? (
         <div className={styles.content_wrapper}>
-          <MultipleInput
+          <Input
             value={newParagraphData.content}
             onChange={onChangeParagraphContent}
+            type="multiple"
           />
           <SaveIcon onClick={onClickEditBtn} className={styles.icon} />
           <CloseIcon onClick={onClickDeleteItem} className={styles.icon} />

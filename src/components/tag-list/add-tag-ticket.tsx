@@ -1,11 +1,11 @@
+import { useParams } from "react-router-dom";
 import { useCallback, useState } from "react";
 
 import { useGetProjectMutation } from "../../redux/api";
 import { IParagraph } from "../../interfaces";
+import { usePostTagMutation } from "../../redux/api/tag-api";
 
 import styles from "./tag-list.module.css";
-import { usePostTagMutation } from "../../redux/api/tag-api";
-import { useParams } from "react-router-dom";
 
 export const AddTagTicket = ({
   paragraph,
@@ -19,7 +19,7 @@ export const AddTagTicket = ({
   });
 
   const onChangeNewTag = useCallback(
-    ({ target }) => {
+    ({ target }: React.ChangeEvent<HTMLInputElement>) => {
       setNewTag(target.value);
     },
     [setNewTag],

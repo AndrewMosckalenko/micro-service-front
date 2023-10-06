@@ -2,7 +2,7 @@ import { memo, useCallback, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
-import { AuthButton, AuthInput } from "../..";
+import { Button, Input } from "../../ui-components";
 import { useSignInMutation } from "../../../redux/api";
 import { addTokenToLocalStorage } from "../../../utils";
 import { setToken } from "../../../redux/auth-slice";
@@ -29,14 +29,32 @@ export const SignInForm = memo(() => {
     navigate("/sign-up");
   }, [navigate]);
 
+  const onChangeEmail = useCallback(
+    ({ target }: React.ChangeEvent<HTMLInputElement>) => {
+      setEmail(target.value);
+    },
+    [setEmail],
+  );
+
+  const onChangePassword = useCallback(
+    ({ target }: React.ChangeEvent<HTMLInputElement>) => {
+      setPassword(target.value);
+    },
+    [setPassword],
+  );
+
   return (
     <div className={styles.sign_in_form}>
       <h1 className={styles.sign_in_form__title}>Sign in</h1>
-      <AuthInput value={email} hint="email" onChange={setEmail} />
-      <AuthInput value={password} hint="password" onChange={setPassword} />
+      <Input value={email} placeholder="email" onChange={onChangeEmail} />
+      <Input
+        value={password}
+        placeholder="password"
+        onChange={onChangePassword}
+      />
       <div className={styles.sign_up_form__btns}>
-        <AuthButton label="sign in" onClick={onClickSignInBtn} />
-        <AuthButton label="sign up" onClick={onClickSignUpBtn} />
+        <Button onClick={onClickSignInBtn}>sign in</Button>
+        <Button onClick={onClickSignUpBtn}>sign up</Button>
       </div>
     </div>
   );
