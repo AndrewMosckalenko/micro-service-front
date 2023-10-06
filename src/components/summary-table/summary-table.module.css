@@ -1,7 +1,7 @@
 @import url('../../palette.css');
 
 .summary_table {
-  background: #4c4c4c;
+  background: var(--table-borde-color);
   display: flex;
   flex-direction: column;
   gap: 1px;

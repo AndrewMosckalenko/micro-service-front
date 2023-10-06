@@ -4,10 +4,9 @@ import classNames from "classnames";
 import { useGetSummaryTableMutation } from "../../redux/api";
 
 import { useComponentUpdate } from "../../hooks";
-import { ISummaryCell, ITag } from "../../interfaces";
+import { ISummaryCell, ITag, ISummaryRow } from "../../interfaces";
 
 import styles from "./summary-table.module.css";
-import { ISummaryRow } from "../../interfaces";
 
 export function SummaryTable() {
   const { projectId } = useParams();
