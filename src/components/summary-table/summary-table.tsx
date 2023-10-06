@@ -1,12 +1,13 @@
 import { useParams } from "react-router-dom";
+import classNames from "classnames";
 
 import { useGetSummaryTableMutation } from "../../redux/api";
 
 import { useComponentUpdate } from "../../hooks";
-import { ITag } from "../../interfaces";
+import { ISummaryCell, ITag } from "../../interfaces";
 
 import styles from "./summary-table.module.css";
-import classNames from "classnames";
+import { ISummaryRow } from "../../interfaces";
 
 export function SummaryTable() {
   const { projectId } = useParams();
@@ -17,9 +18,6 @@ export function SummaryTable() {
     if (projectId) getProjectSummaryTable({ id: projectId });
   }, [projectId, getProjectSummaryTable]);
 
-  useComponentUpdate(() => {
-    console.log(data)
-  }, [data])
 
   if (isLoading) {
     return <h1>Loading...</h1>;
@@ -55,7 +53,7 @@ export function SummaryTable() {
           </div>
         ))}
       </div>
-      {data.table.map((row) => (
+      {data.table.map((row: ISummaryRow) => (
         <div className={styles.summary_table__row}>
           <div
             className={classNames(
@@ -65,7 +63,7 @@ export function SummaryTable() {
           >
             {row.document.name}
           </div>
-          {row.tags.map((tag) => (
+          {row.tags.map((tag: ISummaryCell) => (
             <div className={styles.summary_table__cell}>{tag.count || " "}</div>
           ))}
         </div>

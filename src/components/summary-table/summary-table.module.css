@@ -1,3 +1,5 @@
+@import url('../../palette.css');
+
 .summary_table {
   background: #4c4c4c;
   display: flex;
@@ -16,18 +18,18 @@
 .summary_table__cell {
   flex: 1;
   text-align: center;
-  background: rgb(239, 239, 239);
+  background: var(--table-bg-color);
   padding: 8px;
   box-sizing: border-box;
 }
 
 .summary_table__left_cell {
   flex: 2;
-  background: #dfdfdf;
+  background: var(--table-bg-header-color);
   text-align: start;
 }
 
 .summary_table__header_cell {
-  background: #dfdfdf;
+  background: var(--table-bg-header-color);
   padding-top: 16px;
 }
