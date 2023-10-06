@@ -2,23 +2,20 @@ import { useMemo } from "react";
 import { DefaultButton } from "./default-button";
 import { PulseButton } from "./pulse-button";
 
-export interface IButtonProps {
-  label: string;
-  type?: string;
-  onClick: () => void;
-}
-
-export function Button({ type, ...props }: IButtonProps) {
+export function Button({ typeButton, type: _, ...props }: IButtonProps) {
   const currentButton = useMemo(() => {
-    switch (type) {
-      case "auth":
-        return <DefaultButton {...props} />;
+    switch (typeButton) {
       case "pulse":
         return <PulseButton {...props} />;
       default:
         return <DefaultButton {...props} />;
     }
-  }, [type]);
+  }, [typeButton]);
 
   return currentButton;
+}
+
+export interface IButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  typeButton?: string;
 }

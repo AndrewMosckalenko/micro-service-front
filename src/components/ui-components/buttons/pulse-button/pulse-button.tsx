@@ -2,7 +2,10 @@ import { useCallback, useRef } from "react";
 
 import styles from "./pulse-button.module.css";
 
-export function PulseButton({ label, onClick }: IPulseButtonProps) {
+export function PulseButton({
+  onClick,
+  ...props
+}: React.ButtonHTMLAttributes<HTMLButtonElement>) {
   const buttonRef = useRef<HTMLButtonElement | null>(null);
 
   const mousePositionToCustomProp = (
@@ -29,7 +32,7 @@ export function PulseButton({ label, onClick }: IPulseButtonProps) {
           },
           { once: true },
         );
-        onClick();
+        if (onClick) onClick(e);
       }
     },
     [onClick, buttonRef, mousePositionToCustomProp],
@@ -40,13 +43,7 @@ export function PulseButton({ label, onClick }: IPulseButtonProps) {
       className={styles.pulse_btn}
       onClick={onCLickButton}
       ref={buttonRef}
-    >
-      {label}
-    </button>
+      {...props}
+    />
   );
-}
-
-export interface IPulseButtonProps {
-  label: string;
-  onClick: () => void;
 }

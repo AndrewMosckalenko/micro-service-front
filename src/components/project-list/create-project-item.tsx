@@ -12,8 +12,8 @@ export function CreateProjectItem() {
   const [newProjectName, setNewProjectName] = useState<string>("");
 
   const onChangeProjectName = useCallback(
-    (value: string) => {
-      setNewProjectName(value);
+    ({ target }: React.ChangeEvent<HTMLInputElement>) => {
+      setNewProjectName(target.value);
     },
     [setNewProjectName],
   );
@@ -29,10 +29,10 @@ export function CreateProjectItem() {
       <h3>Create new project</h3>
       <Input
         onChange={onChangeProjectName}
-        hint="project name"
+        placeholder="project name"
         value={newProjectName}
       />
-      <Button label="create" onClick={onClickCreateProjectBtn} />
+      <Button onClick={onClickCreateProjectBtn}>create</Button>
     </div>
   );
 }

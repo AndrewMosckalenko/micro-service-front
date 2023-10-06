@@ -29,14 +29,32 @@ export const SignInForm = memo(() => {
     navigate("/sign-up");
   }, [navigate]);
 
+  const onChangeEmail = useCallback(
+    ({ target }: React.ChangeEvent<HTMLInputElement>) => {
+      setEmail(target.value);
+    },
+    [setEmail],
+  );
+
+  const onChangePassword = useCallback(
+    ({ target }: React.ChangeEvent<HTMLInputElement>) => {
+      setPassword(target.value);
+    },
+    [setPassword],
+  );
+
   return (
     <div className={styles.sign_in_form}>
       <h1 className={styles.sign_in_form__title}>Sign in</h1>
-      <Input value={email} hint="email" onChange={setEmail} />
-      <Input value={password} hint="password" onChange={setPassword} />
+      <Input value={email} placeholder="email" onChange={onChangeEmail} />
+      <Input
+        value={password}
+        placeholder="password"
+        onChange={onChangePassword}
+      />
       <div className={styles.sign_up_form__btns}>
-        <Button label="sign in" onClick={onClickSignInBtn} />
-        <Button label="sign up" onClick={onClickSignUpBtn} />
+        <Button onClick={onClickSignInBtn}>sign in</Button>
+        <Button onClick={onClickSignUpBtn}>sign up</Button>
       </div>
     </div>
   );

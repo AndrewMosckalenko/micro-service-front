@@ -21,22 +21,22 @@ export const SignUpForm = memo(() => {
   const [signUpRequest] = useSignUpMutation();
 
   const onChangeEmail = useCallback(
-    (email: string) => {
-      setUser((prev) => ({ ...prev, email }));
+    ({ target }: React.ChangeEvent<HTMLInputElement>) => {
+      setUser((prev) => ({ ...prev, email: target.value }));
     },
     [setUser],
   );
 
   const onChangeName = useCallback(
-    (name: string) => {
-      setUser((prev) => ({ ...prev, name }));
+    ({ target }: React.ChangeEvent<HTMLInputElement>) => {
+      setUser((prev) => ({ ...prev, name: target.value }));
     },
     [setUser],
   );
 
   const onChangePassword = useCallback(
-    (password: string) => {
-      setUser((prev) => ({ ...prev, password }));
+    ({ target }: React.ChangeEvent<HTMLInputElement>) => {
+      setUser((prev) => ({ ...prev, password: target.value }));
     },
     [setUser],
   );
@@ -55,16 +55,16 @@ export const SignUpForm = memo(() => {
   return (
     <div className={styles.sign_up_form}>
       <h1 className={styles.sign_up_form__title}>Sign up</h1>
-      <Input value={user.email} onChange={onChangeEmail} hint="email" />
-      <Input value={user.name} onChange={onChangeName} hint="name" />
+      <Input value={user.email} onChange={onChangeEmail} placeholder="email" />
+      <Input value={user.name} onChange={onChangeName} placeholder="name" />
       <Input
         value={user.password}
         onChange={onChangePassword}
-        hint="password"
+        placeholder="password"
       />
       <div className={styles.sign_up_form__btns}>
-        <Button label="sign up" onClick={onClickSignUpButton} />
-        <Button label="sign in" onClick={onClickSignInButton} />
+        <Button onClick={onClickSignUpButton}>sign up</Button>
+        <Button onClick={onClickSignInButton}>sign in</Button>
       </div>
     </div>
   );

@@ -19,8 +19,8 @@ export const AddParagraphForm = ({
   });
 
   const onChangeContent = useCallback(
-    (content: string) => {
-      setNewParagraph((prev) => ({ ...prev, content }));
+    ({ target }: React.ChangeEvent<HTMLInputElement>) => {
+      setNewParagraph((prev) => ({ ...prev, content: target.value }));
     },
     [setNewParagraph],
   );
@@ -35,8 +35,12 @@ export const AddParagraphForm = ({
     <div className={styles.add_paragraph_form}>
       <Input value={content} onChange={onChangeContent} type="multiple" />
       <div className={styles.add_paragraph_form__btns}>
-        <Button onClick={onClickAddBtn} label="create paragraph" type="pulse" />
-        <Button onClick={onClickCancel} label="cancel" type="pulse" />
+        <Button onClick={onClickAddBtn} typeButton="pulse">
+          create paragraph
+        </Button>
+        <Button onClick={onClickCancel} typeButton="pulse">
+          cancel
+        </Button>
       </div>
     </div>
   );

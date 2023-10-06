@@ -47,8 +47,8 @@ export const ParagraphItem = ({
   }, [onClickAddParagraph, paragraph]);
 
   const onChangeParagraphContent = useCallback(
-    (value: string) => {
-      setNewParagraphData((prev) => ({ ...prev, content: value }));
+    ({ target }: React.ChangeEvent<HTMLInputElement>) => {
+      setNewParagraphData((prev) => ({ ...prev, content: target.value }));
     },
     [setNewParagraphData],
   );

@@ -19,7 +19,7 @@ export const AddTagTicket = ({
   });
 
   const onChangeNewTag = useCallback(
-    ({ target }) => {
+    ({ target }: React.ChangeEvent<HTMLInputElement>) => {
       setNewTag(target.value);
     },
     [setNewTag],

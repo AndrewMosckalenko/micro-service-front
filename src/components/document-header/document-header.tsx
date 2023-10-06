@@ -33,8 +33,8 @@ export function DocumentHeader() {
     fixedCacheKey: "get-project",
   });
   const onChangeNewName = useCallback(
-    (value: string) => {
-      setNewDocumentName(value);
+    ({ target }: React.ChangeEvent<HTMLInputElement>) => {
+      setNewDocumentName(target.value);
     },
     [setNewDocumentName],
   );
@@ -85,7 +85,7 @@ export function DocumentHeader() {
           {" > "}
           {editDocument ? (
             <Input
-              hint="new name"
+              placeholder="new name"
               onChange={onChangeNewName}
               value={newDocumentName}
             />
