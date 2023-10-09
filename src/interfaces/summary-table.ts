@@ -10,7 +10,7 @@ export interface ISummaryRow {
   tags: ISummaryCell[];
 }
 
-export interface ISummaryCell { 
+export interface ISummaryCell {
   tag: ITag;
   count: number;
 }

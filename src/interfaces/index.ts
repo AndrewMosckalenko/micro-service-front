@@ -4,4 +4,4 @@ export * from "./user";
 export * from "./tag";
 export * from "./project";
 export * from "./paragraph-tag";
-export * from './summary-table'
+export * from "./summary-table";

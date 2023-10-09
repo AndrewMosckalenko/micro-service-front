@@ -1,12 +1,12 @@
 import { SummaryTable } from "../../components/summary-table";
 import { useGetProjectMutation } from "../../redux/api";
 
-import styles from './summary-page.module.css'
+import styles from "./summary-page.module.css";
 
 export default function SummaryPage() {
-  const [,{data: project}] = useGetProjectMutation({
+  const [, { data: project }] = useGetProjectMutation({
     fixedCacheKey: "get-project",
-  })
+  });
 
   return (
     <div className={styles.summary_page}>

@@ -1,7 +1,7 @@
-@import url('../../palette.css');
+@import url("../../palette.css");
 
 .summary_table {
-  background: var(--table-borde-color);
+  background: var(--table-bg-second-color);
   display: flex;
   flex-direction: column;
   gap: 1px;
