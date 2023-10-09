@@ -10,7 +10,7 @@ export function Button({ typeButton, type: _, ...props }: IButtonProps) {
       default:
         return <DefaultButton {...props} />;
     }
-  }, [typeButton]);
+  }, [typeButton, props]);
 
   return currentButton;
 }
