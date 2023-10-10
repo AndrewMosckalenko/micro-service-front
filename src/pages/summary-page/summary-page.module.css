@@ -1,0 +1,10 @@
+.summary_page__title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.summary_page {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

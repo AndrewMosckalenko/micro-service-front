@@ -43,6 +43,9 @@ export const apiProject = createApi({
         body,
       }),
     }),
+    getSummaryTable: builder.mutation({
+      query: (body) => `project/summary/${body.id}`,
+    }),
   }),
 });
 
@@ -52,4 +55,5 @@ export const {
   useGetProjectsQuery,
   useGetProjectMutation,
   usePatchProjectMutation,
+  useGetSummaryTableMutation,
 } = apiProject;
