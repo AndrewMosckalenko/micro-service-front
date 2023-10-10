@@ -16,6 +16,7 @@ const DocumentPage = lazy(() => import("../pages/document-page"));
 const NotFoundPage = lazy(() => import("../pages/not-found-page"));
 const ProjectListPage = lazy(() => import("../pages/projects-list-page"));
 const SummaryPage = lazy(() => import("../pages/summary-page"));
+const ProjectPage = lazy(() => import("../pages/project-page"));
 
 const authRouter = [
   {
@@ -23,16 +24,22 @@ const authRouter = [
     element: <DefaultAuthedPage />,
     children: [
       {
-        path: "/",
+        path: "",
         element: <ProjectListPage />,
       },
       {
-        path: ":projectId/document",
-        element: <DocumentListPage />,
-      },
-      {
-        path: ":projectId/summary",
-        element: <SummaryPage />,
+        path: ":projectId",
+        element: <ProjectPage />,
+        children: [
+          {
+            path: "document",
+            element: <DocumentListPage />,
+          },
+          {
+            path: "summary",
+            element: <SummaryPage />,
+          },
+        ],
       },
       {
         path: ":projectId/document/:id",
