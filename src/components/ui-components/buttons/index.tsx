@@ -1,18 +1,13 @@
-import { useMemo } from "react";
 import { DefaultButton } from "./default-button";
 import { PulseButton } from "./pulse-button";
 
 export function Button({ typeButton, type: _, ...props }: IButtonProps) {
-  const currentButton = useMemo(() => {
-    switch (typeButton) {
-      case "pulse":
-        return <PulseButton {...props} />;
-      default:
-        return <DefaultButton {...props} />;
-    }
-  }, [typeButton]);
-
-  return currentButton;
+  switch (typeButton) {
+    case "pulse":
+      return <PulseButton {...props} />;
+    default:
+      return <DefaultButton {...props} />;
+  }
 }
 
 export interface IButtonProps
