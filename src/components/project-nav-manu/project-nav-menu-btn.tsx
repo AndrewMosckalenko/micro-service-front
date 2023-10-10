@@ -8,21 +8,18 @@ export interface IProjectNavMenuBtnProps {
   title: string;
   link: string;
   focus?: boolean;
-  onClick?: (value: string) => void;
 }
 
 export function ProjectNavMenuBtn({
   title,
   focus,
   link,
-  onClick,
 }: IProjectNavMenuBtnProps) {
   const navigate = useNavigate();
 
   const onClickBtn = useCallback(() => {
     navigate(link);
-    if (onClick) onClick(title);
-  }, [link, navigate, onClick, title]);
+  }, [link, navigate]);
 
   return (
     <button

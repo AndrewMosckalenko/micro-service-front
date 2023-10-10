@@ -1,26 +1,24 @@
+import { useLocation } from "react-router-dom";
 import {
   IProjectNavMenuBtnProps,
   ProjectNavMenuBtn,
 } from "./project-nav-menu-btn";
 
 import styles from "./project-nav-menu.module.css";
-import { useState } from "react";
 
 export function ProjectNavMenu() {
-  const [focusItem, setFocusItem] = useState<string>();
+  const location = useLocation().pathname.split('/')[2]
 
   const menuItems: IProjectNavMenuBtnProps[] = [
     {
       title: "Documents",
       link: "document",
-      focus: focusItem === "Documents",
-      onClick: setFocusItem,
+      focus: location === "document",
     },
     {
       title: "Summary",
       link: "summary",
-      focus: focusItem === "Summary",
-      onClick: setFocusItem,
+      focus: location === "summary",
     },
   ];
 
