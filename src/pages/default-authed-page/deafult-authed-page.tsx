@@ -14,7 +14,7 @@ export default function DefaultAuthedPage() {
     dispatch(setFocusParagraph(null));
   }, [dispatch]);
 
-  const onClickEscape = useCallback(
+  const onKeyDownEscape = useCallback(
     ({ code }: React.KeyboardEvent<HTMLElement>) => {
       if (code === "Escape") onClickPage();
     },
@@ -25,7 +25,7 @@ export default function DefaultAuthedPage() {
     <div
       className={styles.default_authed_page}
       onClick={onClickPage}
-      onKeyDown={onClickEscape}
+      onKeyDown={onKeyDownEscape}
       tabIndex={0}
     >
       <Header />

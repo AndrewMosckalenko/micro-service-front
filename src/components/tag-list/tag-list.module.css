@@ -7,9 +7,11 @@
   position: absolute;
   z-index: 1;
   padding: 15px;
-  border-radius: 15px;
+  border-radius: 4px;
   background: var(--main-bg-color);
-  box-shadow: 2px 2px 2px 0 var(--main-wrapper-bg-color);
+  box-shadow: 0 0 2px 1px var(--main-wrapper-bg-color);
+  overflow-y: scroll;
+  max-height: 300px;
 }
 
 .tag_ticket {

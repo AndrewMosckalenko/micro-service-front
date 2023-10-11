@@ -64,7 +64,7 @@ export const TagTicket = ({
         [styles.tag_ticket_global]: isGlobal,
       })}
     >
-      <p>#{tag.title}</p>
+      <p>{tag.title}</p>
       <div className={styles.tag_ticket__icons}>
         {isGlobal && (
           <AddIcon
