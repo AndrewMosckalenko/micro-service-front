@@ -80,6 +80,11 @@ export const ParagraphItem = ({
 
   return (
     <div className={styles.paragraph_item}>
+      {paragraph.paragraphTags.length > 0 && (
+        <div className={styles.paragraph_item__tag_counter}>
+          {paragraph.paragraphTags.length}
+        </div>
+      )}
       {editParagraph ? (
         <div className={styles.content_wrapper}>
           <Input
