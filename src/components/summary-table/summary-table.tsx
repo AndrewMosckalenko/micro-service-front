@@ -29,10 +29,12 @@ export function SummaryTable() {
 
   return (
     <div className={styles.summary_table}>
-      <SummaryTableHeader header={data.header} />
-      {data.table.map((row: ISummaryRow) => (
-        <SummaryTableRow key={row.document.id} row={row} />
-      ))}
+      <table>
+        <SummaryTableHeader header={data.header} />
+        {data.table.map((row: ISummaryRow) => (
+          <SummaryTableRow key={row.document.id} row={row} />
+        ))}
+      </table>
     </div>
   );
 }

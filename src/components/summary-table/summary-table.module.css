@@ -2,29 +2,21 @@
 
 .summary_table {
   background: var(--table-bg-second-color);
-  display: flex;
-  flex-direction: column;
-  gap: 1px;
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-.summary_table__row {
-  display: flex;
-  flex-direction: row;
-  gap: 1px;
+  overflow-y: hidden;
+  position: relative;
+  overflow-x: scroll;
 }
 
 .summary_table__cell {
-  flex: 1;
   text-align: center;
+  width: 50px;
   background: var(--table-bg-color);
   padding: 8px;
   box-sizing: border-box;
 }
 
 .summary_table__left_cell {
-  flex: 2;
+  width: 200px;
   background: var(--table-bg-header-color);
   text-align: start;
 }

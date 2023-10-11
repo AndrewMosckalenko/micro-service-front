@@ -7,14 +7,14 @@ export function SummaryTableCell({
   left,
 }: ISummaryTableCellProps) {
   return (
-    <div
+    <td
       className={cn(styles.summary_table__cell, {
         [styles.summary_table__header_cell]: header,
         [styles.summary_table__left_cell]: left,
       })}
     >
-      {children}
-    </div>
+      <p>{children}</p>
+    </td>
   );
 }
 

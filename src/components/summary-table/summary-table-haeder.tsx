@@ -7,7 +7,7 @@ import styles from "./summary-table.module.css";
 
 export function SummaryTableHeader({ header }: ISummaryTableHeaderProps) {
   return (
-    <div
+    <tr
       className={cn(
         styles.summary_table__row,
         styles.summary_table__row_header,
@@ -19,7 +19,7 @@ export function SummaryTableHeader({ header }: ISummaryTableHeaderProps) {
           {tag.title}
         </SummaryTableCell>
       ))}
-    </div>
+    </tr>
   );
 }
 
