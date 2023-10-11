@@ -64,17 +64,19 @@ export const TagTicket = ({
         [styles.tag_ticket_global]: isGlobal,
       })}
     >
-      <p>#{tag.title}</p>
-      {isGlobal && (
-        <AddIcon
+      <p>{tag.title}</p>
+      <div className={styles.tag_ticket__icons}>
+        {isGlobal && (
+          <AddIcon
+            className={styles.tag_ticket__delete}
+            onClick={onClickAddTagToParagraph}
+          />
+        )}
+        <CloseIcon
           className={styles.tag_ticket__delete}
-          onClick={onClickAddTagToParagraph}
+          onClick={onClickDeleteTagBtn}
         />
-      )}
-      <CloseIcon
-        className={styles.tag_ticket__delete}
-        onClick={onClickDeleteTagBtn}
-      />
+      </div>
     </div>
   );
 };

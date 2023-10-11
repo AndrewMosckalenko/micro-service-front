@@ -4,13 +4,11 @@ import { useCallback, useState } from "react";
 import { useGetProjectMutation } from "../../redux/api";
 import { IParagraph } from "../../interfaces";
 import { usePostTagMutation } from "../../redux/api/tag-api";
+import { MAX_TAG_LENGTH_LIMIT } from "../../constants";
 
 import styles from "./tag-list.module.css";
 
-export const AddTagTicket = ({
-  paragraph,
-  updateCallback,
-}: IAddTagTicketProps) => {
+export const AddTagTicket = ({ paragraph }: IAddTagTicketProps) => {
   const { projectId } = useParams();
   const [newTag, setNewTag] = useState("");
   const [postTag] = usePostTagMutation();
@@ -20,20 +18,37 @@ export const AddTagTicket = ({
 
   const onChangeNewTag = useCallback(
     ({ target }: React.ChangeEvent<HTMLInputElement>) => {
-      setNewTag(target.value);
+      if (target.value.length <= MAX_TAG_LENGTH_LIMIT) {
+        setNewTag(target.value);
+      }
     },
     [setNewTag],
   );
 
   const onClickAddTagBtn = useCallback(() => {
-    postTag({ projectId: project.id, title: newTag }).then(() => {
+    postTag({
+      projectId: project.id,
+      title: newTag,
+      paragraphId: paragraph.id,
+    }).then(() => {
       getProject({ id: projectId });
+      setNewTag("");
     });
-  }, [postTag, newTag, project, getProject, projectId]);
+  }, [postTag, newTag, project, getProject, projectId, setNewTag]);
+
+  const onClickEnter = useCallback(
+    ({ code }: React.KeyboardEvent<HTMLElement>) => {
+      if (code === "Enter") {
+        onClickAddTagBtn();
+      }
+    },
+    [onClickAddTagBtn],
+  );
 
   return (
     <div className={styles.add_tag_ticket}>
       <input
+        onKeyDown={onClickEnter}
         placeholder="new tag"
         onChange={onChangeNewTag}
         value={newTag}
@@ -48,5 +63,4 @@ export const AddTagTicket = ({
 
 export interface IAddTagTicketProps {
   paragraph: IParagraph;
-  updateCallback: () => void;
 }
