@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { useCallback } from "react";
-import { Outlet, useParams } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 
 import { Header } from "../../components/header";
 import { setFocusParagraph } from "../../redux/document-slice";
@@ -14,8 +14,20 @@ export default function DefaultAuthedPage() {
     dispatch(setFocusParagraph(null));
   }, [dispatch]);
 
+  const onClickEscape = useCallback(
+    ({ code }: React.KeyboardEvent<HTMLElement>) => {
+      if (code === "Escape") onClickPage();
+    },
+    [dispatch],
+  );
+
   return (
-    <div className={styles.default_authed_page} onClick={onClickPage}>
+    <div
+      className={styles.default_authed_page}
+      onClick={onClickPage}
+      onKeyDown={onClickEscape}
+      tabIndex={0}
+    >
       <Header />
       <div className={styles.default_authed_page__content}>
         <Outlet />
