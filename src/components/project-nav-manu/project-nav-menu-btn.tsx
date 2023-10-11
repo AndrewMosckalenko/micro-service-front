@@ -21,7 +21,7 @@ export function ProjectNavMenuBtn({
   const { projectId } = useParams();
 
   const onClickBtn = () => {
-    navigate(`/${projectId}/${link}`);
+    navigate(`/${projectId}/${link}`, { replace: true });
   };
 
   useComponentUpdate(() => {

@@ -6,3 +6,4 @@ export * from "./logout-icon";
 export * from "./return-icon";
 export * from "./add-icon";
 export * from "./save-icon";
+export * from "./home-icon";

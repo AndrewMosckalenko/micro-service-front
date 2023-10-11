@@ -6,7 +6,6 @@ const DocumentListPage = lazy(() => import("../document-list-page"));
 const NotFoundPage = lazy(() => import("../not-found-page"));
 
 export function ProjectPageSwitch() {
-
   const { location } = useParams();
 
   switch (location) {
@@ -17,5 +16,4 @@ export function ProjectPageSwitch() {
     default:
       return <NotFoundPage />;
   }
-  
 }
