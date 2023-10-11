@@ -3,6 +3,7 @@
   font-weight: bold;
   display: flex;
   gap: 4px;
+  text-align: center;
 }
 
 .icon {
@@ -13,4 +14,10 @@
   cursor: pointer;
   height: 24px;
   width: 24px;
+}
+
+@media (max-width: 768px) { 
+  .document_page__title {
+    font-size: 12px;
+  }
 }
