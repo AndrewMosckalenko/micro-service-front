@@ -4,6 +4,7 @@ import { useCallback, useState } from "react";
 import { useGetProjectMutation } from "../../redux/api";
 import { IParagraph } from "../../interfaces";
 import { usePostTagMutation } from "../../redux/api/tag-api";
+import { MAX_TAG_LENGTH_LIMIT } from "../../constants";
 
 import styles from "./tag-list.module.css";
 
@@ -17,7 +18,7 @@ export const AddTagTicket = ({ paragraph }: IAddTagTicketProps) => {
 
   const onChangeNewTag = useCallback(
     ({ target }: React.ChangeEvent<HTMLInputElement>) => {
-      if (target.value.length <= 12) {
+      if (target.value.length <= MAX_TAG_LENGTH_LIMIT) {
         setNewTag(target.value);
       }
     },

@@ -1,6 +1,2 @@
-export {
-  GET_DOCUMENT_ERROR_MESSAGE,
-  POST_DOCUMENT_ERROR_MESSAGE,
-  SIGN_IN_ERROR_MESSAGE,
-  SIGN_UP_ERROR_MESSAGE,
-} from "./error-messages";
+export * from "./error-messages";
+export * from "./limits";
