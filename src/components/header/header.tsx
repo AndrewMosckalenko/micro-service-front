@@ -1,5 +1,5 @@
-import { memo, useCallback } from "react";
-import { useNavigate } from "react-router-dom";
+import { memo } from "react";
+import { Link } from "react-router-dom";
 
 import { useLogout } from "../../hooks";
 import { useGetUserQuery } from "../../redux/api";
@@ -12,21 +12,11 @@ export const Header = memo(() => {
   const { data: user } = useGetUserQuery({});
   const onClickLogout = useLogout();
 
-  const navigate = useNavigate();
-
-  const onClickReturn = useCallback(() => {
-    navigate(-1);
-  }, [navigate]);
-
-  const onClickHome = useCallback(() => {
-    navigate("/");
-  }, [navigate]);
-
   return (
     <div className={styles.header}>
       <div className={styles.header__left_side}>
-        <ReturnIcon className={styles.header__logout} onClick={onClickReturn} />
-        <HomeIcon className={styles.header__logout} onClick={onClickHome} />
+        <Link to={-1}><ReturnIcon className={styles.header__logout}/></Link>
+        <Link to='/'><HomeIcon className={styles.header__logout}/></Link>
       </div>
       <DocumentHeader />
       <div className={styles.header__right_side}>
