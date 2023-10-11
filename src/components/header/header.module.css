@@ -46,3 +46,8 @@
 .header__logout:active {
   opacity: 0.4;
 }
+
+.header__left_side {
+  display: flex;
+  gap: 20px;
+}
