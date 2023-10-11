@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import {
   IProjectNavMenuBtnProps,
   ProjectNavMenuBtn,
@@ -6,26 +6,28 @@ import {
 
 import styles from "./project-nav-menu.module.css";
 
-export function ProjectNavMenu() {
-  const location = useLocation().pathname.split('/')[2]
+const menuItems: IProjectNavMenuBtnProps[] = [
+  {
+    title: "Documents",
+    link: "document",
+  },
+  {
+    title: "Summary",
+    link: "summary",
+  },
+];
 
-  const menuItems: IProjectNavMenuBtnProps[] = [
-    {
-      title: "Documents",
-      link: "document",
-      focus: location === "document",
-    },
-    {
-      title: "Summary",
-      link: "summary",
-      focus: location === "summary",
-    },
-  ];
+export function ProjectNavMenu() {
+  const { location } = useParams();
 
   return (
     <div className={styles.project_nav_menu}>
       {menuItems.map((btnProps: IProjectNavMenuBtnProps) => (
-        <ProjectNavMenuBtn {...btnProps} />
+        <ProjectNavMenuBtn
+          key={btnProps.link}
+          {...btnProps}
+          isActive={location === btnProps.link}
+        />
       ))}
     </div>
   );

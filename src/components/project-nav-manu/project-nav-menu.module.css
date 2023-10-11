@@ -21,6 +21,7 @@
   background: var(--main-bg-second-color);
 }
 
-.project_nav_btn_focus {
+.project_nav_btn:disabled {
   background: var(--main-bg-second-color);
+  color: var(--inp-font-color);
 }

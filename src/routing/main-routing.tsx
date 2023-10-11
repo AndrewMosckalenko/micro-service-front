@@ -11,11 +11,9 @@ const AuthPage = lazy(() => import("../pages/auth-page"));
 const SignInPage = lazy(() => import("../pages/sign-in-page"));
 const SignUpPage = lazy(() => import("../pages/sign-up-page"));
 const DefaultAuthedPage = lazy(() => import("../pages/default-authed-page"));
-const DocumentListPage = lazy(() => import("../pages/document-list-page"));
 const DocumentPage = lazy(() => import("../pages/document-page"));
 const NotFoundPage = lazy(() => import("../pages/not-found-page"));
 const ProjectListPage = lazy(() => import("../pages/projects-list-page"));
-const SummaryPage = lazy(() => import("../pages/summary-page"));
 const ProjectPage = lazy(() => import("../pages/project-page"));
 
 const authRouter = [
@@ -28,22 +26,12 @@ const authRouter = [
         element: <ProjectListPage />,
       },
       {
-        path: ":projectId",
-        element: <ProjectPage />,
-        children: [
-          {
-            path: "document",
-            element: <DocumentListPage />,
-          },
-          {
-            path: "summary",
-            element: <SummaryPage />,
-          },
-        ],
-      },
-      {
         path: ":projectId/document/:id",
         element: <DocumentPage />,
+      },
+      {
+        path: ":projectId/:location",
+        element: <ProjectPage />,
       },
       {
         path: "*",

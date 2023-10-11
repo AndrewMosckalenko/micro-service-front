@@ -1,32 +1,38 @@
-import cn from "classnames";
+import { useNavigate, useParams } from "react-router-dom";
+import { useRef } from "react";
+
+import { useComponentUpdate } from "../../hooks";
 
 import styles from "./project-nav-menu.module.css";
-import { useNavigate } from "react-router-dom";
-import { useCallback } from "react";
 
 export interface IProjectNavMenuBtnProps {
   title: string;
   link: string;
-  focus?: boolean;
+  isActive?: boolean;
 }
 
 export function ProjectNavMenuBtn({
   title,
-  focus,
+  isActive,
   link,
 }: IProjectNavMenuBtnProps) {
   const navigate = useNavigate();
+  const buttonRef = useRef<HTMLButtonElement | null>(null);
+  const { projectId } = useParams();
 
-  const onClickBtn = useCallback(() => {
-    navigate(link);
-  }, [link, navigate]);
+  const onClickBtn = () => {
+    navigate(`/${projectId}/${link}`);
+  };
+
+  useComponentUpdate(() => {
+    if (buttonRef.current) buttonRef.current.disabled = !!isActive;
+  }, [isActive, buttonRef]);
 
   return (
     <button
+      ref={buttonRef}
       onClick={onClickBtn}
-      className={cn(styles.project_nav_btn, {
-        [styles.project_nav_btn_focus]: focus,
-      })}
+      className={styles.project_nav_btn}
     >
       {title}
     </button>
