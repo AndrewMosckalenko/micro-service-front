@@ -96,3 +96,21 @@
 .paragraph_item__content_focus {
   background: var(--par-bg-focus-color);
 }
+
+.paragraph_item__tag_counter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  background: var(--tag-bg-local-color);
+  width: 15px;
+  height: 15px;
+  font-size: 10px;
+  position: absolute;
+  left: -20px;
+  color: var(--table-bg-second-color);
+}
+
+.paragraph_item {
+  position: relative;
+}
