@@ -1,0 +1,27 @@
+@import url("../../palette.css");
+
+.project_nav_menu {
+  display: flex;
+  flex-direction: row;
+  gap: 2px;
+  margin-bottom: 10px;
+  background: var(--main-wrapper-bg-color);
+}
+
+.project_nav_btn {
+  flex: 1;
+  background: var(--main-bg-color);
+  border: none;
+  font-size: 16px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.project_nav_btn:hover {
+  background: var(--main-bg-second-color);
+}
+
+.project_nav_btn:disabled {
+  background: var(--main-bg-second-color);
+  color: var(--inp-font-color);
+}
