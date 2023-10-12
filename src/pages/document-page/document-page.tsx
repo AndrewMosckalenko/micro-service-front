@@ -7,7 +7,7 @@ import { useGetDocumentWithParapgraphsMutation } from "../../redux/api";
 import { setDocumentCopiedStatus } from "../../redux/document-slice";
 import { IDocument } from "../../interfaces";
 
-import styles from "./document-page.module.css";
+import styles from "./document-page.module.scss";
 import { ParagraphList } from "../../components/paragraph-list";
 import { TagList } from "../../components/tag-list";
 import { ActionForm } from "../../components/forms/action-form";

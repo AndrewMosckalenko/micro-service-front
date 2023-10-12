@@ -1,4 +1,5 @@
-@import url("../../palette.css");
+@import url("../../palette.scss");
+@import "../../assets/screen-resolutions";
 
 .default_authed_page {
   display: flex;
@@ -12,18 +13,26 @@
   overflow-x: hidden;
   padding-top: 80px;
   padding-bottom: 20px;
-  box-sizing: border-box;
 }
 
 .default_authed_page__content {
   background: var(--main-bg-color);
   border-radius: 4px;
   align-self: center;
-
   box-shadow: 0 0 3px 1px var(--main-wrapper-bg-color);
   box-sizing: border-box;
   padding: 25px;
   max-width: 1170px;
   width: 100%;
   margin-bottom: 20px;
+}
+
+@media (max-width: $tablet-width) {
+  .default_authed_page {
+    padding-top: 70px;
+  }
+
+  .default_authed_page__content {
+    border-radius: 0;
+  }
 }

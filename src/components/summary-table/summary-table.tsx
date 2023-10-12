@@ -8,7 +8,7 @@ import { ISummaryRow } from "../../interfaces";
 import { SummaryTableHeader } from "./summary-table-haeder";
 import { SummaryTableRow } from "./summary-table-row";
 
-import styles from "./summary-table.module.css";
+import styles from "./summary-table.module.scss";
 
 export function SummaryTable() {
   const { projectId } = useParams();

@@ -1,21 +1,11 @@
-.document_page {
-  display: flex;
-  flex-direction: column;
-  gap: 50px;
-}
-
-.document_page__edit_icon {
-  width: 20px;
-  height: 20px;
-  cursor: pointer;
-  margin-left: 10px;
-}
+@import "../../assets/screen-resolutions";
 
 .document_page__title {
   font-size: 16px;
   font-weight: bold;
   display: flex;
   gap: 4px;
+  text-align: center;
 }
 
 .icon {
@@ -28,6 +18,8 @@
   width: 24px;
 }
 
-.icon:active {
-  opacity: 0.4;
+@media (max-width: $tablet-width) {
+  .document_page__title {
+    font-size: 12px;
+  }
 }

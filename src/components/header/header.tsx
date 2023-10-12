@@ -6,7 +6,7 @@ import { useGetUserQuery } from "../../redux/api";
 import { LogoutIcon, ReturnIcon, HomeIcon } from "../svg-icons";
 import { DocumentHeader } from "../document-header";
 
-import styles from "./header.module.css";
+import styles from "./header.module.scss";
 
 export const Header = memo(() => {
   const { data: user } = useGetUserQuery({});

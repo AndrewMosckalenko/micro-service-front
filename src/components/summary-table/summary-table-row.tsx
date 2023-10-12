@@ -1,7 +1,7 @@
 import { ISummaryCell, ISummaryRow } from "../../interfaces";
 import { SummaryTableCell } from "./summary-table-cell";
 
-import styles from "./summary-table.module.css";
+import styles from "./summary-table.module.scss";
 
 export function SummaryTableRow({ row }: ISummaryTableRowProps) {
   return (

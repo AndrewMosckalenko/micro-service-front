@@ -6,7 +6,7 @@ import { IParagraph } from "../../interfaces";
 import { usePostTagMutation } from "../../redux/api/tag-api";
 import { MAX_TAG_LENGTH_LIMIT } from "../../constants";
 
-import styles from "./tag-list.module.css";
+import styles from "./tag-list.module.scss";
 
 export const AddTagTicket = ({ paragraph }: IAddTagTicketProps) => {
   const { projectId } = useParams();

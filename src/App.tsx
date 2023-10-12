@@ -4,7 +4,7 @@ import { MainRouter } from "./routing";
 import { useComponentUpdate } from "./hooks";
 import { useGetUserQuery } from "./redux/api";
 
-import "./App.css";
+import "./App.scss";
 
 function App() {
   const token = useSelector((state) => state.auth?.token);

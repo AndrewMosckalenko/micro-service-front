@@ -7,7 +7,7 @@ import { useSignInMutation } from "../../../redux/api";
 import { addTokenToLocalStorage } from "../../../utils";
 import { setToken } from "../../../redux/auth-slice";
 
-import styles from "./sign-in-form.module.css";
+import styles from "./sign-in-form.module.scss";
 
 export const SignInForm = memo(() => {
   const [email, setEmail] = useState<string>("");

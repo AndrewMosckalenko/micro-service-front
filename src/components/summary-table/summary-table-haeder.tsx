@@ -3,7 +3,7 @@ import cn from "classnames";
 import { ITag } from "../../interfaces";
 import { SummaryTableCell } from "./summary-table-cell";
 
-import styles from "./summary-table.module.css";
+import styles from "./summary-table.module.scss";
 
 export function SummaryTableHeader({ header }: ISummaryTableHeaderProps) {
   return (

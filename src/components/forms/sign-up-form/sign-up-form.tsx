@@ -7,7 +7,7 @@ import { Button, Input } from "../../ui-components";
 import { addTokenToLocalStorage } from "../../../utils";
 import { setToken } from "../../../redux/auth-slice";
 
-import styles from "./sign-up-form.module.css";
+import styles from "./sign-up-form.module.scss";
 
 export const SignUpForm = memo(() => {
   const [user, setUser] = useState({

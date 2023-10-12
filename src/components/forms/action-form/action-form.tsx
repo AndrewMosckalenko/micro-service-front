@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 import { Button } from "../../ui-components";
-import styles from "./action-form.module.css";
+import styles from "./action-form.module.scss";
 
 export function ActionForm({ label, onClick }: IActionFormProps) {
   const onCLickForm = useCallback((e: React.MouseEvent<HTMLElement>) => {

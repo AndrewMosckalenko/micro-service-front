@@ -8,7 +8,7 @@ import {
 } from "../../../redux/api";
 import { useComponentUpdate } from "../../../hooks";
 
-import styles from "./create-document-form.module.css";
+import styles from "./create-document-form.module.scss";
 
 export const CreateDocumentForm = () => {
   const [name, setName] = useState("");

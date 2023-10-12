@@ -3,7 +3,7 @@ import { useCallback, useState } from "react";
 import { usePostParagraphMutation } from "../../../redux/api";
 import { Button, Input } from "../../ui-components";
 
-import styles from "./add-paragraph-form.module.css";
+import styles from "./add-paragraph-form.module.scss";
 
 export const AddParagraphForm = ({
   documentId,

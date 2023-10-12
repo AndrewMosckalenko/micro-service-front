@@ -4,7 +4,7 @@ import {
   ProjectNavMenuBtn,
 } from "./project-nav-menu-btn";
 
-import styles from "./project-nav-menu.module.css";
+import styles from "./project-nav-menu.module.scss";
 
 const menuItems: IProjectNavMenuBtnProps[] = [
   {

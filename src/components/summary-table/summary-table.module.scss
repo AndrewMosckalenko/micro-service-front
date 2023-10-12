@@ -1,4 +1,5 @@
-@import url("../../palette.css");
+@import url("../../palette.scss");
+@import "../../assets/screen-resolutions";
 
 .summary_table {
   background: var(--table-bg-second-color);
@@ -11,7 +12,7 @@
   text-align: center;
   width: 50px;
   background: var(--table-bg-color);
-  padding: 8px;
+  padding: 4px;
   box-sizing: border-box;
 }
 
@@ -23,5 +24,11 @@
 
 .summary_table__header_cell {
   background: var(--table-bg-header-color);
-  padding-top: 16px;
+  padding-top: 10px;
+}
+
+@media (max-width: $tablet-width) {
+  .summary_table__cell {
+    font-size: 12px;
+  }
 }

@@ -6,7 +6,7 @@ import { AddParagraphForm } from "../forms/add-paragraph-form";
 
 import { ParagraphItem } from "./paragraph-item";
 
-import styles from "./paragraph-list.module.css";
+import styles from "./paragraph-list.module.scss";
 
 export const ParagraphList = ({
   paragraphs,
