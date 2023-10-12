@@ -1,28 +1,16 @@
 import cn from "classnames";
-import { Tooltip } from "react-tooltip";
+
+import { getShortString } from "../../utils";
+import { MAX_TAG_LENGTH_ON_HEDER } from "../../constants";
 
 import styles from "./summary-table.module.scss";
-import { useMemo } from "react";
 
 export function SummaryTableCell({
-  children,
+  children = "",
   header,
   left,
 }: ISummaryTableCellProps) {
-  const { isShort, value } = useMemo(() => {
-    if (typeof children === "string" && header) {
-      const isShort = children.length > 5;
-      return {
-        isShort,
-        value: `${children.slice(0, 5)}${isShort ? "..." : ""}`,
-      };
-    } else {
-      return {
-        isShort: false,
-        value: children,
-      };
-    }
-  }, [children, header]);
+  const withTooltip = header || left;
 
   return (
     <td
@@ -37,15 +25,14 @@ export function SummaryTableCell({
         })}
       >
         <a
-          data-tooltip-id="table_cell_tooltip"
+          data-tooltip-id={withTooltip ? "table_cell_tooltip" : ""}
           data-tooltip-content={children}
           data-tooltip-place="top"
           className={styles.summary_table__content}
         >
-          {value}
+          {left ? children : getShortString(children, MAX_TAG_LENGTH_ON_HEDER)}
         </a>
       </div>
-      {isShort && <Tooltip id="table_cell_tooltip" />}
     </td>
   );
 }
