@@ -6,9 +6,15 @@ import styles from "./summary-table.module.scss";
 export function SummaryTableRow({ row }: ISummaryTableRowProps) {
   return (
     <tr className={styles.summary_table__row}>
-      <SummaryTableCell left>{row.document.name}</SummaryTableCell>
+      <SummaryTableCell left documentId={row.document.id}>
+        {row.document.name}
+      </SummaryTableCell>
       {row.tags.map((cell: ISummaryCell) => (
-        <SummaryTableCell key={cell.tag.id}>
+        <SummaryTableCell
+          documentId={row.document.id}
+          tagId={cell.tag.id}
+          key={cell.tag.id}
+        >
           {String(cell.count)}
         </SummaryTableCell>
       ))}

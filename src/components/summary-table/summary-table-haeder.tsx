@@ -15,7 +15,7 @@ export function SummaryTableHeader({ header }: ISummaryTableHeaderProps) {
     >
       <SummaryTableCell header left />
       {header.map((tag: ITag) => (
-        <SummaryTableCell key={tag.id} header>
+        <SummaryTableCell tagId={tag.id} key={tag.id} header>
           {tag.title}
         </SummaryTableCell>
       ))}
