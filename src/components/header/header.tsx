@@ -15,8 +15,12 @@ export const Header = memo(() => {
   return (
     <div className={styles.header}>
       <div className={styles.header__left_side}>
-        <Link to={-1}><ReturnIcon className={styles.header__logout}/></Link>
-        <Link to='/'><HomeIcon className={styles.header__logout}/></Link>
+        <Link to={-1}>
+          <ReturnIcon className={styles.header__logout} />
+        </Link>
+        <Link to="/">
+          <HomeIcon className={styles.header__logout} />
+        </Link>
       </div>
       <DocumentHeader />
       <div className={styles.header__right_side}>

@@ -1,8 +1,9 @@
 import { useCallback, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { toast } from "react-toastify";
 
-import { setDocumentCopiedStatus } from "../../redux/document-slice";
+import { toastConfig } from "../../constants";
 import { CopyIcon, EditIcon } from "../svg-icons";
 import {
   useCopyDocumentMutation,
@@ -43,6 +44,7 @@ export function DocumentHeader() {
     if (editDocument && document && newDocumentName)
       patchDocument({ id: document.id, name: newDocumentName }).then(() => {
         getDocument({ id });
+        toast.success("Document updated", toastConfig);
       });
     setEditDocument((prev) => !prev);
   }, [
@@ -58,7 +60,7 @@ export function DocumentHeader() {
   const copyDocumentClick = useCallback(() => {
     copyDocument({ id }).then(() => {
       refetch();
-      dispatch(setDocumentCopiedStatus(true));
+      toast.success("Document copied", toastConfig);
     });
   }, [id, copyDocument, refetch, dispatch]);
 

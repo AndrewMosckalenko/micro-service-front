@@ -1,4 +1,4 @@
-import cn from 'classnames'
+import cn from "classnames";
 import { Link, useParams } from "react-router-dom";
 
 import styles from "./project-nav-menu.module.scss";
