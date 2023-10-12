@@ -2,7 +2,6 @@
 @import "../../assets/screen-resolutions";
 
 .summary_table {
-  background: var(--table-bg-second-color);
   overflow-y: hidden;
   position: relative;
   overflow-x: scroll;
@@ -10,8 +9,7 @@
 
 .summary_table__cell {
   text-align: center;
-  background: var(--main-bg-color);
-  color: var(--table-font-color);
+  background: var(--table-bg-color);
   padding: 4px;
   box-sizing: border-box;
 }
@@ -23,8 +21,21 @@
 }
 
 .summary_table__header_cell {
-  background: var(--table-bg-header-color);
+  background: var(--tag-bg-create-color);
   padding-top: 10px;
+}
+
+.summary_table__content {
+  text-decoration: none;
+  color: var(--table-bg-second-color);
+}
+
+.summary_table__content_wrapper {
+  width: 100px;
+}
+
+.summary_table__left_content_wrapper {
+  width: 200px;
 }
 
 @media (max-width: $tablet-width) {
