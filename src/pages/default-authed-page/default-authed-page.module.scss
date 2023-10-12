@@ -1,5 +1,5 @@
 @import url("../../palette.scss");
-@import '../../assets/screen-resolutions';
+@import "../../assets/screen-resolutions";
 
 .default_authed_page {
   display: flex;
@@ -31,7 +31,7 @@
   .default_authed_page {
     padding-top: 70px;
   }
-  
+
   .default_authed_page__content {
     border-radius: 0;
   }

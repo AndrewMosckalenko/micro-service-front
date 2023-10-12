@@ -1,4 +1,4 @@
-@import '../../../assets/screen-resolutions';
+@import "../../../assets/screen-resolutions";
 
 .create_document__file_loader {
   display: flex;
@@ -15,7 +15,7 @@
   gap: 10px;
 }
 
-@media (max-width: $tablet-width) { 
+@media (max-width: $tablet-width) {
   .create_document_form {
     flex-direction: column;
   }

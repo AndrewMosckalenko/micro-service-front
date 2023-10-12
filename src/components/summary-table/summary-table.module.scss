@@ -1,5 +1,5 @@
 @import url("../../palette.scss");
-@import '../../assets/screen-resolutions';
+@import "../../assets/screen-resolutions";
 
 .summary_table {
   background: var(--table-bg-second-color);
@@ -27,7 +27,7 @@
   padding-top: 10px;
 }
 
-@media (max-width: $tablet-width) {  
+@media (max-width: $tablet-width) {
   .summary_table__cell {
     font-size: 12px;
   }

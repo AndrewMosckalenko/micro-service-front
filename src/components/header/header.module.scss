@@ -1,5 +1,5 @@
 @import url("../../palette.scss");
-@import '../../assets/screen-resolutions';
+@import "../../assets/screen-resolutions";
 
 .header__user_info {
   display: flex;
@@ -28,7 +28,6 @@
   padding-right: 20px;
   padding-left: 20px;
 }
-
 
 .header__right_side {
   display: flex;

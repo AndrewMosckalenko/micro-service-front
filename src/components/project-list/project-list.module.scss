@@ -1,5 +1,5 @@
 @import url("../../palette.scss");
-@import '../../assets/screen-resolutions';
+@import "../../assets/screen-resolutions";
 
 .project_list_item {
   border-radius: 4px;
@@ -24,7 +24,6 @@
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 10px;
 }
-
 
 @media (max-width: $tablet-width) {
   .project_list {

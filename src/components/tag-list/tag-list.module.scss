@@ -1,5 +1,5 @@
 @import url("../../palette.scss");
-@import '../../assets/screen-resolutions.scss';
+@import "../../assets/screen-resolutions.scss";
 
 .tag_list {
   display: flex;
@@ -68,7 +68,6 @@
   width: 0;
   height: 0;
 }
-
 
 @media (max-width: $tablet-width) {
   .tag_list {

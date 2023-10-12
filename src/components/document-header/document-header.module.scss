@@ -1,4 +1,4 @@
-@import '../../assets/screen-resolutions';
+@import "../../assets/screen-resolutions";
 
 .document_page__title {
   font-size: 16px;
@@ -18,7 +18,7 @@
   width: 24px;
 }
 
-@media (max-width: $tablet-width) { 
+@media (max-width: $tablet-width) {
   .document_page__title {
     font-size: 12px;
   }
