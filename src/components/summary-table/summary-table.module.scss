@@ -10,8 +10,8 @@
 
 .summary_table__cell {
   text-align: center;
-  width: 50px;
-  background: var(--table-bg-color);
+  background: var(--main-bg-color);
+  color: var(--table-font-color);
   padding: 4px;
   box-sizing: border-box;
 }

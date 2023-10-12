@@ -1,7 +1,9 @@
 import { useCallback, useState } from "react";
+import { toast } from "react-toastify";
 
 import { usePostParagraphMutation } from "../../../redux/api";
 import { Button, Input } from "../../ui-components";
+import { toastConfig } from "../../../constants";
 
 import styles from "./add-paragraph-form.module.scss";
 
@@ -27,7 +29,10 @@ export const AddParagraphForm = ({
 
   const onClickAddBtn = useCallback(() => {
     postParagraph({ id: documentId, name, content, nextParagraphId }).then(
-      updateCallback,
+      () => {
+        updateCallback();
+        toast.success("Paragraph added", toastConfig);
+      },
     );
   }, [postParagraph, name, content, documentId, updateCallback]);
 

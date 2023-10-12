@@ -1,7 +1,8 @@
 import { useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 
 import { useGetSummaryTableMutation } from "../../redux/api";
-
+import { toastConfig } from "../../constants";
 import { useComponentUpdate } from "../../hooks";
 import { ISummaryRow } from "../../interfaces";
 
@@ -24,6 +25,7 @@ export function SummaryTable() {
   }
 
   if (error || !data) {
+    toast.error("Server error", toastConfig);
     return <h1>Didn't load</h1>;
   }
 

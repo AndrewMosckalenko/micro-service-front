@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useCallback, useState } from "react";
+import { toast } from "react-toastify";
 
 import { Button, Input } from "../../ui-components";
 import {
@@ -9,6 +10,7 @@ import {
 import { useComponentUpdate } from "../../../hooks";
 
 import styles from "./create-document-form.module.scss";
+import { toastConfig } from "../../../constants";
 
 export const CreateDocumentForm = () => {
   const [name, setName] = useState("");
@@ -47,9 +49,10 @@ export const CreateDocumentForm = () => {
       const formData = new FormData();
       formData.append("file", file);
       formData.append("name", name);
-      postDocument({ data: formData, id: projectId }).then(() =>
+      postDocument({ data: formData, id: projectId }).then(() => {
         getProject({ id: projectId }),
-      );
+          toast.success("Document created", toastConfig);
+      });
     }
   }, [name, postDocument, file, projectId, getProject]);
 
