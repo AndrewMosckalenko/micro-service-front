@@ -12,7 +12,7 @@ import { useComponentUpdate } from "../../hooks";
 import { AddIcon, CloseIcon, EditIcon, SaveIcon } from "../svg-icons";
 import { Input } from "../ui-components";
 
-import styles from "./paragraph-list.module.css";
+import styles from "./paragraph-list.module.scss";
 
 export const ParagraphItem = ({
   paragraph,
