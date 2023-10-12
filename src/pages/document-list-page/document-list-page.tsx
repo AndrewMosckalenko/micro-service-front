@@ -2,7 +2,7 @@ import { CreateDocumentForm } from "../../components/forms/create-document-form"
 import { DocumentList } from "../../components/document-list";
 import { useGetProjectMutation } from "../../redux/api";
 
-import styles from "./document-list-page.module.css";
+import styles from "./document-list-page.module.scss";
 
 export default function DocumentListPage() {
   const [, { data: project, error }] = useGetProjectMutation({

@@ -1,7 +1,7 @@
 import { SummaryTable } from "../../components/summary-table";
 import { useGetProjectMutation } from "../../redux/api";
 
-import styles from "./summary-page.module.css";
+import styles from "./summary-page.module.scss";
 
 export default function SummaryPage() {
   const [, { data: project }] = useGetProjectMutation({

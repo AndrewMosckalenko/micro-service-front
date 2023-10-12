@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import { IProject } from "../../interfaces";
 
-import styles from "./project-list.module.css";
+import styles from "./project-list.module.scss";
 
 export function ProjectListItem({ project }: IProjectListItemProps) {
   const navigate = useNavigate();

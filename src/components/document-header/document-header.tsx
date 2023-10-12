@@ -14,7 +14,7 @@ import {
 import { useComponentUpdate } from "../../hooks";
 import { Input } from "../ui-components";
 
-import styles from "./document-header.module.css";
+import styles from "./document-header.module.scss";
 
 export function DocumentHeader() {
   const dispatch = useDispatch();

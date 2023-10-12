@@ -1,5 +1,5 @@
 import cn from "classnames";
-import styles from "./summary-table.module.css";
+import styles from "./summary-table.module.scss";
 
 export function SummaryTableCell({
   children,

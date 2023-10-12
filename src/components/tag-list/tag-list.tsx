@@ -7,7 +7,7 @@ import { useGetProjectMutation } from "../../redux/api";
 import { TagTicket } from "./tag-ticket";
 import { AddTagTicket } from "./add-tag-ticket";
 
-import styles from "./tag-list.module.css";
+import styles from "./tag-list.module.scss";
 import { useDispatch } from "react-redux";
 import { setFocusParagraph } from "../../redux/document-slice";
 

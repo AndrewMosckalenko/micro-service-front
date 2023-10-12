@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./default-button.module.css";
+import styles from "./default-button.module.scss";
 
 export function DefaultButton(
   props: React.ButtonHTMLAttributes<HTMLButtonElement>,

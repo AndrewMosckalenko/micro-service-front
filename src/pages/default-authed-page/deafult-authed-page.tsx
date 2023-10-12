@@ -5,7 +5,7 @@ import { Outlet } from "react-router-dom";
 import { Header } from "../../components/header";
 import { setFocusParagraph } from "../../redux/document-slice";
 
-import styles from "./default-authed-page.module.css";
+import styles from "./default-authed-page.module.scss";
 
 export default function DefaultAuthedPage() {
   const dispatch = useDispatch();

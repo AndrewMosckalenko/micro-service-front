@@ -3,7 +3,7 @@ import { useCallback, useState } from "react";
 import { Button, Input } from "../ui-components";
 import { useGetProjectsQuery, usePostProjectMutation } from "../../redux/api";
 
-import styles from "./project-list.module.css";
+import styles from "./project-list.module.scss";
 
 export function CreateProjectItem() {
   const [postProject] = usePostProjectMutation({});

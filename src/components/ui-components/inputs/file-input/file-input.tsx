@@ -1,5 +1,5 @@
 import { memo } from "react";
-import styles from "./file-input.module.css";
+import styles from "./file-input.module.scss";
 
 export const FileInput = memo(
   (props: React.InputHTMLAttributes<HTMLInputElement>) => {

@@ -13,7 +13,7 @@ import {
   usePostTagToParagraphMutation,
 } from "../../redux/api";
 
-import styles from "./tag-list.module.css";
+import styles from "./tag-list.module.scss";
 
 export const TagTicket = ({
   tag,

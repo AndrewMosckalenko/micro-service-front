@@ -1,7 +1,7 @@
 import cn from 'classnames'
 import { Link, useParams } from "react-router-dom";
 
-import styles from "./project-nav-menu.module.css";
+import styles from "./project-nav-menu.module.scss";
 
 export interface IProjectNavMenuBtnProps {
   title: string;
