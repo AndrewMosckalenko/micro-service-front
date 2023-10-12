@@ -1,4 +1,5 @@
 @import url("../../palette.scss");
+@import '../../assets/screen-resolutions.scss';
 
 .tag_list {
   display: flex;
@@ -61,4 +62,29 @@
   border: none;
   font-weight: bold;
   cursor: pointer;
+}
+
+.tag_list__wrapper {
+  width: 0;
+  height: 0;
+}
+
+
+@media (max-width: $tablet-width) {
+  .tag_list {
+    position: static;
+  }
+
+  .tag_list__wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: var(--main-wrapper-bg-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }

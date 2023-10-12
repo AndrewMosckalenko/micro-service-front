@@ -40,31 +40,33 @@ export function TagList({
   }, []);
 
   return (
-    <div
-      className={styles.tag_list}
-      style={{ top: position.y + 20, left: position?.x }}
-      onClick={onClickTagList}
-      tabIndex={0}
-    >
-      <AddTagTicket paragraph={paragraph} />
-      {paragraph?.paragraphTags?.map((paragraphTag: IParagraphTag) => (
-        <TagTicket
-          key={paragraphTag.tag.id}
-          paragraph={paragraph}
-          tag={{ ...paragraphTag.tag, id: paragraphTag.id }}
-          updateCallback={updateCallback}
-        />
-      ))}
-      <hr />
-      {globalTags?.map((tag: ITag) => (
-        <TagTicket
-          key={tag.id}
-          paragraph={paragraph}
-          tag={tag}
-          updateCallback={updateCallback}
-          isGlobal
-        />
-      ))}
+    <div className={styles.tag_list__wrapper}>
+      <div
+        className={styles.tag_list}
+        style={{ top: position.y + 20, left: position?.x }}
+        onClick={onClickTagList}
+        tabIndex={0}
+      >
+        <AddTagTicket paragraph={paragraph} />
+        {paragraph?.paragraphTags?.map((paragraphTag: IParagraphTag) => (
+          <TagTicket
+            key={paragraphTag.tag.id}
+            paragraph={paragraph}
+            tag={{ ...paragraphTag.tag, id: paragraphTag.id }}
+            updateCallback={updateCallback}
+          />
+        ))}
+        <hr />
+        {globalTags?.map((tag: ITag) => (
+          <TagTicket
+            key={tag.id}
+            paragraph={paragraph}
+            tag={tag}
+            updateCallback={updateCallback}
+            isGlobal
+          />
+        ))}
+      </div>
     </div>
   );
 }
