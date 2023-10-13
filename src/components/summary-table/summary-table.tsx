@@ -21,11 +21,11 @@ export function SummaryTable() {
     if (projectId) getProjectSummaryTable({ id: projectId });
   }, [projectId, getProjectSummaryTable]);
 
-  if (isLoading) {
+  if (isLoading || !data) {
     return <h1>Loading...</h1>;
   }
 
-  if (error || !data) {
+  if (error) {
     toast.error("Server error", toastConfig);
     return <h1>Didn't load</h1>;
   }

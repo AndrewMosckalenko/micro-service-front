@@ -12,6 +12,12 @@
   background: var(--table-bg-color);
   padding: 4px;
   box-sizing: border-box;
+  cursor: pointer;
+  box-sizing: border-box;
+
+  &:hover {
+    box-shadow: 0 0 1px 1px var(--main-wrapper-bg-color);
+  }
 }
 
 .summary_table__left_cell {
@@ -36,6 +42,10 @@
 
 .summary_table__left_content_wrapper {
   width: 200px;
+}
+
+.summary_table__selected_cell {
+  background: var(--tag-bg-local-color);
 }
 
 @media (max-width: $tablet-width) {

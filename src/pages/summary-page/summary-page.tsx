@@ -31,7 +31,7 @@ export default function SummaryPage() {
     <div className={styles.summary_page}>
       <h1 className={styles.summary_page__title}>Project: {project?.name}</h1>
       <SummaryTable />
-      {tagId && documentId && paragraphs && (
+      {(tagId || documentId) && paragraphs && (
         <ParagraphList paragraphs={paragraphs} updateCallback={() => {}} />
       )}
     </div>

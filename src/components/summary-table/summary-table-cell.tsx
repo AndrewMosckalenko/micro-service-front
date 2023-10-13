@@ -1,5 +1,5 @@
 import cn from "classnames";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useCallback } from "react";
 
 import { getShortString } from "../../utils";
@@ -22,6 +22,11 @@ export function SummaryTableCell({
 
   const dispatch = useDispatch();
 
+  const { tagIdSelected, documentIdSelected } = useSelector((state) => ({
+    tagIdSelected: state.summaryTable.focusTagId,
+    documentIdSelected: state.summaryTable.focusDocumentId,
+  }));
+
   const onClickCell = useCallback(() => {
     dispatch(setFocusTagId(tagId));
     dispatch(setFocusDocumentId(documentId));
@@ -30,6 +35,10 @@ export function SummaryTableCell({
   return (
     <td
       className={cn(styles.summary_table__cell, {
+        [styles.summary_table__selected_cell]:
+          (tagId === tagIdSelected || !tagIdSelected) &&
+          (documentId === documentIdSelected || !documentIdSelected) &&
+          (tagIdSelected || documentIdSelected),
         [styles.summary_table__header_cell]: header,
         [styles.summary_table__left_cell]: left,
       })}
