@@ -6,6 +6,7 @@ import { useComponentUpdate } from "./hooks";
 import { useGetUserQuery } from "./redux/api";
 
 import "react-toastify/dist/ReactToastify.css";
+import "react-tooltip/dist/react-tooltip.css";
 import "./App.scss";
 
 function App() {

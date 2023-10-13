@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
+import { Tooltip } from "react-tooltip";
 
 import { useGetSummaryTableMutation } from "../../redux/api";
 import { toastConfig } from "../../constants";
@@ -37,6 +38,7 @@ export function SummaryTable() {
           <SummaryTableRow key={row.document.id} row={row} />
         ))}
       </table>
+      <Tooltip id="table_cell_tooltip" />
     </div>
   );
 }
