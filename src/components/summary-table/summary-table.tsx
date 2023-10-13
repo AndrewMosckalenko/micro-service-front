@@ -15,7 +15,7 @@ import styles from "./summary-table.module.scss";
 export function SummaryTable() {
   const { projectId } = useParams();
   const [getProjectSummaryTable, { data, error, isLoading }] =
-    useGetSummaryTableMutation({});
+    useGetSummaryTableMutation({ fixedCacheKey: "summary-table" });
 
   useComponentUpdate(() => {
     if (projectId) getProjectSummaryTable({ id: projectId });

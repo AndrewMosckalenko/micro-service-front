@@ -64,7 +64,6 @@ export default function DocumentPage() {
         <TagList
           paragraph={focusParagraph.paragraph}
           position={focusParagraph.position}
-          updateCallback={updateCallback}
         />
       )}
       {documentCopied && (

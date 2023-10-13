@@ -1,7 +1,8 @@
 import { useSelector } from "react-redux";
 
-import { ParagraphList } from "../../components/paragraph-list";
 import { SummaryTable } from "../../components/summary-table";
+import { SummaryParagraphList } from "../../components/summary-paragraph-list";
+import { TagList } from "../../components/tag-list";
 import {
   useGetParagraphsByTagAndDocumentMutation,
   useGetProjectMutation,
@@ -11,9 +12,14 @@ import { useComponentUpdate } from "../../hooks";
 import styles from "./summary-page.module.scss";
 
 export default function SummaryPage() {
-  const { tagId, documentId } = useSelector((state) => ({
+  const {
+    tagId,
+    documentId,
+    document: { focusParagraph },
+  } = useSelector((state) => ({
     tagId: state.summaryTable.focusTagId,
     documentId: state.summaryTable.focusDocumentId,
+    document: state.document,
   }));
 
   const [, { data: project }] = useGetProjectMutation({
@@ -32,7 +38,13 @@ export default function SummaryPage() {
       <h1 className={styles.summary_page__title}>Project: {project?.name}</h1>
       <SummaryTable />
       {(tagId || documentId) && paragraphs && (
-        <ParagraphList paragraphs={paragraphs} updateCallback={() => {}} />
+        <SummaryParagraphList paragraphs={paragraphs} />
+      )}
+      {focusParagraph && (
+        <TagList
+          paragraph={focusParagraph.paragraph}
+          position={focusParagraph.position}
+        />
       )}
     </div>
   );

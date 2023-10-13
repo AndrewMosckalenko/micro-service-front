@@ -15,12 +15,7 @@ import {
 
 import styles from "./tag-list.module.scss";
 
-export const TagTicket = ({
-  tag,
-  updateCallback,
-  paragraph,
-  isGlobal,
-}: ITagTicketProps) => {
+export const TagTicket = ({ tag, paragraph, isGlobal }: ITagTicketProps) => {
   const { projectId, id } = useParams();
   const [deleteTag] = useDeleteTagMutation();
   const [getProject] = useGetProjectMutation({ fixedCacheKey: "get-project" });
@@ -43,7 +38,6 @@ export const TagTicket = ({
   }, [
     deleteTag,
     tag,
-    updateCallback,
     deleteTagFromParagraph,
     getDocument,
     projectId,
@@ -85,5 +79,4 @@ export interface ITagTicketProps {
   tag: ITag;
   paragraph: IParagraph;
   isGlobal?: boolean;
-  updateCallback: () => void;
 }
