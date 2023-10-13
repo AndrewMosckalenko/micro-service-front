@@ -1,7 +1,7 @@
 import cn from "classnames";
 
 import { getShortString } from "../../utils";
-import { MAX_TAG_LENGTH_ON_HEDER } from "../../constants";
+import { MAX_TAG_LENGTH_ON_HEADER } from "../../constants";
 
 import styles from "./summary-table.module.scss";
 
@@ -30,7 +30,7 @@ export function SummaryTableCell({
           data-tooltip-place="top"
           className={styles.summary_table__content}
         >
-          {left ? children : getShortString(children, MAX_TAG_LENGTH_ON_HEDER)}
+          {left ? children : getShortString(children, MAX_TAG_LENGTH_ON_HEADER)}
         </a>
       </div>
     </td>
