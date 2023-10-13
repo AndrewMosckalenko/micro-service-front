@@ -14,6 +14,10 @@ export function SummaryParagraphListHeader() {
     fixedCacheKey: "summary-table",
   });
 
+  if (!data) {
+    return "Load";
+  }
+
   const tag = data.header.find((tag: ITag) => tag.id === tagId);
   const document = data.table.find(
     (row: ISummaryRow) => row.document.id === documentId,

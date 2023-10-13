@@ -24,6 +24,10 @@
   width: 200px;
   background: var(--table-bg-header-color);
   text-align: start;
+  position: -webkit-sticky;
+  position: sticky;
+  left: 0px;
+  border-right: 2px solid var(--inp-font-color);
 }
 
 .summary_table__header_cell {
