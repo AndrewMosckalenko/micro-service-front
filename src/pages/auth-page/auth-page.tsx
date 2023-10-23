@@ -3,7 +3,7 @@ import styles from "./auth-page.module.scss";
 
 export default function AuthPage() {
   return (
-    <div className={styles.page_wrapper}>
+    <div className={styles.pageWrapper}>
       <div className={styles.page}>
         <Outlet />
       </div>

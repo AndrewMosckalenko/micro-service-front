@@ -3,8 +3,8 @@ import styles from "./load-page.module.scss";
 
 export function LoadPage() {
   return (
-    <div className={styles.load_page}>
-      <LoadIcon className={styles.load_icon} />
+    <div className={styles.loadPage}>
+      <LoadIcon className={styles.loadIcon} />
     </div>
   );
 }

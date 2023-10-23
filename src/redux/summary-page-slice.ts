@@ -16,5 +16,5 @@ const summaryTableSlice = createSlice({
   },
 });
 
-export default summaryTableSlice.reducer;
 export const { setFocusDocumentId, setFocusTagId } = summaryTableSlice.actions;
+export default summaryTableSlice.reducer;
