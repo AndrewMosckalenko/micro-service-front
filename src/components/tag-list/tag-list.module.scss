@@ -1,0 +1,89 @@
+@import url("../../palette.scss");
+@import "../../assets/screen-resolutions.scss";
+
+.tagList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: absolute;
+  z-index: 1;
+  padding: 15px;
+  border-radius: 4px;
+  background: var(--main-bg-color);
+  box-shadow: 0 0 2px 1px var(--main-wrapper-bg-color);
+  overflow-y: scroll;
+  max-height: 300px;
+}
+
+.tagTicket {
+  background: var(--tag-bg-local-color);
+  border-radius: 15px;
+  padding: 5px 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: center;
+}
+
+.tagTicketGlobal {
+  background: var(--tag-bg-global-color);
+}
+
+.tagTicketDelete {
+  height: 10px;
+  width: 10px;
+  cursor: pointer;
+}
+
+.tagTicketIcons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px;
+}
+
+.addTagTicket {
+  background: var(--tag-bg-create-color);
+  border-radius: 15px;
+  padding: 5px 10px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+}
+
+.addTagTicketInp {
+  background: var(--tag-bg-create-color);
+  border: none;
+}
+
+.addTagTicketBtn {
+  background: none;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.tagListWrapper {
+  width: 0;
+  height: 0;
+}
+
+@media (max-width: $tablet-width) {
+  .tagList {
+    position: static;
+  }
+
+  .tagListWrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: var(--main-wrapper-bg-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}

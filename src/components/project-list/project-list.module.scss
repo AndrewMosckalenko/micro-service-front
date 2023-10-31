@@ -1,0 +1,33 @@
+@import url("../../palette.scss");
+@import "../../assets/screen-resolutions";
+
+.projectListItem {
+  border-radius: 4px;
+  box-shadow: 0 0 2px 1px var(--main-wrapper-bg-color);
+  background: var(--main-bg-color);
+  cursor: pointer;
+
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  text-align: center;
+}
+
+.projectListItem:hover {
+  box-shadow: 0 0 4px 1px var(--main-wrapper-bg-color);
+}
+
+.projectList {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 10px;
+}
+
+@media (max-width: $tablet-width) {
+  .projectList {
+    display: flex;
+    flex-direction: column;
+  }
+}

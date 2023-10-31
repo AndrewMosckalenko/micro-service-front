@@ -1,0 +1,36 @@
+.documentListItem {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  border-bottom: 2px solid #0000008f;
+  padding: 10px;
+  justify-content: space-between;
+}
+
+.documentListItemFileInfo {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+}
+
+.documentListItem:hover {
+  background: #7e7e7e8f;
+}
+
+.documentList {
+  display: flex;
+  flex-direction: column;
+}
+
+.documentListItemIcon {
+  width: 30px;
+  height: 30px;
+}
+
+.documentListItemDeleteIcon {
+  cursor: pointer;
+  width: 15px;
+  height: 15px;
+}

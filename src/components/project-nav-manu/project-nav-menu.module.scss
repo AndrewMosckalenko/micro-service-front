@@ -1,0 +1,30 @@
+@import url("../../palette.scss");
+
+.projectNavMenu {
+  display: flex;
+  flex-direction: row;
+  gap: 2px;
+  margin-bottom: 10px;
+  background: var(--main-wrapper-bg-color);
+}
+
+.projectNavBtn {
+  flex: 1;
+  background: var(--main-bg-color);
+  border: none;
+  font-size: 16px;
+  padding: 10px;
+  box-sizing: border-box;
+  text-align: center;
+  color: black;
+  text-decoration: none;
+}
+
+.projectNavBtn:hover {
+  background: var(--main-bg-second-color);
+}
+
+.projectNavBtnActive {
+  background: var(--main-bg-second-color);
+  color: var(--inp-font-color);
+}

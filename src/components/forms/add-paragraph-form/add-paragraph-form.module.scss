@@ -1,0 +1,11 @@
+.addParagraphForm {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.addParagraphFormBtns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}

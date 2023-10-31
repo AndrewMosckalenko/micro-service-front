@@ -1,0 +1,18 @@
+.signUpForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.signUpFormTitle {
+  margin: 10px;
+  font-size: 30px;
+}
+
+.signUpFormBtns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}

@@ -1,0 +1,60 @@
+@import url("../../palette.scss");
+@import "../../assets/screen-resolutions";
+
+.headerUserInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: start;
+  justify-content: center;
+  padding: 10px;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  background: var(--main-bg-color);
+
+  box-shadow: 2px 2px 2px 0 var(--main-wrapper-bg-color);
+  box-sizing: border-box;
+  min-height: 60px;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+.headerRightSide {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: end;
+}
+
+.headerLogout {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  transition: opacity ease-in-out 0.3s;
+  opacity: 1;
+}
+
+.headerLogout:active {
+  opacity: 0.4;
+}
+
+.headerLeftSide {
+  display: flex;
+  gap: 20px;
+}
+
+@media (max-width: $tablet-width) {
+  .headerUserInfo {
+    display: none;
+  }
+}

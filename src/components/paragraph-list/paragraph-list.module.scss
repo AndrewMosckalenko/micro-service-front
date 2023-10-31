@@ -1,0 +1,116 @@
+@import url("../../palette.scss");
+
+.paragraphList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.paragraphItemContent {
+  font-size: 14px;
+  width: fit-content;
+}
+
+.paragraphItemContent:hover {
+  background: var(--par-bg-hover-color);
+}
+
+.paragraphItemDelete {
+  width: 15px;
+  height: 15px;
+}
+
+.paragraphItemHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.paragraphItemTitleTags {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.paragraphItemOptions {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.paragraphItemTitle {
+  font-size: 14px;
+}
+
+.icon {
+  box-sizing: border-box;
+  padding: 4px;
+  transition: opacity ease-in-out 0.3s;
+  opacity: 1;
+  cursor: pointer;
+  height: 24px;
+  width: 24px;
+}
+
+.icon:active {
+  opacity: 0.4;
+}
+
+.contentWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  min-height: 24px;
+  position: relative;
+}
+
+.icons:hover,
+.contentWrapper:hover .icons {
+  display: flex;
+}
+
+.iconParagraph {
+  display: flex;
+}
+
+.icons {
+  display: none;
+  gap: 5px;
+  position: absolute;
+  right: 0;
+  border-radius: 4;
+  background: var(--icon-bg-color);
+  box-shadow: 0 0 1px 1px var(main-wrapper-bg-color);
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-bottom: 50px;
+}
+
+.iconsAdd {
+  top: 30px;
+}
+
+.paragraphItemContentFocus {
+  background: var(--par-bg-focus-color);
+}
+
+.paragraphItemTagCounter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  background: var(--tag-bg-local-color);
+  width: 15px;
+  height: 15px;
+  font-size: 10px;
+  position: absolute;
+  left: -20px;
+  color: var(--table-bg-second-color);
+}
+
+.paragraphItem {
+  position: relative;
+}

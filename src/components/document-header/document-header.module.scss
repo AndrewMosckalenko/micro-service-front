@@ -1,0 +1,25 @@
+@import "../../assets/screen-resolutions";
+
+.documentPageTitle {
+  font-size: 16px;
+  font-weight: bold;
+  display: flex;
+  gap: 4px;
+  text-align: center;
+}
+
+.icon {
+  box-sizing: border-box;
+  padding: 4px;
+  transition: opacity ease-in-out 0.3s;
+  opacity: 1;
+  cursor: pointer;
+  height: 24px;
+  width: 24px;
+}
+
+@media (max-width: $tablet-width) {
+  .documentPageTitle {
+    font-size: 12px;
+  }
+}
