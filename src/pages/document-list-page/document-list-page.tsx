@@ -10,7 +10,7 @@ export default function DocumentListPage() {
   });
 
   return (
-    <div className={styles.document_list_page}>
+    <div className={styles.documentListPage}>
       <CreateDocumentForm />
       {error && <h1>Didn't load</h1>}
       {project?.documents && <DocumentList documents={project.documents} />}

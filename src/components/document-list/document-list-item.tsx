@@ -36,17 +36,17 @@ export const DocumentListItem = ({ document }: IDocumentListItem) => {
   );
 
   return (
-    <div className={styles.document_list_item} onClick={onClickItem}>
-      <div className={styles.document_list_item__file_info}>
+    <div className={styles.documentListItem} onClick={onClickItem}>
+      <div className={styles.documentListItemFileInfo}>
         <img
           alt="icon"
           src={fileIcon}
-          className={styles.document_list_item__icon}
+          className={styles.documentListItemIcon}
         />
         <p>{document.name}</p>
       </div>
       <CloseIcon
-        className={styles.document_list_item__delete_icon}
+        className={styles.documentListItemDeleteIcon}
         onClick={onCLickDeleteItem}
       />
     </div>

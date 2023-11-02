@@ -15,8 +15,8 @@ export const FileInput = memo(
 
     return (
       <label>
-        <span className={styles.file_input__wrapper}>Add file</span>
-        <input type="file" className={styles.file_input__inp} {...props} />
+        <span className={styles.fileInputWrapper}>Add file</span>
+        <input type="file" className={styles.fileInputInp} {...props} />
       </label>
     );
   },

@@ -25,7 +25,7 @@ export function CreateProjectItem() {
   }, [postProject, newProjectName, refetch]);
 
   return (
-    <div className={styles.project_list_item}>
+    <div className={styles.projectListItem}>
       <h3>Create new project</h3>
       <Input
         onChange={onChangeProjectName}

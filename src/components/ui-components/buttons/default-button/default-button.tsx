@@ -4,5 +4,5 @@ import styles from "./default-button.module.scss";
 export function DefaultButton(
   props: React.ButtonHTMLAttributes<HTMLButtonElement>,
 ) {
-  return <button className={styles.default_btn} {...props} />;
+  return <button className={styles.defaultBtn} {...props} />;
 }

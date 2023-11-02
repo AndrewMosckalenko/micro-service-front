@@ -1,4 +1,4 @@
-.sign_in_form {
+.signInForm {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -6,12 +6,12 @@
   gap: 10px;
 }
 
-.sign_in_form__title {
+.signInFormTitle {
   margin: 10px;
   font-size: 30px;
 }
 
-.sign_up_form__btns {
+.signUpFormBtns {
   display: flex;
   flex-direction: row;
   gap: 10px;

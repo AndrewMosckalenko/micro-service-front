@@ -8,19 +8,11 @@ import { TagTicket } from "./tag-ticket";
 import { AddTagTicket } from "./add-tag-ticket";
 
 import styles from "./tag-list.module.scss";
-import { useDispatch } from "react-redux";
-import { setFocusParagraph } from "../../redux/document-slice";
 
-export function TagList({
-  position,
-  paragraph,
-  updateCallback,
-}: ITagListProps) {
+export function TagList({ position, paragraph }: ITagListProps) {
   const [, { data: project }] = useGetProjectMutation({
     fixedCacheKey: "get-project",
   });
-
-  const dispatch = useDispatch();
 
   const globalTags = useMemo(
     () =>
@@ -40,9 +32,9 @@ export function TagList({
   }, []);
 
   return (
-    <div className={styles.tag_list__wrapper}>
+    <div className={styles.tagListWrapper}>
       <div
-        className={styles.tag_list}
+        className={styles.tagList}
         style={{ top: position.y + 20, left: position?.x }}
         onClick={onClickTagList}
         tabIndex={0}
@@ -53,18 +45,11 @@ export function TagList({
             key={paragraphTag.tag.id}
             paragraph={paragraph}
             tag={{ ...paragraphTag.tag, id: paragraphTag.id }}
-            updateCallback={updateCallback}
           />
         ))}
         <hr />
         {globalTags?.map((tag: ITag) => (
-          <TagTicket
-            key={tag.id}
-            paragraph={paragraph}
-            tag={tag}
-            updateCallback={updateCallback}
-            isGlobal
-          />
+          <TagTicket key={tag.id} paragraph={paragraph} tag={tag} isGlobal />
         ))}
       </div>
     </div>
@@ -77,5 +62,4 @@ export interface ITagListProps {
     x: number;
     y: number;
   };
-  updateCallback: () => void;
 }

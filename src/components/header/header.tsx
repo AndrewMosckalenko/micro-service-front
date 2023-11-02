@@ -14,21 +14,21 @@ export const Header = memo(() => {
 
   return (
     <div className={styles.header}>
-      <div className={styles.header__left_side}>
+      <div className={styles.headerLeftSide}>
         <Link to={-1}>
-          <ReturnIcon className={styles.header__logout} />
+          <ReturnIcon className={styles.headerLogout} />
         </Link>
         <Link to="/">
-          <HomeIcon className={styles.header__logout} />
+          <HomeIcon className={styles.headerLogout} />
         </Link>
       </div>
       <DocumentHeader />
-      <div className={styles.header__right_side}>
-        <div className={styles.header__user_info}>
+      <div className={styles.headerRightSide}>
+        <div className={styles.headerUserInfo}>
           <p>{user?.name}</p>
           <p>{user?.email}</p>
         </div>
-        <LogoutIcon className={styles.header__logout} onClick={onClickLogout} />
+        <LogoutIcon className={styles.headerLogout} onClick={onClickLogout} />
       </div>
     </div>
   );

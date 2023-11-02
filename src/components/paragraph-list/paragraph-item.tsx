@@ -79,14 +79,14 @@ export const ParagraphItem = ({
   );
 
   return (
-    <div className={styles.paragraph_item}>
+    <div className={styles.paragraphItem}>
       {paragraph.paragraphTags.length > 0 && (
-        <div className={styles.paragraph_item__tag_counter}>
+        <div className={styles.paragraphItemTagCounter}>
           {paragraph.paragraphTags.length}
         </div>
       )}
       {editParagraph ? (
-        <div className={styles.content_wrapper}>
+        <div className={styles.contentWrapper}>
           <Input
             value={newParagraphData.content}
             onChange={onChangeParagraphContent}
@@ -96,11 +96,11 @@ export const ParagraphItem = ({
           <CloseIcon onClick={onClickDeleteItem} className={styles.icon} />
         </div>
       ) : (
-        <div className={styles.content_wrapper}>
+        <div className={styles.contentWrapper}>
           <p
             onClick={onClickParagraph}
-            className={classNames(styles.paragraph_item__content, {
-              [styles.paragraph_item__content_focus]:
+            className={classNames(styles.paragraphItemContent, {
+              [styles.paragraphItemContentFocus]:
                 focusParagraph?.paragraph.id === paragraph.id,
             })}
           >
@@ -109,11 +109,11 @@ export const ParagraphItem = ({
           <div className={styles.icons}>
             <EditIcon
               onClick={onClickEditBtn}
-              className={classNames(styles.icon, styles.icon__paragraph)}
+              className={classNames(styles.icon, styles.iconParagraph)}
             />
             <AddIcon
               onClick={onCLickAddParagraphBtn}
-              className={classNames(styles.icon, styles.icon__paragraph)}
+              className={classNames(styles.icon, styles.iconParagraph)}
             />
           </div>
         </div>

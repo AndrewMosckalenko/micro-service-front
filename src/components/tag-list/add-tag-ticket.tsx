@@ -56,15 +56,15 @@ export const AddTagTicket = ({ paragraph }: IAddTagTicketProps) => {
   );
 
   return (
-    <div className={styles.add_tag_ticket}>
+    <div className={styles.addTagTicket}>
       <input
         onKeyDown={onClickEnter}
         placeholder="new tag"
         onChange={onChangeNewTag}
         value={newTag}
-        className={styles.add_tag_ticket__inp}
+        className={styles.addTagTicketInp}
       />
-      <button onClick={onClickAddTagBtn} className={styles.add_tag_ticket__btn}>
+      <button onClick={onClickAddTagBtn} className={styles.addTagTicketBtn}>
         +
       </button>
     </div>

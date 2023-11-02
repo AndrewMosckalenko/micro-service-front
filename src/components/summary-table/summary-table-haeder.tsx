@@ -7,15 +7,10 @@ import styles from "./summary-table.module.scss";
 
 export function SummaryTableHeader({ header }: ISummaryTableHeaderProps) {
   return (
-    <tr
-      className={cn(
-        styles.summary_table__row,
-        styles.summary_table__row_header,
-      )}
-    >
+    <tr className={cn(styles.summaryTableRow, styles.summaryTableRowHeader)}>
       <SummaryTableCell header left />
       {header.map((tag: ITag) => (
-        <SummaryTableCell key={tag.id} header>
+        <SummaryTableCell tagId={tag.id} key={tag.id} header>
           {tag.title}
         </SummaryTableCell>
       ))}

@@ -80,7 +80,7 @@ export function DocumentHeader() {
   }
 
   return (
-    <div className={styles.document_page__title}>
+    <div className={styles.documentPageTitle}>
       {projectId && project?.name}
       {id && (
         <>

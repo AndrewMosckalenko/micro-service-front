@@ -1,7 +1,7 @@
 @import url("../../palette.scss");
 @import "../../assets/screen-resolutions";
 
-.default_authed_page {
+.defaultAuthedPage {
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -15,7 +15,7 @@
   padding-bottom: 20px;
 }
 
-.default_authed_page__content {
+.defaultAuthedPageContent {
   background: var(--main-bg-color);
   border-radius: 4px;
   align-self: center;
@@ -28,11 +28,11 @@
 }
 
 @media (max-width: $tablet-width) {
-  .default_authed_page {
+  .defaultAuthedPage {
     padding-top: 70px;
   }
 
-  .default_authed_page__content {
+  .defaultAuthedPageContent {
     border-radius: 0;
   }
 }

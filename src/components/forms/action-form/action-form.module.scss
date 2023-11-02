@@ -1,6 +1,6 @@
 @import url("../../../palette.scss");
 
-.action_form__wrapper {
+.actionFormWrapper {
   position: fixed;
   top: 0;
   left: 0;
@@ -13,7 +13,7 @@
   justify-content: center;
 }
 
-.action_form {
+.actionForm {
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -15,12 +15,7 @@ import {
 
 import styles from "./tag-list.module.scss";
 
-export const TagTicket = ({
-  tag,
-  updateCallback,
-  paragraph,
-  isGlobal,
-}: ITagTicketProps) => {
+export const TagTicket = ({ tag, paragraph, isGlobal }: ITagTicketProps) => {
   const { projectId, id } = useParams();
   const [deleteTag] = useDeleteTagMutation();
   const [getProject] = useGetProjectMutation({ fixedCacheKey: "get-project" });
@@ -43,7 +38,6 @@ export const TagTicket = ({
   }, [
     deleteTag,
     tag,
-    updateCallback,
     deleteTagFromParagraph,
     getDocument,
     projectId,
@@ -60,20 +54,20 @@ export const TagTicket = ({
 
   return (
     <div
-      className={classNames(styles.tag_ticket, {
-        [styles.tag_ticket_global]: isGlobal,
+      className={classNames(styles.tagTicket, {
+        [styles.tagTicketGlobal]: isGlobal,
       })}
     >
       <p>{tag.title}</p>
-      <div className={styles.tag_ticket__icons}>
+      <div className={styles.tagTicketIcons}>
         {isGlobal && (
           <AddIcon
-            className={styles.tag_ticket__delete}
+            className={styles.tagTicketDelete}
             onClick={onClickAddTagToParagraph}
           />
         )}
         <CloseIcon
-          className={styles.tag_ticket__delete}
+          className={styles.tagTicketDelete}
           onClick={onClickDeleteTagBtn}
         />
       </div>
@@ -85,5 +79,4 @@ export interface ITagTicketProps {
   tag: ITag;
   paragraph: IParagraph;
   isGlobal?: boolean;
-  updateCallback: () => void;
 }

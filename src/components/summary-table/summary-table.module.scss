@@ -1,45 +1,59 @@
 @import url("../../palette.scss");
 @import "../../assets/screen-resolutions";
 
-.summary_table {
+.summaryTable {
   overflow-y: hidden;
   position: relative;
   overflow-x: scroll;
 }
 
-.summary_table__cell {
+.summaryTableCell {
   text-align: center;
   background: var(--table-bg-color);
   padding: 4px;
   box-sizing: border-box;
+  cursor: pointer;
+  box-sizing: border-box;
+
+  &:hover {
+    box-shadow: 0 0 1px 1px var(--main-wrapper-bg-color);
+  }
 }
 
-.summary_table__left_cell {
+.summaryTableLeftCell {
   width: 200px;
   background: var(--table-bg-header-color);
   text-align: start;
+  position: -webkit-sticky;
+  position: sticky;
+  left: 0px;
+  border-right: 2px solid var(--inp-font-color);
 }
 
-.summary_table__header_cell {
+.summaryTableHeaderCell {
   background: var(--tag-bg-create-color);
   padding-top: 10px;
 }
 
-.summary_table__content {
+.summaryTableContent {
   text-decoration: none;
   color: var(--table-bg-second-color);
 }
 
-.summary_table__content_wrapper {
+.summaryTableContentWrapper {
   width: 100px;
 }
 
-.summary_table__left_content_wrapper {
+.summaryTableLeftContentWrapper {
   width: 200px;
 }
 
+.summaryTableSelectedCell {
+  background: var(--tag-bg-local-color);
+}
+
 @media (max-width: $tablet-width) {
-  .summary_table__cell {
+  .summaryTableCell {
     font-size: 12px;
   }
 }

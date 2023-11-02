@@ -1,4 +1,4 @@
-.document_list_item {
+.documentListItem {
   display: flex;
   flex-direction: row;
   gap: 10px;
@@ -8,28 +8,28 @@
   justify-content: space-between;
 }
 
-.document_list_item__file_info {
+.documentListItemFileInfo {
   display: flex;
   flex-direction: row;
   gap: 10px;
   align-items: center;
 }
 
-.document_list_item:hover {
+.documentListItem:hover {
   background: #7e7e7e8f;
 }
 
-.document_list {
+.documentList {
   display: flex;
   flex-direction: column;
 }
 
-.document_list_item__icon {
+.documentListItemIcon {
   width: 30px;
   height: 30px;
 }
 
-.document_list_item__delete_icon {
+.documentListItemDeleteIcon {
   cursor: pointer;
   width: 15px;
   height: 15px;

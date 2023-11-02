@@ -15,23 +15,23 @@ import styles from "./summary-table.module.scss";
 export function SummaryTable() {
   const { projectId } = useParams();
   const [getProjectSummaryTable, { data, error, isLoading }] =
-    useGetSummaryTableMutation({});
+    useGetSummaryTableMutation({ fixedCacheKey: "summary-table" });
 
   useComponentUpdate(() => {
     if (projectId) getProjectSummaryTable({ id: projectId });
   }, [projectId, getProjectSummaryTable]);
 
-  if (isLoading) {
+  if (isLoading || !data) {
     return <h1>Loading...</h1>;
   }
 
-  if (error || !data) {
+  if (error) {
     toast.error("Server error", toastConfig);
     return <h1>Didn't load</h1>;
   }
 
   return (
-    <div className={styles.summary_table}>
+    <div className={styles.summaryTable}>
       <table>
         <SummaryTableHeader header={data.header} />
         {data.table.map((row: ISummaryRow) => (

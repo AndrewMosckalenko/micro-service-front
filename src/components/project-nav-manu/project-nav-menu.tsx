@@ -21,7 +21,7 @@ export function ProjectNavMenu() {
   const { location } = useParams();
 
   return (
-    <div className={styles.project_nav_menu}>
+    <div className={styles.projectNavMenu}>
       {menuItems.map((btnProps: IProjectNavMenuBtnProps) => (
         <ProjectNavMenuBtn
           key={btnProps.link}

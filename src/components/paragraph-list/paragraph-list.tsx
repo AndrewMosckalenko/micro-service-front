@@ -29,7 +29,7 @@ export const ParagraphList = ({
   }, [setNewFatherParagraphId]);
 
   return (
-    <div className={styles.paragraph_list}>
+    <div className={styles.paragraphList}>
       {paragraphs.map((paragraph: IParagraph) => (
         <>
           <ParagraphItem

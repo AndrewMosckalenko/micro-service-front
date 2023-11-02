@@ -1,6 +1,6 @@
 @import url("../../../../palette.scss");
 
-.pulse_btn {
+.pulseBtn {
   display: inline-grid;
   place-items: center;
   position: relative;
@@ -18,7 +18,7 @@
   overflow: hidden;
 }
 
-.pulse_btn::before {
+.pulseBtn::before {
   content: "";
   position: absolute;
   top: var(--y);

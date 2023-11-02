@@ -19,8 +19,8 @@ export function ProjectNavMenuBtn({
   return (
     <Link
       to={`/${projectId}/${link}`}
-      className={cn(styles.project_nav_btn, {
-        [styles.project_nav_btn__active]: isActive,
+      className={cn(styles.projectNavBtn, {
+        [styles.projectNavBtnActive]: isActive,
       })}
       replace
     >

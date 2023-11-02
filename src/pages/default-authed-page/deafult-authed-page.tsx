@@ -23,13 +23,13 @@ export default function DefaultAuthedPage() {
 
   return (
     <div
-      className={styles.default_authed_page}
+      className={styles.defaultAuthedPage}
       onClick={onClickPage}
       onKeyDown={onKeyDownEscape}
       tabIndex={0}
     >
       <Header />
-      <div className={styles.default_authed_page__content}>
+      <div className={styles.defaultAuthedPageContent}>
         <Outlet />
       </div>
     </div>

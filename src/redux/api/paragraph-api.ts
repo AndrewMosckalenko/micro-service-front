@@ -46,6 +46,12 @@ export const apiParagraph = createApi({
         method: "DELETE",
       }),
     }),
+    getParagraphsByTagAndDocument: builder.mutation({
+      query: (body) => ({
+        url: `paragraph?documentId=${body.documentId}&tagId=${body.tagId}`,
+        method: "GET",
+      }),
+    }),
   }),
 });
 
@@ -55,4 +61,5 @@ export const {
   usePatchParagraphMutation,
   usePostParagraphMutation,
   usePostTagToParagraphMutation,
+  useGetParagraphsByTagAndDocumentMutation,
 } = apiParagraph;

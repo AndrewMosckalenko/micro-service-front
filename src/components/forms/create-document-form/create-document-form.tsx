@@ -66,8 +66,8 @@ export const CreateDocumentForm = () => {
   );
 
   return (
-    <div className={styles.create_document_form} onKeyDown={onClickEnter}>
-      <div className={styles.create_document__file_loader}>
+    <div className={styles.createDocumentForm} onKeyDown={onClickEnter}>
+      <div className={styles.createDocumentFileLoader}>
         <Input
           placeholder="name of new document"
           onChange={onChangeName}

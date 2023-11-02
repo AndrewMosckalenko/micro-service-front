@@ -6,7 +6,7 @@ import styles from "./document-list.module.scss";
 
 export const DocumentList = memo(({ documents }: IDocumentListProps) => {
   return (
-    <div className={styles.document_list}>
+    <div className={styles.documentList}>
       {documents?.map((document: IDocument) => (
         <DocumentListItem key={document.id} document={document} />
       ))}

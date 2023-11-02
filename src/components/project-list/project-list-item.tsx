@@ -13,7 +13,7 @@ export function ProjectListItem({ project }: IProjectListItemProps) {
   }, [navigate, project]);
 
   return (
-    <div className={styles.project_list_item} onClick={onClickItem}>
+    <div className={styles.projectListItem} onClick={onClickItem}>
       <h3>{project.name}</h3>
     </div>
   );

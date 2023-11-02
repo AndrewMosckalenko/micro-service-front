@@ -37,9 +37,9 @@ export const AddParagraphForm = ({
   }, [postParagraph, name, content, documentId, updateCallback]);
 
   return (
-    <div className={styles.add_paragraph_form}>
+    <div className={styles.addParagraphForm}>
       <Input value={content} onChange={onChangeContent} type="multiple" />
-      <div className={styles.add_paragraph_form__btns}>
+      <div className={styles.addParagraphForm_Btns}>
         <Button onClick={onClickAddBtn} typeButton="pulse">
           create paragraph
         </Button>

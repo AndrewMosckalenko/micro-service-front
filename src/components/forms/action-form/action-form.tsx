@@ -8,9 +8,9 @@ export function ActionForm({ label, onClick }: IActionFormProps) {
   }, []);
 
   return (
-    <div className={styles.action_form__wrapper} onClick={onClick}>
-      <div className={styles.action_form} onClick={onCLickForm}>
-        <p className={styles.action_form__title}>{label}</p>
+    <div className={styles.actionFormWrapper} onClick={onClick}>
+      <div className={styles.actionForm} onClick={onCLickForm}>
+        <p className={styles.actionFormTitle}>{label}</p>
         <Button onClick={onClick} typeButton="pulse">
           Ok
         </Button>

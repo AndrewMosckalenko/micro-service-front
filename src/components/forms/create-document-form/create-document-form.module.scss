@@ -1,6 +1,6 @@
 @import "../../../assets/screen-resolutions";
 
-.create_document__file_loader {
+.createDocumentFileLoader {
   display: flex;
   flex-direction: column;
   padding: 20px;
@@ -9,18 +9,18 @@
   box-sizing: border-box;
 }
 
-.create_document_form {
+.createDocumentForm {
   display: flex;
   flex-direction: row;
   gap: 10px;
 }
 
 @media (max-width: $tablet-width) {
-  .create_document_form {
+  .createDocumentForm {
     flex-direction: column;
   }
 
-  .create_document__file_loader {
+  .createDocumentFileLoader {
     padding: 0;
     gap: 10px;
   }

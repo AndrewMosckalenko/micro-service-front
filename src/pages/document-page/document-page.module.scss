@@ -1,16 +1,16 @@
-.document_page {
+.documentPage {
   display: flex;
   flex-direction: column;
 }
 
-.document_page__edit_icon {
+.documentPageEditIcon {
   width: 20px;
   height: 20px;
   cursor: pointer;
   margin-left: 10px;
 }
 
-.document_page__title {
+.documentPageTitle {
   font-size: 16px;
   font-weight: bold;
   display: flex;

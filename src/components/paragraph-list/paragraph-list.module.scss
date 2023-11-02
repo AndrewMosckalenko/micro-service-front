@@ -1,33 +1,33 @@
 @import url("../../palette.scss");
 
-.paragraph_list {
+.paragraphList {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.paragraph_item__content {
+.paragraphItemContent {
   font-size: 14px;
   width: fit-content;
 }
 
-.paragraph_item__content:hover {
+.paragraphItemContent:hover {
   background: var(--par-bg-hover-color);
 }
 
-.paragraph_item__delete {
+.paragraphItemDelete {
   width: 15px;
   height: 15px;
 }
 
-.paragraph_item__header {
+.paragraphItemHeader {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
 
-.paragraph_item__title_tags {
+.paragraphItemTitleTags {
   display: flex;
   flex-direction: row;
   gap: 10px;
@@ -35,13 +35,13 @@
   margin-bottom: 10px;
 }
 
-.paragraph_item__options {
+.paragraphItemOptions {
   display: flex;
   flex-direction: row;
   gap: 10px;
 }
 
-.paragraph_item__title {
+.paragraphItemTitle {
   font-size: 14px;
 }
 
@@ -59,7 +59,7 @@
   opacity: 0.4;
 }
 
-.content_wrapper {
+.contentWrapper {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -68,11 +68,11 @@
 }
 
 .icons:hover,
-.content_wrapper:hover .icons {
+.contentWrapper:hover .icons {
   display: flex;
 }
 
-.icon__paragraph {
+.iconParagraph {
   display: flex;
 }
 
@@ -89,15 +89,15 @@
   margin-bottom: 50px;
 }
 
-.icons_add {
+.iconsAdd {
   top: 30px;
 }
 
-.paragraph_item__content_focus {
+.paragraphItemContentFocus {
   background: var(--par-bg-focus-color);
 }
 
-.paragraph_item__tag_counter {
+.paragraphItemTagCounter {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -111,6 +111,6 @@
   color: var(--table-bg-second-color);
 }
 
-.paragraph_item {
+.paragraphItem {
   position: relative;
 }

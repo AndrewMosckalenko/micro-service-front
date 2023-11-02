@@ -1,6 +1,6 @@
 @import url("../../palette.scss");
 
-.project_nav_menu {
+.projectNavMenu {
   display: flex;
   flex-direction: row;
   gap: 2px;
@@ -8,7 +8,7 @@
   background: var(--main-wrapper-bg-color);
 }
 
-.project_nav_btn {
+.projectNavBtn {
   flex: 1;
   background: var(--main-bg-color);
   border: none;
@@ -20,11 +20,11 @@
   text-decoration: none;
 }
 
-.project_nav_btn:hover {
+.projectNavBtn:hover {
   background: var(--main-bg-second-color);
 }
 
-.project_nav_btn__active {
+.projectNavBtnActive {
   background: var(--main-bg-second-color);
   color: var(--inp-font-color);
 }

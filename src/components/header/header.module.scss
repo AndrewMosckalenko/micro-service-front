@@ -1,7 +1,7 @@
 @import url("../../palette.scss");
 @import "../../assets/screen-resolutions";
 
-.header__user_info {
+.headerUserInfo {
   display: flex;
   flex-direction: column;
   gap: 4px;
@@ -29,14 +29,14 @@
   padding-left: 20px;
 }
 
-.header__right_side {
+.headerRightSide {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: end;
 }
 
-.header__logout {
+.headerLogout {
   width: 30px;
   height: 30px;
   cursor: pointer;
@@ -44,17 +44,17 @@
   opacity: 1;
 }
 
-.header__logout:active {
+.headerLogout:active {
   opacity: 0.4;
 }
 
-.header__left_side {
+.headerLeftSide {
   display: flex;
   gap: 20px;
 }
 
 @media (max-width: $tablet-width) {
-  .header__user_info {
+  .headerUserInfo {
     display: none;
   }
 }

@@ -53,7 +53,7 @@ export default function DocumentPage() {
   }
 
   return (
-    <div className={styles.document_page}>
+    <div className={styles.documentPage}>
       {currentDocument?.paragraphs && (
         <ParagraphList
           paragraphs={currentDocument.paragraphs}
@@ -64,7 +64,6 @@ export default function DocumentPage() {
         <TagList
           paragraph={focusParagraph.paragraph}
           position={focusParagraph.position}
-          updateCallback={updateCallback}
         />
       )}
       {documentCopied && (

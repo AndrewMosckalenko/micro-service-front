@@ -53,8 +53,8 @@ export const SignUpForm = memo(() => {
   }, [navigate]);
 
   return (
-    <div className={styles.sign_up_form}>
-      <h1 className={styles.sign_up_form__title}>Sign up</h1>
+    <div className={styles.signUpForm}>
+      <h1 className={styles.signUpFormTitle}>Sign up</h1>
       <Input value={user.email} onChange={onChangeEmail} placeholder="email" />
       <Input value={user.name} onChange={onChangeName} placeholder="name" />
       <Input
@@ -62,7 +62,7 @@ export const SignUpForm = memo(() => {
         onChange={onChangePassword}
         placeholder="password"
       />
-      <div className={styles.sign_up_form__btns}>
+      <div className={styles.signUpFormBtns}>
         <Button onClick={onClickSignUpButton}>sign up</Button>
         <Button onClick={onClickSignInButton}>sign in</Button>
       </div>

@@ -40,7 +40,7 @@ export function PulseButton({
 
   return (
     <button
-      className={styles.pulse_btn}
+      className={styles.pulseBtn}
       onClick={onCLickButton}
       ref={buttonRef}
       {...props}

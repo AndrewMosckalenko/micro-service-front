@@ -44,15 +44,15 @@ export const SignInForm = memo(() => {
   );
 
   return (
-    <div className={styles.sign_in_form}>
-      <h1 className={styles.sign_in_form__title}>Sign in</h1>
+    <div className={styles.signInForm}>
+      <h1 className={styles.signInFormTitle}>Sign in</h1>
       <Input value={email} placeholder="email" onChange={onChangeEmail} />
       <Input
         value={password}
         placeholder="password"
         onChange={onChangePassword}
       />
-      <div className={styles.sign_up_form__btns}>
+      <div className={styles.signUpFormBtns}>
         <Button onClick={onClickSignInBtn}>sign in</Button>
         <Button onClick={onClickSignUpBtn}>sign up</Button>
       </div>

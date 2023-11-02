@@ -10,7 +10,7 @@ export function ProjectList() {
   const { data } = useGetProjectsQuery({});
 
   return (
-    <div className={styles.project_list}>
+    <div className={styles.projectList}>
       <CreateProjectItem />
       {data?.map((project: IProject) => <ProjectListItem project={project} />)}
     </div>
