@@ -1,12 +1,10 @@
-import _ from "lodash";
-
 import { ISummaryCell, ISummaryRow } from "../../interfaces";
 import { SummaryTableCell } from "./summary-table-cell";
 
 import styles from "./summary-table.module.scss";
 
 export function SummaryTableRow({ row }: ISummaryTableRowProps) {
-  const tagList = _.sortBy(row.tags, [(cell: ISummaryCell) => cell.tag.id]);
+  const tagList = row.tags.slice(0).sort((a: ISummaryCell, b: ISummaryCell) => a.tag.id - b.tag.id);
 
   return (
     <tr className={styles.summaryTableRow}>
