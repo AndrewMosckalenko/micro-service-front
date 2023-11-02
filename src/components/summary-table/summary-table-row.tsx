@@ -1,10 +1,12 @@
+import { sortTags } from "../../helpers/sort-tags";
 import { ISummaryCell, ISummaryRow } from "../../interfaces";
+
 import { SummaryTableCell } from "./summary-table-cell";
 
 import styles from "./summary-table.module.scss";
 
 export function SummaryTableRow({ row }: ISummaryTableRowProps) {
-  const tagList = row.tags.slice(0).sort((a: ISummaryCell, b: ISummaryCell) => a.tag.id - b.tag.id);
+  const tagList = sortTags(row);
 
   return (
     <tr className={styles.summaryTableRow}>

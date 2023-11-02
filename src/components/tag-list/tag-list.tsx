@@ -15,8 +15,13 @@ export function TagList({ position, paragraph }: ITagListProps) {
 
   const globalTags = useMemo(
     () =>
-      (project?.tags && paragraph?.paragraphTags)
-        ? project.tags.filter((tag: ITag) => !paragraph.paragraphTags.find((paragraphTag: IParagraphTag) => tag.id === paragraphTag.tag.id))
+      project?.tags && paragraph?.paragraphTags
+        ? project.tags.filter(
+            (tag: ITag) =>
+              !paragraph.paragraphTags.find(
+                (paragraphTag: IParagraphTag) => tag.id === paragraphTag.tag.id,
+              ),
+          )
         : [],
     [project, paragraph],
   );
