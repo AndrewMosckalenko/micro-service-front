@@ -2,7 +2,10 @@ import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import { Tooltip } from "react-tooltip";
 
-import { useGetSummaryTableMutation } from "../../redux/api";
+import {
+  useGetProjectMutation,
+  useGetSummaryTableMutation,
+} from "../../redux/api";
 import { toastConfig } from "../../constants";
 import { useComponentUpdate } from "../../hooks";
 import { ISummaryRow } from "../../interfaces";
@@ -16,10 +19,17 @@ export function SummaryTable() {
   const { projectId } = useParams();
   const [getProjectSummaryTable, { data, error, isLoading }] =
     useGetSummaryTableMutation({ fixedCacheKey: "summary-table" });
+  const [, { data: project }] = useGetProjectMutation({
+    fixedCacheKey: "get-project",
+  });
 
   useComponentUpdate(() => {
     if (projectId) getProjectSummaryTable({ id: projectId });
   }, [projectId, getProjectSummaryTable]);
+
+  useComponentUpdate(() => {
+    if (project?.id) getProjectSummaryTable({ id: project.id });
+  }, [project, getProjectSummaryTable]);
 
   if (isLoading || !data) {
     return <h1>Loading...</h1>;

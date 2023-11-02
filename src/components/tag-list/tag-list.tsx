@@ -1,5 +1,4 @@
 import { useCallback, useMemo } from "react";
-import _ from "lodash";
 
 import { IParagraph, IParagraphTag, ITag } from "../../interfaces";
 import { useGetProjectMutation } from "../../redux/api";
@@ -17,11 +16,11 @@ export function TagList({ position, paragraph }: ITagListProps) {
   const globalTags = useMemo(
     () =>
       project?.tags && paragraph?.paragraphTags
-        ? _.differenceWith(
-            project?.tags,
-            paragraph?.paragraphTags,
-            (globalTag: ITag, localTag: IParagraphTag) =>
-              globalTag.id === localTag.tag.id,
+        ? project.tags.filter(
+            (tag: ITag) =>
+              !paragraph.paragraphTags.find(
+                (paragraphTag: IParagraphTag) => tag.id === paragraphTag.tag.id,
+              ),
           )
         : [],
     [project, paragraph],
