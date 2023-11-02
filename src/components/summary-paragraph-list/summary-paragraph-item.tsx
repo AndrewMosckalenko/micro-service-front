@@ -2,8 +2,9 @@ import { useCallback } from "react";
 import { IParagraph } from "../../interfaces";
 
 import styles from "./summary-paragraph-list.module.scss";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setFocusParagraph } from "../../redux/document-slice";
+import { useComponentUpdate } from "../../hooks";
 
 export interface ISummaryParagraphItemProps {
   paragraph: IParagraph;
@@ -14,6 +15,8 @@ export function SummaryParagraphItem({
 }: ISummaryParagraphItemProps) {
   const dispatch = useDispatch();
 
+  const focusParagraph = useSelector((state) => state.document?.focusParagraph);
+
   const onClickParagraph = useCallback(
     (e: React.MouseEvent<HTMLElement>) => {
       dispatch(
@@ -23,6 +26,12 @@ export function SummaryParagraphItem({
     },
     [dispatch, paragraph],
   );
+
+  useComponentUpdate(() => {
+    if (paragraph.id === focusParagraph?.paragraph.id) {
+      dispatch(setFocusParagraph({ ...focusParagraph, paragraph }));
+    }
+  }, [dispatch, paragraph]);
 
   return (
     <div className={styles.summaryParagraphItem}>

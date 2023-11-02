@@ -27,7 +27,7 @@ export default function SummaryPage() {
 
   useComponentUpdate(() => {
     getParagraphs({ tagId: reduxData.tagId, documentId: reduxData.documentId });
-  }, [reduxData.tagId, reduxData.documentId]);
+  }, [reduxData.tagId, reduxData.documentId, project]);
 
   return (
     <div className={styles.summary_page}>

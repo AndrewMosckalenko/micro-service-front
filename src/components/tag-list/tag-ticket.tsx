@@ -34,6 +34,7 @@ export const TagTicket = ({ tag, paragraph, isGlobal }: ITagTicketProps) => {
     }
     deleteTagFromParagraph({ id: tag.id }).then(() => {
       getDocument({ id });
+      getProject({ id: projectId });
     });
   }, [
     deleteTag,
@@ -49,8 +50,9 @@ export const TagTicket = ({ tag, paragraph, isGlobal }: ITagTicketProps) => {
   const onClickAddTagToParagraph = useCallback(() => {
     postTagToParagraph({ id: paragraph.id, tagId: tag.id }).then(() => {
       getDocument({ id });
+      getProject({ id: projectId });
     });
-  }, [postTagToParagraph, paragraph, tag, getDocument, id]);
+  }, [postTagToParagraph, paragraph, tag, getDocument, id, getProject]);
 
   return (
     <div
