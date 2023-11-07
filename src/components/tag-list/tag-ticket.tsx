@@ -48,6 +48,7 @@ export const TagTicket = ({ tag, paragraph, isGlobal }: ITagTicketProps) => {
   ]);
 
   const onClickAddTagToParagraph = useCallback(() => {
+    console.log(paragraph);
     postTagToParagraph({ id: paragraph.id, tagId: tag.id }).then(() => {
       getDocument({ id });
       getProject({ id: projectId });

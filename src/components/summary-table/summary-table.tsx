@@ -1,3 +1,4 @@
+import { memo, useState } from "react";
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import { Tooltip } from "react-tooltip";
@@ -8,17 +9,21 @@ import {
 } from "../../redux/api";
 import { toastConfig } from "../../constants";
 import { useComponentUpdate } from "../../hooks";
-import { ISummaryRow } from "../../interfaces";
+import { ISummaryRow, ISummaryTable } from "../../interfaces";
 
 import { SummaryTableHeader } from "./summary-table-haeder";
 import { SummaryTableRow } from "./summary-table-row";
 
 import styles from "./summary-table.module.scss";
 
-export function SummaryTable() {
+export const SummaryTable = memo(function () {
   const { projectId } = useParams();
-  const [getProjectSummaryTable, { data, error, isLoading }] =
-    useGetSummaryTableMutation({ fixedCacheKey: "summary-table" });
+
+  const [tableData, setTableData] = useState<ISummaryTable | null>(null);
+
+  const [getProjectSummaryTable, { data, error }] = useGetSummaryTableMutation({
+    fixedCacheKey: "summary-table",
+  });
   const [, { data: project }] = useGetProjectMutation({
     fixedCacheKey: "get-project",
   });
@@ -31,24 +36,29 @@ export function SummaryTable() {
     if (project?.id) getProjectSummaryTable({ id: project.id });
   }, [project, getProjectSummaryTable]);
 
-  if (isLoading || !data) {
+  useComponentUpdate(() => {
+    if (data) {
+      setTableData(data);
+    }
+  }, [data, setTableData]);
+
+  if (!tableData) {
     return <h1>Loading...</h1>;
   }
 
   if (error) {
     toast.error("Server error", toastConfig);
-    return <h1>Didn't load</h1>;
   }
 
   return (
     <div className={styles.summaryTable}>
       <table>
-        <SummaryTableHeader header={data.header} />
-        {data.table.map((row: ISummaryRow) => (
+        <SummaryTableHeader header={tableData.header} />
+        {tableData.table.map((row: ISummaryRow) => (
           <SummaryTableRow key={row.document.id} row={row} />
         ))}
       </table>
       <Tooltip id="table_cell_tooltip" />
     </div>
   );
-}
+});

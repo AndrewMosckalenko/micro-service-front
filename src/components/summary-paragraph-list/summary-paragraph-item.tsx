@@ -31,7 +31,7 @@ export function SummaryParagraphItem({
     if (paragraph.id === focusParagraph?.paragraph.id) {
       dispatch(setFocusParagraph({ ...focusParagraph, paragraph }));
     }
-  }, [dispatch, paragraph]);
+  }, [dispatch, paragraph, focusParagraph?.paragraph]);
 
   return (
     <div className={styles.summaryParagraphItem}>
