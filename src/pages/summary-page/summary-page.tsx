@@ -10,6 +10,8 @@ import {
 import { useComponentUpdate } from "../../hooks";
 
 import styles from "./summary-page.module.scss";
+import { IParagraph } from "../../interfaces";
+import { useState } from "react";
 
 export default function SummaryPage() {
   const reduxData = useSelector((state) => ({
@@ -17,6 +19,11 @@ export default function SummaryPage() {
     documentId: state.summaryTable.focusDocumentId,
     document: state.document,
   }));
+
+  const [currentProjectName, setCurrentProjectName] = useState<string>("");
+  const [currentParagraphs, setCurrentParagraph] = useState<
+    IParagraph[] | null
+  >(null);
 
   const [, { data: project }] = useGetProjectMutation({
     fixedCacheKey: "get-project",
@@ -27,14 +34,25 @@ export default function SummaryPage() {
 
   useComponentUpdate(() => {
     getParagraphs({ tagId: reduxData.tagId, documentId: reduxData.documentId });
-  }, [reduxData.tagId, reduxData.documentId, project]);
+    if (!reduxData.tagId && !reduxData.documentId) setCurrentParagraph(null);
+  }, [reduxData.tagId, reduxData.documentId, project, setCurrentParagraph]);
+
+  useComponentUpdate(() => {
+    if (paragraphs) setCurrentParagraph(paragraphs);
+  }, [paragraphs, setCurrentParagraph]);
+
+  useComponentUpdate(() => {
+    if (project?.name) setCurrentProjectName(project.name);
+  }, [project?.name]);
 
   return (
     <div className={styles.summary_page}>
-      <h1 className={styles.summary_page__title}>Project: {project?.name}</h1>
+      <h1 className={styles.summary_page__title}>
+        Project: {currentProjectName}
+      </h1>
       <SummaryTable />
-      {(reduxData.tagId || reduxData.documentId) && paragraphs && (
-        <SummaryParagraphList paragraphs={paragraphs} />
+      {(reduxData.tagId || reduxData.documentId) && currentParagraphs && (
+        <SummaryParagraphList paragraphs={currentParagraphs} />
       )}
       {reduxData.document.focusParagraph && (
         <TagList
