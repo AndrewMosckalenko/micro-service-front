@@ -5,6 +5,7 @@
   overflow-y: hidden;
   position: relative;
   overflow-x: scroll;
+  margin-bottom: 10px;
 }
 
 .summaryTableCell {
@@ -55,5 +56,27 @@
 @media (max-width: $tablet-width) {
   .summaryTableCell {
     font-size: 12px;
+    padding: 2px;
+  }
+
+  .summaryTableContent {
+    color: var(--inp-font-color);
+    font-weight: 500;
+  }
+
+  .summaryTableLeftContentWrapper {
+    width: 100px;
+  }
+
+  .summaryTableLeftCell {
+    position: relative;
+  }
+
+  .summaryTableContentWrapper {
+    width: 75px;
+  }
+
+  .summaryTableHeaderCell {
+    padding-top: 5px;
   }
 }
