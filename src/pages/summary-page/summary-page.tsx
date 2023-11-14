@@ -46,8 +46,8 @@ export default function SummaryPage() {
   }, [project?.name]);
 
   return (
-    <div className={styles.summary_page}>
-      <h1 className={styles.summary_page__title}>
+    <div className={styles.summaryPage}>
+      <h1 className={styles.summaryPageTitle}>
         Project: {currentProjectName}
       </h1>
       <SummaryTable />
