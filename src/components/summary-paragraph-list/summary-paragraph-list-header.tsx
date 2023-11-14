@@ -31,7 +31,7 @@ export const SummaryParagraphListHeader = memo(function () {
 
   return (
     <div className={styles.summaryParagraphListHeader}>
-      <p>
+      <p className={styles.summaryParagraphListHeaderTitle}>
         Paragraphs {tag && `with tag "${tag.title}" `}
         {document && `on document "${document.name}"`}
       </p>

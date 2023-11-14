@@ -1,4 +1,5 @@
 @import url("../../palette.scss");
+@import "../../assets/screen-resolutions";
 
 .summaryParagraphList {
   box-sizing: border-box;
@@ -17,6 +18,8 @@
   display: flex;
   flex-direction: row;
   gap: 10px;
+  align-items: center;
+  padding: 4px;
 }
 
 .summaryParagraphItemTagCount {
@@ -45,4 +48,20 @@
   width: 100%;
   padding: 4px;
   border-bottom: 1px solid var(--main-wrapper-bg-color);
+}
+
+@media (max-width: $tablet-width) {
+  .summaryParagraphItemTagCount {
+    height: 20px;
+    flex-basis: 20px;
+    font-size: 12px;
+  }
+
+  .summaryParagraphListHeaderTitle {
+    font-size: 14px;
+  }
+
+  .summaryParagraphItemContent {
+    font-size: 12px;
+  }
 }

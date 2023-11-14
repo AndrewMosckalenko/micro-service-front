@@ -1,3 +1,5 @@
+@import "../../assets/screen-resolutions";
+
 .summaryPageTitle {
   font-size: 24px;
   font-weight: bold;
@@ -7,4 +9,10 @@
   display: flex;
   flex-direction: column;
   gap: 30px;
+}
+
+@media (max-width: $tablet-width) {
+  .summaryPageTitle {
+    font-size: 20px;
+  }
 }
